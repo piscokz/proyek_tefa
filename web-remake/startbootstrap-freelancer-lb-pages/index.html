@@ -28,6 +28,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Madimi+One&display=swap" rel="stylesheet">
+    <!-- animation CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 </head>
 
@@ -35,7 +38,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top animate__animated animate__fadeInDown" id="mainNav">
     <div class="container">
       <img src="https://th.bing.com/th/id/OIP.9HxiDLak4O-xFC3aygibEAHaHH?rs=1&pid=ImgDetMain"
         class="rounded-circle border border-dark" height="43px" alt="Brand School">
@@ -49,7 +52,9 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#page-top">Beranda</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#tentang">Tentang</a></li>
-                <li class="nav-item mx-0 mx-lg-1 dropdown">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#jurusan">Jurusan</a></li>
+
+                <!-- <li class="nav-item mx-0 mx-lg-1 dropdown">
                   <a class="nav-link py-3 px-0 px-lg-3 rounded dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"  data-bs-target="#jurusan" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" href="#jurusan">Jurusan </a>
                         <ul class="dropdown-menu">
                             <li ><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#tbsm"><svg xmlns="http://www.w3.org/2000/svg" width="16"
@@ -89,7 +94,8 @@
                             </a>
                             </li>
                         </ul>
-                </li>
+                </li> -->
+
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#VisiMisi">Visi Misi</a></li>
             </ul>
         </div>
@@ -100,15 +106,15 @@
   <div class="container d-flex align-items-center flex-column">
       <!-- Masthead Avatar Image-->
         <span class="border-secondary border rounded-circle border-4">
-            <img class="masthead-avatar rounded-circle" src="https://th.bing.com/th/id/OIP.9HxiDLak4O-xFC3aygibEAHaHH?rs=1&pid=ImgDetMain" alt="..." />
+            <img class="masthead-avatar rounded-circle animate__bounce animate__animated" src="https://th.bing.com/th/id/OIP.9HxiDLak4O-xFC3aygibEAHaHH?rs=1&pid=ImgDetMain" alt="..." />
         </span><br><br>
       <!-- Masthead Heading-->
-      <h1 class="masthead-heading text-uppercase mb-0 ">SMK LENTERA BANGSA</h1>
+      <h1 class="masthead-heading text-uppercase mb-0">SMK LENTERA BANGSA</h1>
       <!-- Icon Divider-->
       <div class="divider-custom divider-light">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon"><i class="fas fa-star text-warning"></i></div>
-          <div class="divider-custom-line"></div>
+          <div class="divider-custom-line animate__animated animate__fadeInLeft"></div>
+          <div class="divider-custom-icon"><i class="fas fa-star text-warning animate__animated animate__bounceIn"></i></div>
+          <div class="divider-custom-line animate__animated animate__fadeInRight"></div>
       </div>
       <!-- Masthead Subheading-->
       <p class="masthead-subheading font-weight-light mb-0">Ibrahim Ahmad Falathin - Web Designer - Illustrator</p>
@@ -116,70 +122,63 @@
 </header>
     <section class="page-section portfolio" id="jurusan">
         <div class="container">
-            <!-- Portfolio Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Jurusan</h2>
+            <!-- Jurusan Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0 animate__animated animate__fadeInUp">Jurusan</h2>
             <!-- Icon Divider-->
             <div class="divider-custom">
-                <div class="divider-custom-line"></div>
+                <div class="divider-custom-line" data-aos="fade-right"></div>
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
+                <div class="divider-custom-line" data-aos="fade-left"></div>
             </div>
-            <!-- Portfolio Grid Items-->
+            <!-- Jurusan Grid Items-->
             <div class="row justify-content-center">
-                <!-- Portfolio Item 1-->
+                <!-- Jurusan Item 1-->
                 <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#tbsm" data-aos-duration="1000" data-aos="fade-right">
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/jurusanasset/tbsm-icon.png" alt="Icon-TBSM" />
                     </div>
                 </div>
-                <!-- Portfolio Item 2-->
+                <!-- Jurusan Item 2-->
                 <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#tkro" data-aos-duration="1000" data-aos="fade-down">
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/cake.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/jurusanasset/tkr-icon.png" alt="Icon-TKRO" />
                     </div>
                 </div>
-                <!-- Portfolio Item 3-->
+                <!-- Jurusan Item 3-->
                 <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#tkj" data-aos-duration="1000" data-aos="fade-left">
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/circus.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/jurusanasset/tkj-icon.png" alt="icon-tkj" />
                     </div>
                 </div>
-                <!-- Portfolio Item 4-->
+                <!-- Jurusan Item 4-->
                 <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#rpl" data-aos-duration="1000" data-aos="fade-up-right">
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/game.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/jurusanasset/rpl-icon.png" alt="Icon-RPL" />
                     </div>
                 </div>
-                <!-- Portfolio Item 5-->
+                <!-- Jurusan Item 5-->
                 <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#psy" data-aos-duration="1000" data-aos="fade-up-left">
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/safe.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/jurusanasset/psy-icon.png" alt="icon-psy" />
                     </div>
                 </div>
-                <!-- Portfolio Item 6-->
-                <div class="col-md-6 col-lg-4">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="assets/img/portfolio/submarine.png" alt="..." />
-                    </div>
-                </div>
+                <!-- Jurusan Item 6-->
+                
             </div>
         </div>
     </section>
@@ -195,18 +194,18 @@
             <h2 class="page-section-heading text-center text-uppercase text-white">Tentang</h2>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
+                <div class="divider-custom-line" data-aos="fade-right"></div>
                 <div class="divider-custom-icon"><i class="fas fa-star text-warning"></i></div>
-                <div class="divider-custom-line"></div>
+                <div class="divider-custom-line" data-aos="fade-left"></div>
             </div>
             <!-- Tentang Section Content-->
             <div class="row">
-                <div class="col-lg-4 ms-auto">
+                <div class="col-lg-4 ms-auto" data-aos-duration="1000" data-aos="fade-right">
                     <p class="lead">Selamat datang di website resmi SMK Lentera Bangsa!</p>
                     <p>SMK Lentera Bangsa adalah sebuah sekolah menengah kejuruan (SMK) yang berlokasi di Rengasdengklok, Jl. Proklamasi. Kami hadir dengan komitmen untuk memberikan pendidikan berkualitas dan persiapan karier yang kokoh bagi setiap siswa.</p>
                     <p>Website ini dibuat bertujuan untuk memberikan informasi yang lengkap dan akurat seputar SMK Lentera Bangsa. Mulai dari profil sekolah, program-program unggulan, fasilitas, hingga prestasi yang telah diraih.</p>
                 </div>
-                <div class="col-lg-4 me-auto">
+                <div class="col-lg-4 me-auto" data-aos-duration="1000" data-aos="fade-left">
                     <p class="lead">Jurusan di SMK Lentera Bangsa:</p>
                     <ul>
                         <li><strong>TBSM</strong> - Teknik Bisnis Sepeda Motor</li>
@@ -222,9 +221,9 @@
             
             <!-- Tentang Section Button-->
             <div class="text-center mt-4">
-                <a class="btn btn-xl btn-outline-light" href="https://wa.me/+6283819503949">
+                <a class="btn btn-xl btn-outline-light" href="https://wa.me/+6285711325040">
                     <i class="fas fa-download me-2"></i>
-                    Daftar Rek!
+                    Kontak Kami !
                 </a>
             </div>
         </div>
@@ -236,16 +235,16 @@
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Visi Misi</h2>
             <!-- Icon Divider-->
             <div class="divider-custom">
-                <div class="divider-custom-line"></div>
+                <div class="divider-custom-line" data-aos="fade-right"></div>
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
+                <div class="divider-custom-line" data-aos="fade-left"></div>
             </div>
             <div class="row" style="font-family: 'Roboto Mono', monospace;">
-                <div class="col-lg-6 mx-auto">
+                <div class="col-lg-6 mx-auto" data-aos-duration="1000" data-aos="fade-right">
                     <h5 class="text-center mb-4">VISI</h5>
-                    <p align="center">Mewujudkan sekolah <br> yang Prestasi <br> berdasarkan iman <br> taqwa.</p>
+                    <ul><li>Mewujudkan sekolah yang Prestasi berdasarkan iman taqwa.</li></ul>
                 </div>
-                <div class="col-lg-6 mx-auto">
+                <div class="col-lg-6 mx-auto" data-aos-duration="1000" data-aos="fade-left">
                     <h5 class="text-center mb-4">MISI</h5>
                     <ul class="text-justify">
                         <li>Bertaqwa terhadap Tuhan yang maha esa.</li>
@@ -265,33 +264,39 @@
       <div class="container d-flex justify-content-center py-4" align="center">
         <div class="row">
           <div class="col-sm-4 col-md-4">
-            
-          </div>
-          <div class="col-sm-5 col-md-4"><h4><a style="letter-spacing: 3px;" class="text-decoration-none text-light" href="https://www.google.com/maps/place/SMK+Lentera+Bangsa+Karawang/@-6.1930607,107.2980542,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69827b4348baa1:0x6f9747f772e94df1!8m2!3d-6.1930607!4d107.3006291!16s%2Fg%2F1pzyqynhg?entry=ttu">LOKASI</a></h4>
+            This web has suppoted by :
+            <hr><img src="https://www.inovindo.co.id/assets/images/icon-1657939972.png" width="100px" alt="" data-aos-duration="1000" data-aos="flip-left">
+            <br><br><a href="https://inovindo.co.id/"><abbr title="PT. inovindo Digital Media"><span class="text-primary">PT. Ino</span><span style="color: rgb(111, 207, 91);">vindo</span></abbr></a>
+          
+        </div>
+          <div class="col-sm-5 col-md-4"><h4 class="mt-4"><a style="letter-spacing: 3px;" class="text-decoration-none text-light" href="https://www.google.com/maps/place/SMK+Lentera+Bangsa+Karawang/@-6.1930607,107.2980542,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69827b4348baa1:0x6f9747f772e94df1!8m2!3d-6.1930607!4d107.3006291!16s%2Fg%2F1pzyqynhg?entry=ttu">LOKASI</a></h4>
                 <!-- Icon Divider-->
         <div class="divider-custom divider-light">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-geo-alt-fill text-danger" viewBox="0 0 16 16">
+            <div class="divider-custom-line" data-aos="fade-right"></div>
+            <div class="divider-custom-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-geo-alt-fill text-danger" viewBox="0 0 16 16">
                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
               </svg></div>
-            <div class="divider-custom-line"></div>
-        </div><p style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; font-size: medium; text-align: justify;">Jl. Proklamasi, Bakan Jati Gg Asem, Karyasari Rengasdengklok,
+            <div class="divider-custom-line" data-aos="fade-left"></div>
+        </div>
+        <p style="font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; font-size: medium; text-align: justify;" data-aos-duration="1000" data-aos="fade-up">Jl. Proklamasi, Bakan Jati Gg Asem, Karyasari Rengasdengklok,
             Tunggakjati, Kec. Karawang Barat. Karawang, Jawa Barat 41352, Indonesia.</p></div>
-          <div class="col-sm-3 col-md-4" ><button type="button" class="btn btn-primary btn-lg btn-floating mx-2 border-2 border" style="">
+          <div class="col-sm-3 col-md-4 container">
+            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 border-2 border" style="" data-aos-duration="1000" data-aos="flip-up">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook"
                 viewBox="0 0 16 16">
                 <path
                   d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
               </svg>
             </button>
-            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 border-2 border" style="">
+            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 border-2 border" style="" data-aos-duration="1000" data-aos="fade-up">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp"
                 viewBox="0 0 16 16">
                 <path
                   d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
               </svg>
             </button>
-            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 border-2 border" style="">
+            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 border-2 border" style="" data-aos-duration="1000" data-aos="flip-down">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram"
                 viewBox="0 0 16 16">
                 <path
@@ -302,7 +307,6 @@
         </div>
       </div>
       <!-- Copyright -->
-      <!-- Copyright -->
     </footer>
     <div class="copyright py-4 text-center text-white"
       style="font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.5px;">
@@ -310,7 +314,7 @@
       <a class="text-white" href="https://mdbootstrap.com/" style="text-decoration: none;">SMK LENTERA BANGSA</a>
     </div>
   <!-- End of .container -->
-<!-- Portfolio Modal 2-->
+<!-- Jurusan Modal 2-->
 <div class="portfolio-modal modal fade" id="rpl" tabindex="-1" aria-labelledby="rpl" aria-hidden="true">
   <div class="modal-dialog modal-xl">
       <div class="modal-content">
@@ -319,18 +323,18 @@
               <div class="container">
                   <div class="row justify-content-center">
                       <div class="col-lg-8">
-                          <!-- Portfolio Modal - Title-->
+                          <!-- Jurusan Modal - Title-->
                           <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">RPL</h2>
                           <!-- Icon Divider-->
                           <div class="divider-custom">
-                              <div class="divider-custom-line"></div>
+                              <div class="divider-custom-line" data-aos="fade-right"></div>
                               <div class="divider-custom-icon"><i class="fas fa-star text-warning"></i></div>
-                              <div class="divider-custom-line"></div>
+                              <div class="divider-custom-line" data-aos="fade-right"></div>
                           </div>
-                          <!-- Portfolio Modal - Image-->
-                          <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
-                          <!-- Portfolio Modal - Text-->
-                          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                          <!-- Jurusan Modal - Image-->
+                          <img class="img-fluid rounded mb-5" src="assets/img/jurusanasset/rpl-icon.png" alt="Icon-RPL" />
+                          <!-- Jurusan Modal - Text-->
+                          <p class="mb-4">Jurusan <span class="text-info"><b> RPL</b></span> <u>(Rekayasa Perangkat Lunak)</u> di SMK Lentera Bangsa menawarkan program untuk siswa mempelajari pengembangan perangkat lunak. Mereka akan belajar pemrograman, analisis kebutuhan, desain aplikasi, dan pengujian perangkat lunak. Tujuannya adalah menciptakan lulusan siap kerja. <a href="">Informasi selanjutnya...</a></p>
                           <button class="btn btn-primary" data-bs-dismiss="modal">
                               <i class="fas fa-xmark fa-fw"></i>
                               Close Window
@@ -343,7 +347,7 @@
   </div>
 </div>
 
-<!-- Portfolio Modal 2-->
+<!-- Jurusan Modal 2-->
 <div class="portfolio-modal modal fade" id="tbsm" tabindex="-1" aria-labelledby="rpl" aria-hidden="true">
   <div class="modal-dialog modal-xl">
       <div class="modal-content">
@@ -352,18 +356,18 @@
               <div class="container">
                   <div class="row justify-content-center">
                       <div class="col-lg-8">
-                          <!-- Portfolio Modal - Title-->
+                          <!-- Jurusan Modal - Title-->
                           <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">TBSM</h2>
                           <!-- Icon Divider-->
                           <div class="divider-custom">
-                              <div class="divider-custom-line"></div>
+                              <div class="divider-custom-line" data-aos="fade-right"></div>
                               <div class="divider-custom-icon"><i class="fas fa-star text-warning"></i></div>
-                              <div class="divider-custom-line"></div>
+                              <div class="divider-custom-line" data-aos="fade-right"></div>
                           </div>
-                          <!-- Portfolio Modal - Image-->
-                          <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
-                          <!-- Portfolio Modal - Text-->
-                          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                          <!-- Jurusan Modal - Image-->
+                          <img class="img-fluid rounded mb-5" src="assets/img/jurusanasset/tbsm-icon.png" alt="Icon-TBSM" />
+                          <!-- Jurusan Modal - Text-->
+                          <p class="mb-4">Program <span class="text-info"><b>Teknik Bisnis Sepeda Motor</b></span> di SMK Lentera Bangsa, didukung oleh Astra Honda Motor, mengajarkan siswa tentang perakitan, perawatan, dan perbaikan sepeda motor. Mereka juga mempelajari manajemen bisnis sepeda motor, seperti penjualan, pemasaran, dan layanan pelanggan. Program ini juga menerapkan budaya <span class="text-info"><b>5S K3</b></span> untuk mengembangkan sikap kerja yang disiplin, terorganisir, dan aman di lingkungan kerja. Dengan kombinasi ini, lulusan siap terjun ke industri sepeda motor sebagai mekanik, teknisi, atau pengusaha. <a href="#">Informasi selengkapnya...</a></p>
                           <button class="btn btn-primary" data-bs-dismiss="modal">
                               <i class="fas fa-xmark fa-fw"></i>
                               Close Window
@@ -376,7 +380,7 @@
   </div>
 </div>
 
-<!-- Portfolio Modal 2-->
+<!-- Jurusan Modal 2-->
 <div class="portfolio-modal modal fade" id="tkro" tabindex="-1" aria-labelledby="tkro" aria-hidden="true">
   <div class="modal-dialog modal-xl">
       <div class="modal-content">
@@ -385,18 +389,18 @@
               <div class="container">
                   <div class="row justify-content-center">
                       <div class="col-lg-8">
-                          <!-- Portfolio Modal - Title-->
+                          <!-- Jurusan Modal - Title-->
                           <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">TKRO</h2>
                           <!-- Icon Divider-->
                           <div class="divider-custom">
-                              <div class="divider-custom-line"></div>
+                              <div class="divider-custom-line" data-aos="fade-right"></div>
                               <div class="divider-custom-icon"><i class="fas fa-star text-warning"></i></div>
-                              <div class="divider-custom-line"></div>
+                              <div class="divider-custom-line" data-aos="fade-right"></div>
                           </div>
-                          <!-- Portfolio Modal - Image-->
-                          <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
-                          <!-- Portfolio Modal - Text-->
-                          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                          <!-- Jurusan Modal - Image-->
+                          <img class="img-fluid rounded mb-5" src="assets/img/jurusanasset/tkr-icon.png" alt="Icon-TKRO" />
+                          <!-- Jurusan Modal - Text-->
+                          <p class="mb-4">Program <span class="text-info"><b>Teknik Kendaraan Ringan Otomotif</b></span> di SMK Lentera Bangsa, yang didukung oleh Daihatsu, mengajarkan siswa tentang perawatan, perbaikan, dan modifikasi kendaraan ringan. Mereka belajar tentang mesin, sistem kelistrikan, sistem kemudi, dan sistem suspensi kendaraan. Program ini menawarkan pelatihan praktis dan teori, mempersiapkan siswa untuk bekerja di industri otomotif. Dengan dukungan dari Daihatsu, para siswa memiliki kesempatan untuk mendapatkan wawasan langsung dari salah satu industri mobil terkemuka dari Jepang. <a href="#">Informasi selengkapnya...</a></p>
                           <button class="btn btn-primary" data-bs-dismiss="modal">
                               <i class="fas fa-xmark fa-fw"></i>
                               Close Window
@@ -409,7 +413,7 @@
   </div>
 </div>
 
-<!-- Portfolio Modal 2-->
+<!-- Jurusan Modal 2-->
 <div class="portfolio-modal modal fade" id="tkj" tabindex="-1" aria-labelledby="tkj" aria-hidden="true">
   <div class="modal-dialog modal-xl">
       <div class="modal-content">
@@ -418,18 +422,18 @@
               <div class="container">
                   <div class="row justify-content-center">
                       <div class="col-lg-8">
-                          <!-- Portfolio Modal - Title-->
+                          <!-- Jurusan Modal - Title-->
                           <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">tkj</h2>
                           <!-- Icon Divider-->
                           <div class="divider-custom">
-                              <div class="divider-custom-line"></div>
+                              <div class="divider-custom-line" data-aos="fade-right"></div>
                               <div class="divider-custom-icon"><i class="fas fa-star text-warning"></i></div>
-                              <div class="divider-custom-line"></div>
+                              <div class="divider-custom-line" data-aos="fade-right"></div>
                           </div>
-                          <!-- Portfolio Modal - Image-->
-                          <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
-                          <!-- Portfolio Modal - Text-->
-                          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                          <!-- Jurusan Modal - Image-->
+                          <img class="img-fluid rounded mb-5" src="assets/img/jurusanasset/tkj-icon.png" alt="icon-tkj" />
+                          <!-- Jurusan Modal - Text-->
+                          <p class="mb-4">Program <span class="text-info"><b>Teknik Komputer dan Jaringan (TKJ)</b></span> di SMK Lentera Bangsa, yang didukung oleh Axioo, mengajarkan siswa tentang instalasi, konfigurasi, dan pemeliharaan jaringan komputer. Para siswa juga belajar tentang pemrograman, desain website, dan manajemen basis data. Program ini menawarkan pelatihan praktis dalam menyolok kabel, merakit komputer, dan troubleshooting perangkat keras. Dengan dukungan dari Axioo, para siswa memiliki kesempatan untuk mendapatkan wawasan langsung dari salah satu perusahaan hardware terbesar dari Indonesia. <a href="#">Informasi selengkapnya...</a></p>
                           <button class="btn btn-primary" data-bs-dismiss="modal">
                               <i class="fas fa-xmark fa-fw"></i>
                               Close Window
@@ -442,7 +446,7 @@
   </div>
 </div>
 
-<!-- Portfolio Modal 2-->
+<!-- Jurusan Modal 2-->
 <div class="portfolio-modal modal fade" id="psy" tabindex="-1" aria-labelledby="psy" aria-hidden="true">
   <div class="modal-dialog modal-xl">
       <div class="modal-content">
@@ -451,17 +455,17 @@
               <div class="container">
                   <div class="row justify-content-center">
                       <div class="col-lg-8">
-                          <!-- Portfolio Modal - Title-->
+                          <!-- Jurusan Modal - Title-->
                           <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">PSY</h2>
                           <!-- Icon Divider-->
                           <div class="divider-custom">
-                              <div class="divider-custom-line"></div>
+                              <div class="divider-custom-line" data-aos="fade-right"></div>
                               <div class="divider-custom-icon"><i class="fas fa-star text-warning"></i></div>
-                              <div class="divider-custom-line"></div>
+                              <div class="divider-custom-line" data-aos="fade-right"></div>
                           </div>
-                          <!-- Portfolio Modal - Image-->
-                          <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
-                          <!-- Portfolio Modal - Text-->
+                          <!-- Jurusan Modal - Image-->
+                          <img class="img-fluid rounded mb-5" src="assets/img/jurusanasset/psy-icon.png" alt="icon-psy" />
+                          <!-- Jurusan Modal - Text-->
                           <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                           <button class="btn btn-primary" data-bs-dismiss="modal">
                               <i class="fas fa-xmark fa-fw"></i>
@@ -474,13 +478,21 @@
       </div>
   </div>
 </div>
-<script>
-    function alertRegister(){
-        alert("Terimakasih sudah menghubungi kami :)")
-        // location.reload()
-    }
 
-</script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
 </body>
 
 </html>
