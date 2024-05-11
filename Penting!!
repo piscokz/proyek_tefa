@@ -1,0 +1,8 @@
+Untuk Mengaktifkan Tailwind :
+
+-Buka Terminal (bebas).
+-Ketik "npx tailwindcss -i ./src/css/input.css -o ./public/css/style.css --watch"
+
+atau bisa dengan Mengaktifkan dengan cepat diterminal dengan mengetik :
+
+-"npm run baimtganteng"
