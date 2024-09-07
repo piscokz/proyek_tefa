@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>INVENTARIS</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
  
