@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/logo/logo.png" rel="icon">
+    <link href="{{ asset('guest/img/logo/logo.png')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,13 +22,13 @@
 
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('guest/lib/animate/animate.min.css')}}" rel="stylesheet">
-    <link href="{}" rel="stylesheet">
+    <link href="{{ asset('guest/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('guest/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ asset('guest/css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -45,47 +45,47 @@
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="index.html" class="navbar-brand p-0">
-                    <img src="img/logo/logo.png" alt="Logo">
+                <a href="{{ route('beranda')}}" class="navbar-brand p-0">
+                    <img src="{{ asset('guest/img/logo/logo.png')}}" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link">Beranda</a>
+                        <a href="{{ route('beranda')}}" class="nav-item nav-link">Beranda</a>
                         <a href="about.html" class="nav-item nav-link">Tentang</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Keahlian</a>
                             <div class="dropdown-menu m-0">
-                                <a href="pplg.html" class="dropdown-item">Pengembangan Perangkat Lunak Dan Gim</a>
-                                <a href="tbsm.html" class="dropdown-item">Teknik Bisnis Sepeda Motor</a>
-                                <a href="tkro.html" class="dropdown-item">Teknik Kendaraan Ringan Otomotif</a>
-                                <a href="tkj.html" class="dropdown-item">Teknik Komputer Dan Jaringan</a>
-                                <a href="ps.html" class="dropdown-item active">Perbankan Syari'ah</a>
+                                <a href="{{ route('pplg')}}" class="dropdown-item">Pengembangan Perangkat Lunak Dan Gim</a>
+                                <a href="{{ route('tbsm')}}" class="dropdown-item">Teknik Bisnis Sepeda Motor</a>
+                                <a href="{{ route('tkro')}}" class="dropdown-item">Teknik Kendaraan Ringan Otomotif</a>
+                                <a href="{{ route('tkj')}}" class="dropdown-item">Teknik Komputer Dan Jaringan</a>
+                                <a href="{{ route('ps')}}" class="dropdown-item">Perbankan Syari'ah</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Program</a>
                             <div class="dropdown-menu m-0">
-                                <a href="bkk.html" class="dropdown-item">BKK Lensa</a>
-                                <a href="tc.html" class="dropdown-item">Teaching Factory</a>
-                                <a href="pkl.html" class="dropdown-item">Praktek Kerja Industri</a>
+                                <a href="{{ route('bkk')}}" class="dropdown-item">BKK Lensa</a>
+                                <a href="{{ route('tc')}}" class="dropdown-item">Teaching Factory</a>
+                                <a href="{{ route('pkl')}}" class="dropdown-item">Praktek Kerja Industri</a>
                             </div>
                         </div>
-                        <a href="kabarlensa.html" class="nav-item nav-link">Kabar Lensa</a>
-                        <a href="kontak.html" class="nav-item nav-link">kontak</a>
+                        <a href="{{ route('kabarlensa')}}" class="nav-item nav-link">Kabar Lensa</a>
+                        <a href="{{ route('kontak')}}" class="nav-item nav-link">kontak</a>
                     </div>
                 </div>
             </nav>
 
             <div class="container-xxl bg-primary page-header">
                 <div class="container text-center">
-                    <h1 class="text-white animated zoomIn mb-3">Perbankan Syari'ah</h1>
+                    <h1 class="text-white animated zoomIn mb-3">Teknik Komputer Dan Jaringan</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="index.html">Beranda</a></li>
-                            <li class="breadcrumb-item"><a class="text-white">PS</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="{{ route('beranda')}}">Beranda</a></li>
+                            <li class="breadcrumb-item"><a class="text-white">TKJ</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -99,13 +99,30 @@
             <div class="container text-center">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <img src="img/jurusan/ps.jpg" class="img-fluid" alt="...">
+                        <img src="{{ asset('guest/img/jurusan/tjk.jpg')}}" class="img-fluid" alt="...">
                         <br>
                         <br>
                         <br>
                     </div>
                 </div>
-                    <p align="justify" class="fadeInUp">Perbankan syariah adalah program studi yang mempelajari tentang bidang keuangan dan perbankan yang produk, pelayanan, hingga sistem operasionalnya berlandaskan pada aturan atau hukum syariah islam. Lembaga keuangan perbankan syariah memiliki perbedaan dengan bank konvensional pada umumnya, sebab lembaga ini tidak hanya mengelola produk bank seperti menghimpun dan menyalurkan dana tetapi juga memiliki jasa pelayanan seperti pengelolaan zakat, wakaf, dan infaq.</p>
+                    <p align="justify" class="fadeInUp">teknik komputer jaringan adalah modul yang di khususkan untuk mendukung proses belajar mengajar siswa di tingkat sekolah menengah kejuruan teknik komputer jaringan (SMK TKJ). Pada modul TKJ ini terdapat materi pokok yang mempelajari dasar awal hardware maupun software komputer serta jaringan komputer. Jaringan komputer yang meliputi LAN, MAN dan WAN juga di pelajari oleh siswa TKJ. TKJ adalah singkatan dari Teknik Komputer dan Jaringan ,  jurusan TKJ adalah jurusan yang terdapat di SMK.
+                        siswa TKJ inilah yang mempelajari Modul teknik komputer jaringan selain mempelajari teori awal dari komputer dan jaringan mereka juga di bekali dengan praktik merakit komputer, merakit laptop. Disamping itu siswa TKJ juga mempelajari sofware seperti Sistem
+                        Operasi Windows, Sistem Operasi Linux, cara menginsal sistem operasi dan masih banyak software yang lainnya
+                        Jurusan Teknik Komputer Jaringan ini selain mempelajari itu semua mereka juga dibekali dengan trobleshoting komputer, perawatan komputer, perawatan peritnter dan perawatan hardware lainnya.
+                        Dan berikut dari modul teknik komputer dan jaringan yang biasa di pelajari dalam jurusan ini :
+                        <br>
+                        <br>
+                        <br>
+                        <p align="left" class="fadeInUp">1. Menginstal Pc</p>
+                        <p align="left" class="fadeInUp">2. Melakukan perawatan Pc</p>
+                        <p align="left" class="fadeInUp">3. Melakukan perbaikan Periperal</p>
+                        <p align="left" class="fadeInUp">4. Melakukan perawatan Periperal</p>
+                        <p align="left" class="fadeInUp">5. Alat – alat perbaikan Periperal Komputer</p>
+                        <p align="left" class="fadeInUp">6. Instalasi Perangkat Jaringan Lokal (LAN)</p>
+                        <p align="left" class="fadeInUp">7. Instalasi Perangkat Jaringan berbasis Luas (WAN)</p>
+                        <p align="left" class="fadeInUp">8. Instalasi Perangkat Jaringan</p>
+                        <p align="left" class="fadeInUp">9. Instalasi Sistem Operasi berbasis GUI</p>
+                        <p align="left" class="fadeInUp">Dan lain – lainnya</p>
             </div>
         </div>
         <!-- 404 End -->
@@ -169,13 +186,13 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{ asset("guest/lib/wow/wow.min.js")}}"></script>
+    <script src="{{ asset('guest/lib/easing/easing.min.js')}}"></script>
+    <script src="{{ asset('guest/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{ asset('guest/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="{{ asset('guest/js/main.js')}}"></script>
 </body>
 
 </html>

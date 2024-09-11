@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/logo/logo.png" rel="icon">
+    <link href="{{ asset('guest/img/logo/logo.png')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +21,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{ asset('guest/lib/animate/animate.min.css')}}" rel="stylesheet">
-    <link href="{}" rel="stylesheet">
+    <link href="{{asset('guest/lib/animate/animate.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('guest/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('guest/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ asset('guest/css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -46,46 +46,46 @@
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="index.html" class="navbar-brand p-0">
-                    <img src="img/logo/logo.png" alt="Logo">
+                    <img src="{{ asset('guest/img/logo/logo.png')}}" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link">Beranda</a>
-                        <a href="about.html" class="nav-item nav-link">Tentang</a>
+                        <a href="{{ route('beranda')}}" class="nav-item nav-link">Beranda</a>
+                        <a href="{{ route('tentang')}}" class="nav-item nav-link">Tentang</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Keahlian</a>
                             <div class="dropdown-menu m-0">
-                                <a href="pplg.html" class="dropdown-item">Pengembangan Perangkat Lunak Dan Gim</a>
-                                <a href="tbsm.html" class="dropdown-item">Teknik Bisnis Sepeda Motor</a>
-                                <a href="tkro.html" class="dropdown-item">Teknik Kendaraan Ringan Otomotif</a>
-                                <a href="tkj.html" class="dropdown-item">Teknik Komputer Dan Jaringan</a>
-                                <a href="ps.html" class="dropdown-item active">Perbankan Syari'ah</a>
+                                <a href="{{ route('pplg')}}" class="dropdown-item">Pengembangan Perangkat Lunak Dan Gim</a>
+                                <a href="{{ route('tbsm')}}" class="dropdown-item">Teknik Bisnis Sepeda Motor</a>
+                                <a href="{{ route('tkro')}}" class="dropdown-item">Teknik Kendaraan Ringan Otomotif</a>
+                                <a href="{{ route('tkj')}}" class="dropdown-item">Teknik Komputer Dan Jaringan</a>
+                                <a href="{{ route('ps')}}" class="dropdown-item">Perbankan Syari'ah</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Program</a>
                             <div class="dropdown-menu m-0">
-                                <a href="bkk.html" class="dropdown-item">BKK Lensa</a>
-                                <a href="tc.html" class="dropdown-item">Teaching Factory</a>
-                                <a href="pkl.html" class="dropdown-item">Praktek Kerja Industri</a>
+                                <a href="{{ route('bkk')}}" class="dropdown-item">BKK Lensa</a>
+                                <a href="{{ route('tc')}}" class="dropdown-item">Teaching Factory</a>
+                                <a href="{{ route('pkl')}}" class="dropdown-item">Praktek Kerja Industri</a>
                             </div>
                         </div>
-                        <a href="kabarlensa.html" class="nav-item nav-link">Kabar Lensa</a>
-                        <a href="kontak.html" class="nav-item nav-link">kontak</a>
+                        <a href="{{route('kabarlensa')}}" class="nav-item nav-link">Kabar Lensa</a>
+                        <a href="{{route('kontak')}}" class="nav-item nav-link">kontak</a>
                     </div>
                 </div>
             </nav>
 
             <div class="container-xxl bg-primary page-header">
                 <div class="container text-center">
-                    <h1 class="text-white animated zoomIn mb-3">Perbankan Syari'ah</h1>
+                    <h1 class="text-white animated zoomIn mb-3">Pengembangan Perangkat Lunak Dan Gim</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
                             <li class="breadcrumb-item"><a class="text-white" href="index.html">Beranda</a></li>
-                            <li class="breadcrumb-item"><a class="text-white">PS</a></li>
+                            <li class="breadcrumb-item"><a class="text-white">PPLG</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -99,13 +99,14 @@
             <div class="container text-center">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <img src="img/jurusan/ps.jpg" class="img-fluid" alt="...">
+                        <img src="{{ asset('guest/img/jurusan/pplg.jpeg')}}" class="img-fluid" alt="...">
                         <br>
                         <br>
                         <br>
                     </div>
                 </div>
-                    <p align="justify" class="fadeInUp">Perbankan syariah adalah program studi yang mempelajari tentang bidang keuangan dan perbankan yang produk, pelayanan, hingga sistem operasionalnya berlandaskan pada aturan atau hukum syariah islam. Lembaga keuangan perbankan syariah memiliki perbedaan dengan bank konvensional pada umumnya, sebab lembaga ini tidak hanya mengelola produk bank seperti menghimpun dan menyalurkan dana tetapi juga memiliki jasa pelayanan seperti pengelolaan zakat, wakaf, dan infaq.</p>
+                    <p align="justify"><strong>Pengembangan Perangkat Lunak Dan Gim (PPLG)</strong>    adalah satu bidang profesi yang mendalami cara-cara pengembangan software/perangkat lunak termasuk pembuatan, pengembanganan perangkat lunak/software dan manajemen kualitas.
+                        Program Keahlian <strong>Pengembangan Perangkat Lunak Dan Gim (PPLG)</strong> adalah salah satu kompetensi keahlian dalam bidang Teknologi Komputer dan Informatika yang secara khusus mempelajari tentang pemrograman komputer. Lulusan PPLG dewasa ini sangat dibutuhkan untuk menjawab banyaknya kebutuhan industri bagi ketersediaan tenaga Teknisi dalam bidang pengembangan software. Beberapa ruang lingkup pekerjaan di bidang PPLG adalah Software Developer, Game Development, Software Tester, Software Engineering , Software Analis dan Integrator, Konsultan IT dan Programmer</p>
             </div>
         </div>
         <!-- 404 End -->
@@ -169,13 +170,13 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{ asset('guest/lib/wow/wow.min.js')}}"></script>
+    <script src="{{ asset('guest/lib/easing/easing.min.js')}}"></script>
+    <script src="{{ asset('guest/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{asset('guest/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="{{ asset('guest/js/main.js')}}"></script>
 </body>
 
 </html>

@@ -58,27 +58,27 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="{{ route('beranda') }}" class="nav-item nav-link active">Beranda</a>
-                        <a href="{{ route('about') }}" class="nav-item nav-link">Tentang</a>
+                        <a href="{{ route('tentang') }}" class="nav-item nav-link">Tentang</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Keahlian</a>
                             <div class="dropdown-menu m-0">
-                                <a href="pplg.html" class="dropdown-item">Pengembangan Perangkat Lunak Dan Gim</a>
-                                <a href="tbsm.html" class="dropdown-item">Teknik Bisnis Sepeda Motor</a>
-                                <a href="tkro.html" class="dropdown-item">Teknik Kendaraan Ringan Otomotif</a>
-                                <a href="tkj.html" class="dropdown-item">Teknik Komputer Dan Jaringan</a>
-                                <a href="ps.html" class="dropdown-item">Perbankan Syari'ah</a>
+                                <a href="{{ route('pplg')}}" class="dropdown-item">Pengembangan Perangkat Lunak Dan Gim</a>
+                                <a href="{{ route('tbsm')}}" class="dropdown-item">Teknik Bisnis Sepeda Motor</a>
+                                <a href="{{ route('tkro')}}" class="dropdown-item">Teknik Kendaraan Ringan Otomotif</a>
+                                <a href="{{ route('tkj')}}" class="dropdown-item">Teknik Komputer Dan Jaringan</a>
+                                <a href="{{ route('ps')}}" class="dropdown-item">Perbankan Syari'ah</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Program</a>
                             <div class="dropdown-menu m-0">
-                                <a href="bkk.html" class="dropdown-item">BKK Lensa</a>
-                                <a href="tc.html" class="dropdown-item">Teaching Factory</a>
-                                <a href="pkl.html" class="dropdown-item">Praktek Kerja Industri</a>
+                                <a href="{{ route('bkk')}}" class="dropdown-item">BKK Lensa</a>
+                                <a href="{{ route('tc')}}" class="dropdown-item">Teaching Factory</a>
+                                <a href="{{ route('pkl')}}" class="dropdown-item">Praktek Kerja Industri</a>
                             </div>
                         </div>
-                        <a href="kabarlensa.html" class="nav-item nav-link">Kabar Lensa</a>
-                        <a href="kontak.html" class="nav-item nav-link">kontak</a>
+                        <a href="{{ route('kabarlensa')}}" class="nav-item nav-link">Kabar Lensa</a>
+                        <a href="{{ route('kontak')}}" class="nav-item nav-link">kontak</a>
                     </div>
                 </div>
             </nav>
