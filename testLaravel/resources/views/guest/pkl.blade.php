@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{ asset('guest/img/logo/logo.png')}}" rel="icon">
+    <link href="{{ asset('guest/img/logo/logo.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -183,13 +183,17 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('guest/lib/wow/wow.min.js')}}"></script>
-    <script src="{{ asset('guest/lib/easing/easing.min.js')}}"></script>
-    <script src="{{ asset('guest/lib/waypoints/waypoints.min.js')}}"></script>
-    <script src="{{asset('guest/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('guest/lib/wow/wow.min.js') }}"></script>
+    <script src="{{ asset('guest/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('guest/lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ asset('guest/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 
     <!-- Template Javascript -->
-    <script src="{{ asset('guest/js/main.js')}}"></script>
+    <script src="{{ asset('guest/js/main.js') }}"></script>
 </body>
 
 </html>

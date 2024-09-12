@@ -145,11 +145,10 @@
                             <div class="service-item rounded h-100">
                                 <div class="d-flex justify-content-between">
                                     <div class="service-icon">
-                                        <i class="fa fa-user-tie fa-2x"></i>
-                                        
+                                        <i class="fa fa-user-tie fa-2x"></i>                                       
                                     </div>
                                 </div>
-                                <div class="p-5">
+                                <div class="p-5" data-bs-toggle="modal" data-bs-target="#bisnis">
                                     <h5 class="mb-3">Business Research</h5>
                                     <span>Kalian akan dibekali ilmu khusus sesuai minat dan kemampuan untuk mengejar kompetensi diri dalam menghadapi persaingan dunia kerja.</span>
                                 </div>
@@ -162,7 +161,7 @@
                                         <i class="fa fa-chart-pie fa-2x"></i>
                                     </div>
                                 </div>
-                                <div class="p-5">
+                                <div class="p-5" data-bs-toggle="modal" data-bs-target="#strategi">
                                     <h5 class="mb-3">Stretagic Planning</h5>
                                     <span>Kalian akan dibekali semangat kewirausahaan melalui program Teaching Factory yang bekerjasama dengan Honda Astra Motor.</span>
                                 </div>
@@ -175,7 +174,7 @@
                                     <i class="fa fa-chart-line fa-2x"></i>
                                 </div>
                             </div>
-                            <div class="p-5">
+                            <div class="p-5" data-bs-toggle="modal" data-bs-target="#pasar">
                                 <h5 class="mb-3">Market Analysis</h5>
                                 <span>Kalian akan langsung berkenalan dengang dunia kerja untuk mengasah kompetensi melalui Praktek Kerja Industri.</span>
                             </div>
@@ -188,7 +187,7 @@
                                     <i class="fa fa-chart-area fa-2x"></i>
                                 </div>
                             </div>
-                            <div class="p-5">
+                            <div class="p-5" data-bs-toggle="modal" data-bs-target="#analisa">
                                 <h5 class="mb-3">Financial Analaysis</h5>
                                 <span>Gedung representatif guna menunjang kegiatan belajar mengajar yang dilengkapi dengan fasilitas laboratorium dan bengkel kerja untuk praktek.</span>
                             </div>
@@ -201,7 +200,7 @@
                                     <i class="fa fa-balance-scale fa-2x"></i>
                                 </div>
                             </div>
-                            <div class="p-5">
+                            <div class="p-5" data-bs-toggle="modal" data-bs-target="#legal">
                                 <h5 class="mb-3">legal Advisory</h5>
                                 <span>SMK LENTERA BANGSA akan memberikan beasiswa bagi kalian yang berprestasi dalam bidang akademik.</span>
                             </div>
@@ -353,6 +352,171 @@
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+        <!-- Self Modal 1-->
+    <div class="portfolio-modal modal fade" id="bisnis" tabindex="-1" aria-labelledby="bisnis" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Jurusan Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Business Research</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line" data-aos="fade-right"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star text-warning"></i></div>
+                                    <div class="divider-custom-line" data-aos="fade-right"></div>
+                                </div>
+                                <!-- Jurusan Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/jurusanasset/tkr-icon.png" alt="Icon-TKRO" />
+                                <!-- Jurusan Modal - Text-->
+                                <p class="mb-4">Program <span class="text-info"><b>Teknik Kendaraan Ringan Otomotif</b></span> di SMK Lentera Bangsa, yang didukung oleh Daihatsu, mengajarkan siswa tentang perawatan, perbaikan, dan modifikasi kendaraan ringan. Mereka belajar tentang mesin, sistem kelistrikan, sistem kemudi, dan sistem suspensi kendaraan. Program ini menawarkan pelatihan praktis dan teori, mempersiapkan siswa untuk bekerja di industri otomotif. Dengan dukungan dari Daihatsu, para siswa memiliki kesempatan untuk mendapatkan wawasan langsung dari salah satu industri mobil terkemuka dari Jepang. <a href="#">Informasi selengkapnya...</a></p>
+                                <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Self Modal 1-->
+        <div class="portfolio-modal modal fade" id="strategi" tabindex="-1" aria-labelledby="strategi" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Jurusan Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Business Research</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line" data-aos="fade-right"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star text-warning"></i></div>
+                                        <div class="divider-custom-line" data-aos="fade-right"></div>
+                                    </div>
+                                    <!-- Jurusan Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="assets/img/jurusanasset/tkr-icon.png" alt="Icon-TKRO" />
+                                    <!-- Jurusan Modal - Text-->
+                                    <p class="mb-4">Program <span class="text-info"><b>Teknik Kendaraan Ringan Otomotif</b></span> di SMK Lentera Bangsa, yang didukung oleh Daihatsu, mengajarkan siswa tentang perawatan, perbaikan, dan modifikasi kendaraan ringan. Mereka belajar tentang mesin, sistem kelistrikan, sistem kemudi, dan sistem suspensi kendaraan. Program ini menawarkan pelatihan praktis dan teori, mempersiapkan siswa untuk bekerja di industri otomotif. Dengan dukungan dari Daihatsu, para siswa memiliki kesempatan untuk mendapatkan wawasan langsung dari salah satu industri mobil terkemuka dari Jepang. <a href="#">Informasi selengkapnya...</a></p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Self Modal 1-->
+    <div class="portfolio-modal modal fade" id="pasar" tabindex="-1" aria-labelledby="pasar" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Jurusan Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Business Research</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line" data-aos="fade-right"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star text-warning"></i></div>
+                                    <div class="divider-custom-line" data-aos="fade-right"></div>
+                                </div>
+                                <!-- Jurusan Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/jurusanasset/tkr-icon.png" alt="Icon-TKRO" />
+                                <!-- Jurusan Modal - Text-->
+                                <p class="mb-4">Program <span class="text-info"><b>Teknik Kendaraan Ringan Otomotif</b></span> di SMK Lentera Bangsa, yang didukung oleh Daihatsu, mengajarkan siswa tentang perawatan, perbaikan, dan modifikasi kendaraan ringan. Mereka belajar tentang mesin, sistem kelistrikan, sistem kemudi, dan sistem suspensi kendaraan. Program ini menawarkan pelatihan praktis dan teori, mempersiapkan siswa untuk bekerja di industri otomotif. Dengan dukungan dari Daihatsu, para siswa memiliki kesempatan untuk mendapatkan wawasan langsung dari salah satu industri mobil terkemuka dari Jepang. <a href="#">Informasi selengkapnya...</a></p>
+                                <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Self Modal 1-->
+        <div class="portfolio-modal modal fade" id="analisa" tabindex="-1" aria-labelledby="analisa" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Jurusan Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Business Research</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line" data-aos="fade-right"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star text-warning"></i></div>
+                                        <div class="divider-custom-line" data-aos="fade-right"></div>
+                                    </div>
+                                    <!-- Jurusan Modal - Image-->
+                                    <img class="img-fluid rounded mb-5" src="assets/img/jurusanasset/tkr-icon.png" alt="Icon-TKRO" />
+                                    <!-- Jurusan Modal - Text-->
+                                    <p class="mb-4">Program <span class="text-info"><b>Teknik Kendaraan Ringan Otomotif</b></span> di SMK Lentera Bangsa, yang didukung oleh Daihatsu, mengajarkan siswa tentang perawatan, perbaikan, dan modifikasi kendaraan ringan. Mereka belajar tentang mesin, sistem kelistrikan, sistem kemudi, dan sistem suspensi kendaraan. Program ini menawarkan pelatihan praktis dan teori, mempersiapkan siswa untuk bekerja di industri otomotif. Dengan dukungan dari Daihatsu, para siswa memiliki kesempatan untuk mendapatkan wawasan langsung dari salah satu industri mobil terkemuka dari Jepang. <a href="#">Informasi selengkapnya...</a></p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Self Modal 1-->
+    <div class="portfolio-modal modal fade" id="legal" tabindex="-1" aria-labelledby="legal" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Jurusan Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Business Research</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line" data-aos="fade-right"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star text-warning"></i></div>
+                                    <div class="divider-custom-line" data-aos="fade-right"></div>
+                                </div>
+                                <!-- Jurusan Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="assets/img/jurusanasset/tkr-icon.png" alt="Icon-TKRO" />
+                                <!-- Jurusan Modal - Text-->
+                                <p class="mb-4">Program <span class="text-info"><b>Teknik Kendaraan Ringan Otomotif</b></span> di SMK Lentera Bangsa, yang didukung oleh Daihatsu, mengajarkan siswa tentang perawatan, perbaikan, dan modifikasi kendaraan ringan. Mereka belajar tentang mesin, sistem kelistrikan, sistem kemudi, dan sistem suspensi kendaraan. Program ini menawarkan pelatihan praktis dan teori, mempersiapkan siswa untuk bekerja di industri otomotif. Dengan dukungan dari Daihatsu, para siswa memiliki kesempatan untuk mendapatkan wawasan langsung dari salah satu industri mobil terkemuka dari Jepang. <a href="#">Informasi selengkapnya...</a></p>
+                                <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 

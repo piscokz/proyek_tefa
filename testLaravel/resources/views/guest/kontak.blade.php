@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{ asset('guest/img/logo/logo.png')}}" rel="icon">
+    <link href="{{ asset('guest/img/logo/logo.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +21,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{ asset('guest/lib/animate/animate.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('guest/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-pF6AWtgGLkKCFnABl12GRDTXUIfqTX5w7zKJzKkexy23XcC4dbKZfubZn5GyIcvUOSF1yK6T1rB10K8SlXwAHA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="{{ asset('guest/lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('guest/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('guest/css/bootstrap.min.css')}}" rel="stylesheet">
-
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
     <!-- Template Stylesheet -->
-    <link href="{{ asset('guest/css/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('guest/css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -45,7 +49,7 @@
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="index.html" class="navbar-brand p-0">
+                <a href="{{ route(('beranda'))}}" class="navbar-brand p-0">
                     <img src="{{ asset('guest/img/logo/logo.png')}}" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -81,10 +85,10 @@
 
             <div class="container-xxl bg-primary page-header">
                 <div class="container text-center">
-                    <h1 class="text-white animated zoomIn mb-3">Hubungi Kami</h1>
+                    <h1 class="text-white animated bounce mb-3">Hubungi Kami <i class="fa fa-phone text-white animated swing wow" data-wow-delay="1s"></i></h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="index.html">Beranda</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="{{ route(('beranda'))}}">Beranda</a></li>
                             <li class="breadcrumb-item text-white active" aria-current="page">kontak</li>
                         </ol>
                     </nav>
@@ -199,13 +203,18 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('guest/lib/wow/wow.min.js')}}"></script>
-    <script src="{{ asset('guest/lib/easing/easing.min.js')}}"></script>
-    <script src="{{asset('guest/lib/waypoints/waypoints.min.js')}}"></script>
-    <script src="{{ asset('guest/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('guest/lib/wow/wow.min.js') }}"></script>
+    <script src="{{ asset('guest/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('guest/lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ asset('guest/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 
     <!-- Template Javascript -->
-    <script src="{{ asset('guest/js/main.js')}}"></script>
+    <script src="{{ asset('guest/js/main.js') }}"></script>
+    
 </body>
 
 </html>
