@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +14,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $faker = Faker::create('id_ID');
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        for($i = 1; $i <= 20; $i++){
+
+            \DB::table('contacts')->insert([
+                'name' => $faker->name,
+                'email' => $faker->email,
+                'title' => $faker->text,
+                'message' => $faker->text,
+            ]);
+        }
+
     }
 }

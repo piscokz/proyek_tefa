@@ -18,6 +18,6 @@ route::get('/pkl', [GuestController::class, 'pkl'])->name('pkl');
 
 
 
-// Route::get('/about', function () {
-//     return view('guest/tentang');
-// })->name('tentang');
+Route::get('/test', function () {
+    return view('layout/template');
+});
