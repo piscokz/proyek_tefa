@@ -11,8 +11,12 @@ class GuestController extends Controller
 
     public function beranda() 
     {
-        return view('guest/index');
+        return view('admin/adminpanel');
     }
+    // public function beranda() 
+    // {
+    //     return view('guest/index');
+    // }
 
     public function tentang() 
     {

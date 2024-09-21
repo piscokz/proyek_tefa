@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestController;
 
+// route::get('/', [GuestController::class, 'admin'])->name('admin');
 route::get('/', [GuestController::class, 'beranda'])->name('beranda');
 route::get('/tentang', [GuestController::class, 'tentang'])->name('tentang');
 route::get('/kabarlensa', [GuestController::class, 'kabarlensa'])->name('kabarlensa');
