@@ -47,7 +47,7 @@
       
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
-        @include('include/admintemplate')
+        @include('include/adminnav')
         <!-- partial -->
         <div class="main-panel">
           @yield('content')
