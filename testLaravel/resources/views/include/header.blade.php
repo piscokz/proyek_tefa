@@ -19,28 +19,32 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="{{ route('beranda') }}" class="nav-item nav-link">Beranda</a>
-                        <a href="{{ route('tentang') }}" class="nav-item nav-link active">Tentang</a>
+                        <a href="{{ route('beranda') }}" class="nav-item nav-link {{ Request::routeIs('beranda') ? 'active' : '' }}">Beranda</a>
+                        <a href="{{ route('tentang') }}" class="nav-item nav-link {{ Request::routeIs('tentang') ? 'active' : '' }}">Tentang</a>
+
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Keahlian</a>
+                            <a href="#" class="nav-link dropdown-toggle {{ Request::is('pplg', 'tbsm', 'tkro', 'tkj', 'ps') ? 'active' : '' }}" data-bs-toggle="dropdown">Keahlian</a>
                             <div class="dropdown-menu m-0">
-                                <a href="{{ route('pplg')}}" class="dropdown-item">Pengembangan Perangkat Lunak Dan Gim</a>
-                                <a href="{{ route('tbsm')}}" class="dropdown-item">Teknik Bisnis Sepeda Motor</a>
-                                <a href="{{ route('tkro')}}" class="dropdown-item">Teknik Kendaraan Ringan Otomotif</a>
-                                <a href="{{ route('tkj')}}" class="dropdown-item">Teknik Komputer Dan Jaringan</a>
-                                <a href="{{ route('ps')}}" class="dropdown-item">Perbankan Syari'ah</a>
+                                <a href="{{ route('pplg') }}" class="dropdown-item {{ Request::routeIs('pplg') ? 'active' : '' }}">Pengembangan Perangkat Lunak Dan Gim</a>
+                                <a href="{{ route('tbsm') }}" class="dropdown-item {{ Request::routeIs('tbsm') ? 'active' : '' }}">Teknik Bisnis Sepeda Motor</a>
+                                <a href="{{ route('tkro') }}" class="dropdown-item {{ Request::routeIs('tkro') ? 'active' : '' }}">Teknik Kendaraan Ringan Otomotif</a>
+                                <a href="{{ route('tkj') }}" class="dropdown-item {{ Request::routeIs('tkj') ? 'active' : '' }}">Teknik Komputer Dan Jaringan</a>
+                                <a href="{{ route('ps') }}" class="dropdown-item {{ Request::routeIs('ps') ? 'active' : '' }}">Perbankan Syari'ah</a>
                             </div>
                         </div>
+
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Program</a>
+                            <a href="#" class="nav-link dropdown-toggle {{ Request::is('bkk', 'tc', 'pkl') ? 'active' : '' }}" data-bs-toggle="dropdown">Program</a>
                             <div class="dropdown-menu m-0">
-                                <a href="{{ route('bkk')}}" class="dropdown-item">BKK Lensa</a>
-                                <a href="{{ route('tc')}}" class="dropdown-item">Teaching Factory</a>
-                                <a href="{{ route('pkl')}}" class="dropdown-item">Praktek Kerja Industri</a>
+                                <a href="{{ route('bkk') }}" class="dropdown-item {{ Request::routeIs('bkk') ? 'active' : '' }}">BKK Lensa</a>
+                                <a href="{{ route('tc') }}" class="dropdown-item {{ Request::routeIs('tc') ? 'active' : '' }}">Teaching Factory</a>
+                                <a href="{{ route('pkl') }}" class="dropdown-item {{ Request::routeIs('pkl') ? 'active' : '' }}">Praktek Kerja Industri</a>
                             </div>
                         </div>
-                        <a href="{{ route('kabarlensa')}}" class="nav-item nav-link">Kabar Lensa</a>
-                        <a href="{{ route('kontak')}}" class="nav-item nav-link">kontak</a>
+
+                        <a href="{{ route('guest.news.index') }}" class="nav-item nav-link {{ Request::routeIs('guest.news.index') ? 'active' : '' }}  {{ Request::routeIs('guest.news.selengkapnya') ? 'active' : '' }}">Kabar Lensa</a>
+                        <a href="{{ route('kontak') }}" class="nav-item nav-link {{ Request::routeIs('kontak') ? 'active' : '' }}">Kontak</a>
+
                     </div>
                 </div>
             </nav>

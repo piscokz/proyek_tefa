@@ -77,7 +77,7 @@
                                 <a href="{{ route('pkl')}}" class="dropdown-item">Praktek Kerja Industri</a>
                             </div>
                         </div>
-                        <a href="{{route('kabarlensa')}}" class="nav-item nav-link">Kabar Lensa</a>
+                        <a href="{{ route('guest.news.index') }}" class="nav-item nav-link">Kabar Lensa</a>
                         <a href="{{route('kontak')}}" class="nav-item nav-link">kontak</a>
                     </div>
                 </div>

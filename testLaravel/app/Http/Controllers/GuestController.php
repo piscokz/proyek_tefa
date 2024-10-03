@@ -9,14 +9,17 @@ class GuestController extends Controller
 {
     // method for getting from beranda from 
 
-    public function beranda() 
-    {
-        return view('admin/adminpanel');
-    }
     // public function beranda() 
     // {
-    //     return view('guest/index');
+    //     return view('admin/major/create');
     // }
+    public function beranda() 
+    {
+        return view('guest/index');
+        
+    }
+
+    
 
     public function tentang() 
     {
@@ -25,7 +28,7 @@ class GuestController extends Controller
 
     public function kabarlensa() 
     {
-        return view('guest/kabarlensa');
+        return view('guest/news/index');
     }
 
     public function kontak() 
@@ -71,6 +74,8 @@ class GuestController extends Controller
     {
         return view('guest/tc');
     }
+
+    
 }
 
 
