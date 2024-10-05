@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('email');
             $table->string('title');
             $table->text('message');
+            $table->text('admin_response')->nullable(); // Field for admin's response
             $table->timestamps();
-        });
+        });                
     }
 
     /**

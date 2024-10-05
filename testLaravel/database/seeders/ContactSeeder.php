@@ -7,13 +7,15 @@ use Illuminate\Database\Seeder;
 
 class ContactSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function run()
     {
-        $this ->call([
-            ContactSeeder::class,
+        Contact::create([
+            'name' => 'John Doe',
+            'email' => 'john@example.com',
+            'title' => 'Question about LENSA',
+            'message' => 'Can you tell me more about the features?',
         ]);
     }
 }
+
+

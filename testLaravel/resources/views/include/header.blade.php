@@ -43,7 +43,7 @@
                         </div>
 
                         <a href="{{ route('guest.news.index') }}" class="nav-item nav-link {{ Request::routeIs('guest.news.index') ? 'active' : '' }}  {{ Request::routeIs('guest.news.selengkapnya') ? 'active' : '' }}">Kabar Lensa</a>
-                        <a href="{{ route('kontak') }}" class="nav-item nav-link {{ Request::routeIs('kontak') ? 'active' : '' }}">Kontak</a>
+                        <a href="{{ route('kontak') }}" class="nav-item nav-link {{ Request::routeIs('contact') ? 'active' : '' }}">Kontak</a>
 
                     </div>
                 </div>

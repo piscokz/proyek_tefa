@@ -3,8 +3,6 @@
 @section('title', 'Kabar Lensa')
 
 @section('content')
-    <h1>Kabar Berita Terbaru</h1>
-
     <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4 posts-list">
             @foreach ($news as $item)

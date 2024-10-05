@@ -19,8 +19,6 @@ class GuestController extends Controller
         
     }
 
-    
-
     public function tentang() 
     {
         return view('guest/tentang');
@@ -33,8 +31,9 @@ class GuestController extends Controller
 
     public function kontak() 
     {
-        return view('guest/kontak');
+    return view('guest/contact');
     }
+
 
     public function pplg() 
     {
