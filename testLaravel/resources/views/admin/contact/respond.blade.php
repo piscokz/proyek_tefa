@@ -5,7 +5,7 @@
 <div class="container mt-4">
     <h1 class="text-center">Respond to {{ $contact->name }}</h1>
 
-    <form action="{{ route('admin.contact.sendResponse', $contact->id) }}" method="POST">
+    <form action="{{ route('admin.contact.respond.store', $contact->id) }}" method="POST">
         @csrf
         <div class="mb-3">
             <label for="admin_response" class="form-label">Your Response</label>
