@@ -60,4 +60,16 @@ Route::prefix('admin')->group(function () {
         Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
     });
+
+    // routes/web.php
+
+    Route::get('/send-test-email', function () {
+        Mail::raw('This is a test email.', function ($message) {
+            $message->to('ibrahimahmadfalatin@gmail.com')
+                    ->subject('Test Email');
+        });
+
+        return 'Test email sent!';
+    });
+
 });

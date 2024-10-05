@@ -2,16 +2,20 @@
 
 namespace App\Mail;
 
+use App\Models\Contact;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 class ContactResponseMail extends Mailable
 {
-    public $contact;
-    public $response;
+    use Queueable, SerializesModels;
 
-    public function __construct(Contact $contact, $response)
+    protected $contact;
+    protected $response;
+
+    // Update the constructor to accept the correct types
+    public function __construct(Contact $contact, string $response)
     {
         $this->contact = $contact;
         $this->response = $response;
@@ -19,10 +23,10 @@ class ContactResponseMail extends Mailable
 
     public function build()
     {
-        return $this->view('emails.contact_response')
+        return $this->view('emails.contactResponse')
                     ->with([
                         'contactName' => $this->contact->name,
-                        'response' => $this->response,
+                        'responseMessage' => $this->response,
                     ]);
     }
 }

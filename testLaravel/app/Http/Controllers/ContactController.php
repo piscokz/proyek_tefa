@@ -27,8 +27,11 @@ class ContactController extends Controller
         // Kirim email ke tamu
         Mail::to($contact->email)->send(new ContactResponseMail($contact, $response));
 
+        // Hapus entri kontak setelah mengirim email
+        $contact->delete();
+
         // Redirect atau kembali ke halaman daftar kontak dengan pesan sukses
-        return redirect()->route('admin.contact.index')->with('success', 'Response sent successfully!');
+        return redirect()->route('admin.contact.index')->with('success', 'Response sent successfully and contact deleted!');
     }
 
     public function index()
@@ -40,7 +43,7 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the incoming request
+        // Validasi permintaan yang masuk
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -48,7 +51,7 @@ class ContactController extends Controller
             'title' => 'required|string|max:50',
         ]);
 
-        // Create a new contact instance and save it to the database
+        // Membuat instance kontak baru dan menyimpannya ke database
         $contact = new Contact();
         $contact->name = $request->input('name');
         $contact->email = $request->input('email');
@@ -56,7 +59,7 @@ class ContactController extends Controller
         $contact->message = $request->input('message');
         $contact->save();
 
-        // Redirect back with a success message
+        // Redirect kembali dengan pesan sukses
         return redirect()->back()->with('success', 'Your message has been sent successfully!');
     }
 }

@@ -1,4 +1,3 @@
-<!-- resources/views/emails/contact_response.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +6,9 @@
     <title>Response to Your Inquiry</title>
 </head>
 <body>
-    <h1>Thank you for contacting us!</h1>
-    <p>{{ $response }}</p>
-    <p>Best regards,<br>Your Company Name</p>
+    <h1>Hi {{ $contactName }},</h1>
+    <p>Thank you for reaching out to us. Here is the response to your inquiry:</p>
+    <p>{{ $responseMessage }}</p>
+    <p>Best regards,<br>Your Company</p>
 </body>
 </html>
