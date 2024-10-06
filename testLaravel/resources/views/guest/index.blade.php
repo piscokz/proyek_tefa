@@ -271,12 +271,12 @@
         <!-- Client Start -->
         <div class="container bg-blue my-6 py-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container">
-              <center> <h2>BINAAN </center>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
+                <center> <h2>BINAAN </center>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
                 <div class="owl-carousel client-carousel">
                     <img class="img-fluid" src="{{ asset('guest/img/company/astra.jpg') }}" alt="">
                     <img class="img-fluid" src="{{ asset('guest/img/company/axioo.png') }}" alt="">
@@ -353,7 +353,7 @@
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                Designed by <a class="border-bottom" href="#">Ibrahim Ahmad Falathin</a>
+                                Remastered By <a class="border-bottom" href="#">Ibrahim Ahmad Falathin</a>
                             </div>
                         </div>
                     </div>
@@ -403,7 +403,7 @@
         </div>
     </div>
 
-        <!-- Self Modal 1-->
+        {{-- <!-- Self Modal 1-->
         <div class="portfolio-modal modal fade" id="strategi" tabindex="-1" aria-labelledby="strategi" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
@@ -533,7 +533,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     <!-- JavaScript Libraries -->
@@ -545,7 +545,7 @@
     <script src="{{ asset('guest/lib/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      AOS.init();
+        AOS.init();
     </script>
 
     <!-- Template Javascript -->

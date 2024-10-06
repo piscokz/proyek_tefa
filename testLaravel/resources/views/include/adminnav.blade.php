@@ -6,11 +6,11 @@
       </button>
     </div>
     <div>
-      <a class="navbar-brand brand-logo" href="../../index.html">
+      <a class="navbar-brand brand-logo" href="{{route('admin.dashboard')}}">
         <img src="{{asset('guest/img/logo/logo.png')}}" class="img-fluid" alt="logo" />
       </a>
-      <a class="navbar-brand brand-logo-mini" href="../../index.html">
-        <img src="../../assets/images/logo-mini.svg" alt="logo" />
+      <a class="navbar-brand brand-logo-mini" href="{{route('admin.dashboard')}}">
+        <img src="{{asset('guest/img/logo/logo.png')}}" alt="logo" />
       </a>
     </div>
   </div>
@@ -23,34 +23,22 @@
     </ul>
     <ul class="navbar-nav ms-auto">
       <li class="nav-item dropdown d-none d-lg-block">
-        <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+        <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Programmer </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
           <a class="dropdown-item py-3">
-            <p class="mb-0 fw-medium float-start">Select category</p>
+            <p class="mb-0 fw-medium float-start">Anggota Tim :</p>
           </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item preview-item">
+          <a class="dropdown-item preview-item" href="https://www.instagram.com/i.a.falathin/" target="_blank">
             <div class="preview-item-content flex-grow py-2">
-              <p class="preview-subject ellipsis fw-medium text-dark">Bootstrap Bundle </p>
-              <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+              <p class="preview-subject ellipsis fw-medium text-dark">Ibrahim Ahmad Falathin </p>
+              <p class="fw-light small-text mb-0">Back End</p>
             </div>
           </a>
-          <a class="dropdown-item preview-item">
+          <a class="dropdown-item preview-item" href="https://id.linkedin.com/in/martinus-cruiz-muryanto-3332b2299">
             <div class="preview-item-content flex-grow py-2">
-              <p class="preview-subject ellipsis fw-medium text-dark">Angular Bundle</p>
-              <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
-            </div>
-          </a>
-          <a class="dropdown-item preview-item">
-            <div class="preview-item-content flex-grow py-2">
-              <p class="preview-subject ellipsis fw-medium text-dark">VUE Bundle</p>
-              <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
-            </div>
-          </a>
-          <a class="dropdown-item preview-item">
-            <div class="preview-item-content flex-grow py-2">
-              <p class="preview-subject ellipsis fw-medium text-dark">React Bundle</p>
-              <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+              <p class="preview-subject ellipsis fw-medium text-dark">Martinus Cruiz Muryanto</p>
+              <p class="fw-light small-text mb-0">Front End</p>
             </div>
           </a>
         </div>
@@ -113,7 +101,7 @@
           </a>
         </div>
       </li>
-      <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+      {{-- <li class="nav-item dropdown d-none d-lg-block user-dropdown">
         <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
           <img class="img-xs rounded-circle" src="../../assets/images/faces/face8.jpg" alt="Profile image"> </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
@@ -128,7 +116,7 @@
           <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
           <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
         </div>
-      </li>
+      </li> --}}
     </ul>
     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
       <span class="mdi mdi-menu"></span>

@@ -7,7 +7,7 @@ use App\Http\Controllers\{
     NewsController,
     DashboardController,
     ContactController,
-    NotificationController
+    NotificationController,
 };
 
 // Route untuk tamu
