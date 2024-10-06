@@ -6,7 +6,8 @@ use App\Http\Controllers\{
     MajorController,
     NewsController,
     DashboardController,
-    ContactController
+    ContactController,
+    NotificationController
 };
 
 // Route untuk tamu
@@ -56,20 +57,16 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [ContactController::class, 'index'])->name('admin.contact.index');
         Route::get('/respond/{id}', [ContactController::class, 'showRespondForm'])->name('admin.contact.respond');
         Route::post('/respond/{id}', [ContactController::class, 'respond'])->name('admin.contact.respond.store');
+        Route::get('/admin/contact/respond/{id}', [ContactController::class, 'respond'])->name('admin.contact.respond');
         // Route for storing contact information
         Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-
+        Route::get('/admin/contact/respond/{id}', [ContactController::class, 'showRespondForm'])->name('admin.contact.respond');
     });
 
-    // routes/web.php
-
-    Route::get('/send-test-email', function () {
-        Mail::raw('This is a test email.', function ($message) {
-            $message->to('ibrahimahmadfalatin@gmail.com')
-                    ->subject('Test Email');
-        });
-
-        return 'Test email sent!';
-    });
-
+    Route::get('/admin/dashboard', [NotificationController::class, 'index'])->name('admin.dashboard');
+    Route::get('/notifications/get', [NotificationController::class, 'getNotifications'])->name('notifications.get');
+    Route::get('/admin/contact/respond/{id}', [NotificationController::class, 'respond'])->name('admin.contact.respond');
+    Route::get('/admin/contact/respond/{id}', [ContactController::class, 'showRespondForm'])->name('admin.contact.respond');
+    
+    
 });

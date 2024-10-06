@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/simple-line-icons/css/simple-line-icons.css')}}">
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css')}}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
@@ -37,6 +38,8 @@
           @yield('content')
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
+          <div class="content-wrapper">
+          </div>
           @include('include/adminfooter')
           <!-- partial -->
         </div>
@@ -66,6 +69,16 @@
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     {{-- <script src="{{ asset('admin/assets/js/Chart.roundedBarCharts.js')}}"></script> --}}
+    <!-- Load jQuery and Bootstrap JS if not loaded -->
+    <script src="{{ asset('admin/assets/js/date.js')}}"></script>
+    <script src="{{ asset('admin/asset/js/notification.js')}}"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS (jika tidak ada, dropdown tidak akan bekerja) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <!-- End custom js for this page-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

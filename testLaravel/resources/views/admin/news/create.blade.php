@@ -3,7 +3,7 @@
 @section('content')
     {{-- <h1>Tambah Berita</h1> --}}
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="d-flex justify-content-center align-items-center">
         <div class="col-md-6 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">

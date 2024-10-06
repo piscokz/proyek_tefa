@@ -39,6 +39,14 @@ class ContactController extends Controller
         // Mengambil semua data kontak dari model Contact
         $contacts = Contact::all();
         return view('admin.contact.index', compact('contacts'));
+
+        // Ambil notifikasi dari database
+        $contacts = Contact::where('status', 'new')->get(); // contoh pengambilan data notifikasi
+        return view('admin.dashboard', compact('contacts')); // Passing data notifikasi ke view
+
+
+
+        
     }
 
     public function store(Request $request)
@@ -62,4 +70,11 @@ class ContactController extends Controller
         // Redirect kembali dengan pesan sukses
         return redirect()->back()->with('success', 'Your message has been sent successfully!');
     }
+
+    public function showNavbarWithNotifications()
+    {
+    $contacts = Contact::all(); // Mengambil semua data kontak dari model Contact
+    return view('layout.admintemplate', compact('contacts'));
+    }
+
 }
