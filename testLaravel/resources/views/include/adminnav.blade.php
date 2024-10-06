@@ -135,3 +135,75 @@
     </button>
   </div>
 </nav>
+
+{{-- <ul class="navbar-nav ms-auto">
+  <!-- Kategori Dropdown -->
+  <li class="nav-item dropdown d-none d-lg-block">
+      <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+      <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
+          <a class="dropdown-item py-3">
+              <p class="mb-0 fw-medium float-start">Select category</p>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item preview-item">
+              <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis fw-medium text-dark">Bootstrap Bundle </p>
+                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+              </div>
+          </a>
+          <!-- Tambahkan lebih banyak item di sini sesuai kebutuhan -->
+      </div>
+  </li>
+  
+  <!-- Ikon Kebutuhan Sekolah -->
+  <li class="nav-item">
+      <a class="nav-link" href="{{ route('schedule') }}" title="Jadwal">
+          <i class="icon-calendar icon-lg"></i>
+      </a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="{{ route('announcements') }}" title="Pengumuman">
+          <i class="icon-bullhorn icon-lg"></i>
+      </a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="{{ route('assignments') }}" title="Tugas">
+          <i class="icon-pencil icon-lg"></i>
+      </a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="{{ route('forum') }}" title="Forum Diskusi">
+          <i class="icon-chat icon-lg"></i>
+      </a>
+  </li>
+  
+  <!-- Form Pencarian -->
+  <li class="nav-item">
+      <form class="search-form" action="#">
+          <i class="icon-search"></i>
+          <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+      </form>
+  </li>
+      <!-- Include partial untuk notifikasi -->
+      @include('partials.notification', ['contacts' => $contacts])
+      
+    
+      <!-- Dropdown Pengguna -->
+    <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+      <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+          <img class="img-xs rounded-circle" src="../../assets/images/faces/face8.jpg" alt="Profile image"> 
+      </a>
+      <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+          <div class="dropdown-header text-center">
+              <img class="img-md rounded-circle" src="../../assets/images/faces/face8.jpg" alt="Profile image">
+              <p class="mb-1 mt-3 fw-semibold">Allen Moreno</p>
+              <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+          </div>
+          <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
+          <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
+          <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
+          <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i> FAQ</a>
+          <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+      </div>
+  </li>
+</ul> --}}
