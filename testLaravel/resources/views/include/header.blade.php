@@ -16,7 +16,7 @@
                     <a href="#" class="nav-link dropdown-toggle {{ Request::is('majors/*') ? 'active' : '' }}" data-bs-toggle="dropdown">Keahlian</a>
                     <div class="dropdown-menu m-0 rounded shadow" style="background-color: #f8f9fa;">
                         <a href="{{ route('majors.index') }}" class="btn btn-warning mb-2 w-100">
-                            <i class="bi bi-arrow-left"></i> Kembali ke Daftar Program
+                            Daftar Program :
                         </a>        
                         @foreach($majors as $major)
                             <a href="{{ route('majors.show', $major->id) }}" class="dropdown-item {{ Request::routeIs('majors.show', $major->id) ? 'active' : '' }}">
