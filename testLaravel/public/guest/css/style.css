@@ -435,3 +435,30 @@
     padding-right: 0;
     border-right: none;
 }
+
+.dropdown-menu {
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f0e68c; /* Warna latar belakang saat hover */
+    color: #000; /* Warna teks saat hover */
+}
+
+.btn-warning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-warning:hover {
+    background-color: #e6b800; /* Ganti warna saat hover */
+}
+
+.card {
+    border-radius: 10px; /* Memberikan sudut yang lebih membulat */
+}
+
+.card-title {
+    font-weight: bold; /* Membuat judul lebih tebal */
+}

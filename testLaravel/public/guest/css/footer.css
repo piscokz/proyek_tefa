@@ -1,0 +1,46 @@
+.footer {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.footer h5 {
+    position: relative;
+    font-weight: 700;
+    color: #f8f9fa;
+    margin-bottom: 20px;
+}
+
+.footer h5::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #ffcc00; /* Warna garis bawah */
+    margin-top: 5px;
+    transition: width 0.3s;
+}
+
+.footer a {
+    color: #f8f9fa;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.footer a:hover {
+    color: #ffcc00; /* Warna saat hover */
+    background-color: rgba(255, 204, 0, 0.2); /* Latar belakang saat hover */
+}
+
+.footer .social-icons a {
+    transition: transform 0.3s;
+}
+
+.footer .social-icons a:hover {
+    transform: scale(1.1); /* Zoom pada hover */
+}
+
+.copyright {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}

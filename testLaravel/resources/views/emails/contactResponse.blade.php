@@ -9,6 +9,6 @@
     <h1>Hi {{ $contactName }},</h1>
     <p>Thank you for reaching out to us. Here is the response to your inquiry:</p>
     <p>{{ $responseMessage }}</p>
-    <p>Best regards,<br>Your Company</p>
+    <p>Best regards,<br>SMK Lentera Bangsa</p>
 </body>
 </html>

@@ -16,6 +16,12 @@ class GuestController extends Controller
     public function beranda() 
     {
         return view('guest/index');
+
+        // Ambil semua data program keahlian
+        $majors = DB::table('majors')->get(); 
+        
+        // Kembalikan tampilan dengan data program keahlian
+        return view('guest.beranda', compact('majors'));
         
     }
 
@@ -73,6 +79,8 @@ class GuestController extends Controller
     {
         return view('guest/tc');
     }
+
+    
 
     
 }

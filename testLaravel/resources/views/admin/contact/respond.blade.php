@@ -13,6 +13,7 @@
                     <textarea id="admin_response" name="admin_response" class="form-control" rows="5" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Send Response</button>
+                <a href="{{route('admin.contact.index')}}" type="submit" class="btn btn-danger">Cancel</a>
             </form>
         </div>
     </div>

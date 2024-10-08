@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Ulang Tahun untuk Okta</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0); /* Gradasi pink awal */
+            background-size: cover;
+            color: #fff;
+            text-align: left;
+            position: relative;
+            transition: background 1s ease; /* Animasi transisi awal */
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            width: 60%;
+            position: relative;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            display: none;
+            text-align: left;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ffadad;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* Animasi perubahan latar belakang yang halus */
+        .animated-background {
+            animation: fadeBackground 60s ease-in-out infinite;
+        }
+
+        /* Definisi animasi fade gradasi pink yang halus */
+        @keyframes fadeBackground {
+            0% {
+                background: linear-gradient(135deg, #ffafbd, #ffc3a0); /* Warna awal */
+            }
+            20% {
+                background: linear-gradient(135deg, #ff9a9e, #fecfef); /* Warna kedua */
+            }
+            40% {
+                background: linear-gradient(135deg, #fbc2eb, #a18cd1); /* Warna ketiga */
+            }
+            60% {
+                background: linear-gradient(135deg, #f6d365, #fda085); /* Warna keempat */
+            }
+            80% {
+                background: linear-gradient(135deg, #ffdde1, #ee9ca7); /* Warna kelima */
+            }
+            100% {
+                background: linear-gradient(135deg, #ffafbd, #ffc3a0); /* Kembali ke warna awal */
+            }
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="container">
+        <div class="name" id="name">Selamat Okta! 🎉</div>
+        <button onclick="showMessage()">Klik untuk Ucapan</button>
+        <div class="message" id="message">
+            <p>Wow, kamu berhasil meraih ranking 1 di kelas! 💖</p>
+            <p>
+                Ini adalah pencapaian yang luar biasa dan sangat membanggakan! Teruslah berjuang dan tidak pernah berhenti untuk belajar. Dalam dunia pemrograman, ingatlah bahwa setiap kesalahan adalah kesempatan untuk belajar dan tumbuh. 💻✨
+            </p>
+            <p>
+                Jangan takut untuk menghadapi tantangan baru. Setiap baris kode yang kamu tulis adalah langkah menuju kesuksesan. Jadi, teruslah berkarya dan jangan biarkan apapun menghentikanmu! Kamu memiliki potensi yang besar! 🚀
+            </p>
+            <p>
+                Semangat terus, Okta! Tahun ini pasti akan jadi tahun yang luar biasa untukmu. Kerja keras dan dedikasimu akan membuahkan hasil yang menakjubkan. Kamu bisa mencapai apa saja yang kamu impikan! 🌟💪
+            </p>
+            <p>Ingat, "Code is like humor. When you have to explain it, it’s bad." Jadi teruslah berkarya dan nikmati prosesnya! 😄</p>
+            <p>Falathin selaku dev back-end turut bangga atas pencapaianmu! Teruslah berkarya dan tingkatkan kemampuanmu! 🎉</p>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+            document.getElementById("body").classList.add("animated-background");
+        }
+    </script>
+</body>
+</html>

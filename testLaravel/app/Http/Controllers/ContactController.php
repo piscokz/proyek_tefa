@@ -5,50 +5,59 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactResponseMail; // Pastikan ini ada
+use App\Mail\ContactResponseMail;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
-    // Menambahkan metode showRespondForm
+    // Menampilkan daftar kontak
+    public function index()
+    {
+        // Jika ingin menggunakan model Contact
+        $contacts = Contact::all();
+
+        // Jika ingin menggunakan query builder (DB facade)
+        // $contacts = DB::table('contacts')->get();
+        
+        return view('admin.contact.index', compact('contacts'));
+    }
+
+    // Menampilkan form respon berdasarkan ID kontak
     public function showRespondForm($id)
     {
+        // Jika menggunakan model Contact
         $contact = Contact::findOrFail($id);
+
+        // Jika menggunakan query builder
+        // $contact = DB::table('contacts')->where('id', $id)->first();
+        
         return view('admin.contact.respond', compact('contact'));
     }
 
-    // Menambahkan metode respond
+    // Mengirimkan respon dan menghapus kontak setelah email terkirim
     public function respond(Request $request, $id)
     {
+        // Validasi input respon admin
+        $request->validate([
+            'admin_response' => 'required|string|max:1000',
+        ]);
+
         $contact = Contact::findOrFail($id);
-        
+
         // Mengambil respon admin dari form
         $response = $request->input('admin_response');
 
         // Kirim email ke tamu
         Mail::to($contact->email)->send(new ContactResponseMail($contact, $response));
 
-        // Hapus entri kontak setelah mengirim email
+        // Hapus kontak setelah mengirim email
         $contact->delete();
 
-        // Redirect atau kembali ke halaman daftar kontak dengan pesan sukses
+        // Redirect dengan pesan sukses
         return redirect()->route('admin.contact.index')->with('success', 'Response sent successfully and contact deleted!');
     }
 
-    public function index()
-    {
-        // Mengambil semua data kontak dari model Contact
-        $contacts = Contact::all();
-        return view('admin.contact.index', compact('contacts'));
-
-        // Ambil notifikasi dari database
-        $contacts = Contact::where('status', 'new')->get(); // contoh pengambilan data notifikasi
-        return view('admin.dashboard', compact('contacts')); // Passing data notifikasi ke view
-
-
-
-        
-    }
-
+    // Menyimpan data kontak baru
     public function store(Request $request)
     {
         // Validasi permintaan yang masuk
@@ -59,7 +68,7 @@ class ContactController extends Controller
             'title' => 'required|string|max:50',
         ]);
 
-        // Membuat instance kontak baru dan menyimpannya ke database
+        // Simpan kontak menggunakan model Contact
         $contact = new Contact();
         $contact->name = $request->input('name');
         $contact->email = $request->input('email');
@@ -67,14 +76,7 @@ class ContactController extends Controller
         $contact->message = $request->input('message');
         $contact->save();
 
-        // Redirect kembali dengan pesan sukses
-        return redirect()->back()->with('success', 'Your message has been sent successfully!');
+        // Redirect dengan pesan sukses
+        return redirect()->route('kontak')->with('success', 'Pesan berhasil dikirim');
     }
-
-    public function showNavbarWithNotifications()
-    {
-    $contacts = Contact::all(); // Mengambil semua data kontak dari model Contact
-    return view('layout.admintemplate', compact('contacts'));
-    }
-
 }

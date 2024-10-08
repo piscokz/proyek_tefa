@@ -20,7 +20,7 @@
         </li>
         <!-- Daftar Berita -->
         <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('admin.news.index') ? 'active' : '' }}" href="{{ route('admin.news.index') }}">
+            <a class="nav-link {{ request()->routeIs('admin.news.index') || request()->routeIs('admin.news.create') || request()->routeIs('admin.news.edit', ['id' => '*']) ? 'active' : '' }}" href="{{ route('admin.news.index') }}">
                 <i class="mdi mdi-newspaper menu-icon"></i>
                 <span class="menu-title">Daftar Berita</span>
             </a>
@@ -28,7 +28,7 @@
 
         <!-- Daftar Kontak -->
         <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('admin.contact.index') ? 'active' : '' }}" href="{{ route('admin.contact.index') }}">
+            <a class="nav-link {{ request()->routeIs('admin.contact.index') || request()->routeIs('admin.contact.respond') ? 'active' : '' }}" href="{{ route('admin.contact.index') }}">
                 <i class="menu-icon mdi mdi-email"></i>
                 <span class="menu-title">Daftar Kontak</span>
             </a>

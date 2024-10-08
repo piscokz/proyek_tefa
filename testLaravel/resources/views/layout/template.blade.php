@@ -25,7 +25,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-pF6AWtgGLkKCFnABl12GRDTXUIfqTX5w7zKJzKkexy23XcC4dbKZfubZn5GyIcvUOSF1yK6T1rB10K8SlXwAHA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="{{ asset('guest/lib/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('guest/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('guest/lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('guest/css/footer.css') }}" rel="stylesheet">
+    <link href="{{ asset('guest/css/header.css') }}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
@@ -65,6 +67,7 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('guest/js/main.js') }}"></script>
+    <script src="{{ asset('guest/js/footer.js') }}"></script>
 </body>
 
 </html>
