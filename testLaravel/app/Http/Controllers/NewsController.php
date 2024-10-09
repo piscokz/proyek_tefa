@@ -15,7 +15,6 @@ class NewsController extends Controller
     return view('guest.news.selengkapnya', compact('news')); // Pass the news item to the view
     }
 
-
     public function index()
     {
         // Fetch the latest news with pagination

@@ -15,6 +15,7 @@ Route::get('/', [GuestController::class, 'beranda'])->name('beranda');
 Route::get('/tentang', [GuestController::class, 'tentang'])->name('tentang');
 Route::get('/news/show', [GuestController::class, 'kabarlensa'])->name('kabarlensa');
 Route::get('/kontak', [GuestController::class, 'kontak'])->name('kontak');
+
 Route::get('/pplg', [GuestController::class, 'pplg'])->name('pplg');
 Route::get('/ps', [GuestController::class, 'ps'])->name('ps');
 Route::get('/tbsm', [GuestController::class, 'tbsm'])->name('tbsm');
