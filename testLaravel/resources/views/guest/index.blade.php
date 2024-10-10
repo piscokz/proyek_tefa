@@ -65,7 +65,7 @@
                             <a href="#" class="nav-link dropdown-toggle {{ Request::is('majors') ? 'active' : '' }}" data-bs-toggle="dropdown">Keahlian</a>
                             <div class="dropdown-menu m-0">
                                 <a href="{{ route('majors.index') }}" class="btn btn-warning">
-                                    <i class="bi bi-arrow-left"></i> &nbsp;&nbsp;Kembali ke Daftar Program
+                                    <i class="bi bi-arrow-left"></i> &nbsp;&nbsp; Daftar Program
                                 </a>        
                                 @foreach($majors as $major)
                                     <a href="{{ route('majors.show', $major->id) }}" class="dropdown-item {{ Request::routeIs('majors.show', $major->id) ? 'active' : '' }}">
@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <a href="{{ route('guest.news.index')}}" class="nav-item nav-link">Kabar Lensa</a>
-                        <a href="{{ route('kontak')}}" class="nav-item nav-link">kontak</a>
+                        <a href="{{ route('kontak')}}" class="nav-item nav-link">Kontak Kami</a>
                     </div>
                 </div>
             </nav>

@@ -8,7 +8,7 @@
         <h4 class="mb-5 text-primary">{{ $major->name }}</h4> <!-- Warna teks judul -->
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10 mb-4">
-                <div class="card shadow-sm border-0"> <!-- Menambahkan shadow untuk card -->
+                <div class="card shadow-sm border-0 rounded"> <!-- Menambahkan shadow untuk card dan rounded corners -->
                     <img src="{{ asset($major->image) }}" class="card-img-top rounded-top" alt="{{ $major->name }}">
                     <div class="card-body">
                         <h5 class="card-title text-secondary">{{ $major->name }}</h5> <!-- Warna teks -->

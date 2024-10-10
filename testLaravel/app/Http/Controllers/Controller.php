@@ -7,7 +7,7 @@ abstract class Controller
     public function index()
     {
     $contacts = Contact::all();
-    return view('admin.dashboard', compact('contacts'));
+    return view('admin.dashboard.index', compact('contacts'));
     }
 
 }

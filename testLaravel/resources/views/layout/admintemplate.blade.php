@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/simple-line-icons/css/simple-line-icons.css')}}">
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{ asset('admin/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- endinject -->
     <!-- Plugin css for this page -->
@@ -68,6 +69,7 @@
     <script src="{{ asset('admin/assets/js/dashboard.js')}}"></script>
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {{-- <script src="{{ asset('admin/asset/js/dashboard.js')}}"></script> --}}
     {{-- <script src="{{ asset('admin/assets/js/Chart.roundedBarCharts.js')}}"></script> --}}
     <!-- Load jQuery and Bootstrap JS if not loaded -->
     <script src="{{ asset('admin/assets/js/date.js')}}"></script>

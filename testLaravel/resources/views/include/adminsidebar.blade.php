@@ -2,7 +2,7 @@
     <ul class="nav">
         <!-- Dashboard -->
         <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
+            <a class="nav-link {{ request()->routeIs('admin.dashboard.index') ? 'active' : '' }}" href="{{ route('admin.dashboard.index') }}">
                 <i class="mdi mdi-view-dashboard menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>

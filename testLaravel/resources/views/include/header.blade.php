@@ -1,8 +1,8 @@
 <!-- Navbar & Hero Start -->
 <div class="container-xxl position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-        <a href="index.html" class="navbar-brand p-0">
-            <img src="{{ asset('guest/img/logo/logo.png')}}" alt="Logo">
+        <a href="{{ route('beranda') }}" class="navbar-brand p-0">
+            <img src="{{ asset('guest/img/logo/logo.png') }}" alt="Logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
@@ -17,7 +17,7 @@
                     <div class="dropdown-menu m-0 rounded shadow" style="background-color: #f8f9fa;">
                         <a href="{{ route('majors.index') }}" class="btn btn-warning mb-2 w-100">
                             Daftar Program :
-                        </a>        
+                        </a>
                         @foreach($majors as $major)
                             <a href="{{ route('majors.show', $major->id) }}" class="dropdown-item {{ Request::routeIs('majors.show', $major->id) ? 'active' : '' }}">
                                 {{ $major->name }}
@@ -25,10 +25,9 @@
                         @endforeach
                     </div>
                 </div>
-                
 
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle {{ Request::is('bkk', 'tc', 'pkl') ? 'active' : '' }}" data-bs-toggle="dropdown">Program</a>
+                    <a href="#" class="nav-link dropdown-toggle {{ Request::is('bkk') || Request::is('tc') || Request::is('pkl') ? 'active' : '' }}" data-bs-toggle="dropdown">Program</a>
                     <div class="dropdown-menu m-0">
                         <a href="{{ route('bkk') }}" class="dropdown-item {{ Request::routeIs('bkk') ? 'active' : '' }}">BKK Lensa</a>
                         <a href="{{ route('tc') }}" class="dropdown-item {{ Request::routeIs('tc') ? 'active' : '' }}">Teaching Factory</a>
@@ -36,9 +35,8 @@
                     </div>
                 </div>
 
-                <a href="{{ route('guest.news.index') }}" class="nav-item nav-link {{ Request::routeIs('guest.news.index') ? 'active' : '' }} {{ Request::routeIs('guest.news.selengkapnya') ? 'active' : '' }}">Kabar Lensa</a>
-                <a href="{{ route('kontak') }}" class="nav-item nav-link {{ Request::routeIs('contact') ? 'active' : '' }}">Kontak</a>
-
+                <a href="{{ route('guest.news.index') }}" class="nav-item nav-link {{ Request::routeIs('guest.news.index') || Request::routeIs('guest.news.selengkapnya') ? 'active' : '' }}">Kabar Lensa</a>
+                <a href="{{ route('kontak') }}" class="nav-item nav-link {{ Request::routeIs('contact') ? 'active' : '' }}">Kontak Kami</a>
             </div>
         </div>
     </nav>

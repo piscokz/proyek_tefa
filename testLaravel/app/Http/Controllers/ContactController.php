@@ -6,31 +6,20 @@ use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactResponseMail;
-use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
     // Menampilkan daftar kontak
     public function index()
     {
-        // Jika ingin menggunakan model Contact
         $contacts = Contact::all();
-
-        // Jika ingin menggunakan query builder (DB facade)
-        // $contacts = DB::table('contacts')->get();
-        
         return view('admin.contact.index', compact('contacts'));
     }
 
     // Menampilkan form respon berdasarkan ID kontak
     public function showRespondForm($id)
     {
-        // Jika menggunakan model Contact
         $contact = Contact::findOrFail($id);
-
-        // Jika menggunakan query builder
-        // $contact = DB::table('contacts')->where('id', $id)->first();
-        
         return view('admin.contact.respond', compact('contact'));
     }
 
@@ -43,8 +32,6 @@ class ContactController extends Controller
         ]);
 
         $contact = Contact::findOrFail($id);
-
-        // Mengambil respon admin dari form
         $response = $request->input('admin_response');
 
         // Kirim email ke tamu

@@ -1,0 +1,8 @@
+/* Menambahkan gaya untuk latar belakang */
+body {
+    background-color: #f8f9fa; /* Warna latar belakang yang lembut */
+}
+.card {
+    background-color: white; /* Warna latar belakang kartu */
+    border-radius: 8px; /* Sudut melengkung pada kartu */
+}

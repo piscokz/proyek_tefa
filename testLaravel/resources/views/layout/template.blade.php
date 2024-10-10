@@ -28,6 +28,10 @@
     <link href="{{ asset('guest/lib/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('guest/css/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('guest/css/header.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('guest/css/kontak.css')}}">
+    <!-- Particle.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.37.0/dist/tsparticles.min.js"></script>
+
 
     <!-- Customized Bootstrap Stylesheet -->
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
@@ -62,7 +66,7 @@
     <script src="{{ asset('guest/lib/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      AOS.init();
+        AOS.init();
     </script>
 
     <!-- Template Javascript -->

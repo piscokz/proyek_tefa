@@ -11,7 +11,7 @@ class NotificationController extends Controller
     public function index()
     {
         $contacts = Contact::where('status', 'new')->get();
-        return view('admin.dashboard', compact('contacts'));
+        return view('admin.dashboard.index', compact('contacts'));
     }
 
     public function getNotifications()
@@ -34,7 +34,7 @@ class NotificationController extends Controller
     }
 
     // Handle jika notifikasi tidak ditemukan
-    return redirect()->route('admin.dashboard')->with('error', 'Notification not found.');
+    return redirect()->route('admin.dashboard.index')->with('error', 'Notification not found.');
     }
 
 

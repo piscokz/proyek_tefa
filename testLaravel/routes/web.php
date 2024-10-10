@@ -16,6 +16,7 @@ Route::get('/tentang', [GuestController::class, 'tentang'])->name('tentang');
 Route::get('/news/show', [GuestController::class, 'kabarlensa'])->name('kabarlensa');
 Route::get('/kontak', [GuestController::class, 'kontak'])->name('kontak');
 
+// Route untuk tamu terkait major
 Route::get('/pplg', [GuestController::class, 'pplg'])->name('pplg');
 Route::get('/ps', [GuestController::class, 'ps'])->name('ps');
 Route::get('/tbsm', [GuestController::class, 'tbsm'])->name('tbsm');
@@ -29,9 +30,13 @@ Route::get('/pkl', [GuestController::class, 'pkl'])->name('pkl');
 Route::get('/news', [NewsController::class, 'index'])->name('guest.news.index');
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('guest.news.show');
 
+// Prefix untuk rute admin
 Route::prefix('admin')->group(function () {
-    // Dashboard
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    // Dashboard khusus admin
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
+        Route::get('/notifications/get', [NotificationController::class, 'getNotifications'])->name('notifications.get');
+    });
 
     // Major Routes
     Route::prefix('major')->group(function () {
@@ -42,23 +47,19 @@ Route::prefix('admin')->group(function () {
         Route::get('/{id}/edit', [MajorController::class, 'edit'])->name('major.edit'); // Form Edit
         Route::put('/{id}', [MajorController::class, 'update'])->name('major.update'); // Update
         Route::delete('/{id}', [MajorController::class, 'destroy'])->name('major.destroy'); // Delete
-        Route::get('/admin/major', [MajorController::class, 'index'])->name('major.index');
-
-
     });
 
     Route::prefix('majors')->group(function () {
         Route::get('/', [MajorController::class, 'indexGuest'])->name('majors.index'); // Daftar untuk Guest
         Route::get('/{id}', [MajorController::class, 'showGuest'])->name('majors.show'); // Detail untuk Guest
     });
-    
 
     // News Routes
     Route::prefix('news')->group(function () {
         Route::get('/', [NewsController::class, 'adminIndex'])->name('admin.news.index');
         Route::get('/create', [NewsController::class, 'create'])->name('admin.news.create');
         Route::post('/', [NewsController::class, 'store'])->name('admin.news.store');
-        Route::get('/admin/news/edit/{id}', [NewsController::class, 'edit'])->name('admin.news.edit');
+        Route::get('/edit/{id}', [NewsController::class, 'edit'])->name('admin.news.edit');
         Route::put('/{id}', [NewsController::class, 'update'])->name('admin.news.update');
         Route::delete('/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
         Route::get('/{id}', [NewsController::class, 'show'])->name('admin.news.show');
@@ -72,7 +73,4 @@ Route::prefix('admin')->group(function () {
         Route::post('/respond/{id}', [ContactController::class, 'respond'])->name('admin.contact.respond.store');
         Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
     });
-
-    Route::get('/admin/dashboard', [NotificationController::class, 'index'])->name('admin.dashboard');
-    Route::get('/notifications/get', [NotificationController::class, 'getNotifications'])->name('notifications.get');
 });
