@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Major;
+use App\Models\News; // Add this line to import the News model
+use App\Models\Contact; // If Contact model is used, import it as well
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
