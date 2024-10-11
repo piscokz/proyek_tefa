@@ -35,7 +35,7 @@ Route::prefix('admin')->group(function () {
     // Dashboard khusus admin
     Route::prefix('dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
-        Route::get('/notifications/get', [NotificationController::class, 'getNotifications'])->name('notifications.get');
+        // Route::get('/notifications/get', [NotificationController::class, 'getNotifications'])->name('notifications.get');
     });
 
     // Major Routes
@@ -72,5 +72,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/respond/{id}', [ContactController::class, 'showRespondForm'])->name('admin.contact.respond');
         Route::post('/respond/{id}', [ContactController::class, 'respond'])->name('admin.contact.respond.store');
         Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+        Route::get('/notifications/get', [NotificationController::class, 'getNotifications'])->name('notifications.get');
+        Route::get('/contact/respond/{id}', [NotificationController::class, 'respond'])->name('admin.contact.respond');
     });
 });

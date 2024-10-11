@@ -14,6 +14,15 @@
                 @if(session('success'))
                     <div class="alert alert-success">{{ session('success') }}</div>
                 @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="{{ route('contact.store') }}" method="POST">
                     @csrf
                     <div class="card p-4 shadow">
@@ -26,7 +35,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required onkeyup="showGravatar()">
                                     <label for="email">Email Kamu</label>
                                 </div>
                             </div>
@@ -42,6 +51,12 @@
                                     <label for="message">Pesan kamu</label>
                                 </div>
                             </div>
+
+                            <!-- Gravatar Image Section -->
+                            <div class="col-12 text-center">
+                                <img id="gravatarImage" src="" alt="Gravatar" class="img-fluid rounded-circle mb-3" style="display: none; width: 100px; height: 100px;">
+                            </div>
+
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Kirim Pesan</button>
                             </div>
@@ -53,5 +68,26 @@
     </div>
 </div>
 
+<!-- Include the CryptoJS library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 
+<script>
+    function showGravatar() {
+        const email = document.getElementById('email').value.trim().toLowerCase();
+        const gravatarUrl = email ? 'https://www.gravatar.com/avatar/' + md5(email) + '?s=200&d=mp' : '';
+        const gravatarImage = document.getElementById('gravatarImage');
+        
+        // Show the Gravatar image if the email is valid
+        if (email) {
+            gravatarImage.src = gravatarUrl;
+            gravatarImage.style.display = 'block';
+        } else {
+            gravatarImage.style.display = 'none'; // Hide the image if the email is empty
+        }
+    }
+
+    function md5(string) {
+        return CryptoJS.MD5(string).toString(); // Use the CryptoJS MD5 function
+    }
+</script>
 @endsection

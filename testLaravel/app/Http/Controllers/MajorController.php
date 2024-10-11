@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Major;
-use App\Models\News; // Add this line to import the News model
-use App\Models\Contact; // If Contact model is used, import it as well
+use App\Models\News; // Import the News model
+use App\Models\Contact; // Import the Contact model if used
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class MajorController extends Controller
 {
+    // Admin Functions
     public function index()
     {
         // Get counts for the dashboard
@@ -106,9 +106,10 @@ class MajorController extends Controller
         return redirect()->route('major.index')->with('success', 'Program keahlian berhasil dihapus.');
     }
 
+    // Guest Functions
     public function indexGuest()
     {
-        // Display all majors without pagination for guest view
+        // Display all majors for guest view
         $majors = Major::all();
         return view('guest.majors.index', compact('majors'));
     }

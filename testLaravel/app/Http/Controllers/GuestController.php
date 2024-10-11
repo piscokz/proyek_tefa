@@ -78,11 +78,5 @@ class GuestController extends Controller
     public function tc() 
     {
         return view('guest/tc');
-    }
-
-    
-
-    
+    }    
 }
-
-

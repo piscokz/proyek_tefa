@@ -1,9 +1,8 @@
-<!-- resources/views/admin/contact/index.blade.php -->
 @extends('layout.admintemplate')
 
 @section('content')
-<div class="container mt-4"> <!-- Tambahkan margin-top untuk memberi jarak ke atas -->
-    <h1 class="text-center mb-4">Daftar Kontak</h1> <!-- Tambahkan margin-bottom -->
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Daftar Kontak</h1>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -11,7 +10,7 @@
 
     <div class="d-flex justify-content-center">
         <table class="table table-striped table-bordered text-center" style="width: 80%;">
-            <thead>
+            <thead class="table-primary">
                 <tr>
                     <th>ID</th>
                     <th>Nama</th>
@@ -28,9 +27,14 @@
                     <td>{{ $contact->name }}</td>
                     <td>{{ $contact->email }}</td>
                     <td>{{ $contact->title }}</td>
-                    <td>{{ Str::limit($contact->message, 50) }} <a href="#" data-bs-toggle="modal" data-bs-target="#messageModal{{ $contact->id }}">Read more</a></td>
                     <td>
-                        <a href="{{ route('admin.contact.respond', $contact->id) }}" class="btn btn-primary">Respond</a>
+                        {{ Str::limit($contact->message, 50) }} 
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#messageModal{{ $contact->id }}">Read more</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('admin.contact.respond', $contact->id) }}" class="btn btn-primary" title="Respond">
+                            <i class="bi bi-reply"></i> Respond
+                        </a>
                     </td>
                 </tr>
 

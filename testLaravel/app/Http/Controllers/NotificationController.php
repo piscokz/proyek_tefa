@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Contact; // Sesuaikan model yang kamu gunakan
+use App\Models\Contact;
 
 class NotificationController extends Controller
 {
@@ -15,27 +15,30 @@ class NotificationController extends Controller
     }
 
     public function getNotifications()
-{
-    $contacts = Contact::where('is_read', false)->get(); // Hanya ambil notifikasi yang belum dibaca
-    return response()->json(['contacts' => $contacts]); // Kirim sebagai JSON
-}
+    {
+        // Fetch only unread notifications
+        $contacts = Contact::where('is_read', false)->get();
+
+        // Return notifications as JSON for AJAX
+        return response()->json(['contacts' => $contacts]);
+    }
 
     public function respond($id)
     {
-    $contact = Contact::find($id);
-    
-    if ($contact) {
-        // Tandai notifikasi sebagai dibaca
-        $contact->is_read = true;
-        $contact->save();
-        
-        // Redirect ke halaman respons
-        return redirect()->route('admin.contact.respond', $contact->id);
-    }
+        // Find the notification by ID
+        $contact = Contact::find($id);
 
-    // Handle jika notifikasi tidak ditemukan
-    return redirect()->route('admin.dashboard.index')->with('error', 'Notification not found.');
-    }
+        if ($contact) {
+            // Mark the notification as read
+            $contact->is_read = true;
+            $contact->save();
 
+            // Redirect to the response page
+            return redirect()->route('admin.contact.respond', $contact->id);
+        }
+
+        // Handle notification not found case
+        return redirect()->route('admin.dashboard.index')->with('error', 'Notification not found.');
+    }
 
 }

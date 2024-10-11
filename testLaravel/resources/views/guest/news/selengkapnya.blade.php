@@ -11,7 +11,6 @@
                 <div class="card-body">
                     <h6 class="card-subtitle mb-2 text-muted">{{ $news->created_at->format('d F Y') }}</h6>
                     <p class="card-text">{{ $news->content }}</p>
-                    
                     <div class="form-group">
                         <label for="title" class="fw-bold">Judul Berita</label>
                         <input type="text" class="form-control" id="title" readonly value="{{ $news->title }}">

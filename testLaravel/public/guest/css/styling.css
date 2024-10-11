@@ -1,0 +1,44 @@
+
+body {
+    font-family: 'Roboto', sans-serif; /* Use Roboto for body text */
+}
+
+.navbar {
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 576px) {
+    .hero-header {
+        padding: 2rem 1rem; /* Adjust padding for mobile */
+    }
+
+    .hero-header h1 {
+        font-size: 2.5rem; /* Adjust font size for mobile */
+        font-family: 'Poppins', sans-serif; /* Use Poppins for headings */
+        font-weight: 600; /* Make the heading bold */
+    }
+
+    .hero-header p {
+        font-size: 1.2rem; /* Adjust paragraph size for mobile */
+        font-family: 'Roboto', sans-serif; /* Use Roboto for paragraphs */
+    }
+
+    .modal-header i {
+        color: #007bff; /* Change icon color */
+    }
+
+    .modal-content {
+        transition: transform 0.3s ease;
+    }
+
+    .modal.fade .modal-dialog {
+        transform: translate(0, -30px);
+        opacity: 0;
+    }
+
+    .modal.show .modal-dialog {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+}

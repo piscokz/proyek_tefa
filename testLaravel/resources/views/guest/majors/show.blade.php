@@ -5,7 +5,7 @@
 @section('content')
 <div class="container-xxl py-6" style="background-color: #f9f9f9;"> <!-- Latar belakang lebih lembut -->
     <div class="container text-center">
-        <h4 class="mb-5 text-primary">{{ $major->name }}</h4> <!-- Warna teks judul -->
+        <h4 class="mb-5">{{ $major->name }}</h4> <!-- Warna teks judul -->
         <div class="row justify-content-center mb-5">
             <div class="col-lg-8 col-md-10">
                 <div class="card shadow-lg border-0 rounded"> <!-- Menambahkan shadow dan rounded -->

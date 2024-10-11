@@ -6,6 +6,7 @@ use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactResponseMail;
+use Illuminate\Support\Facades\Hash;
 
 class ContactController extends Controller
 {
@@ -44,26 +45,31 @@ class ContactController extends Controller
         return redirect()->route('admin.contact.index')->with('success', 'Response sent successfully and contact deleted!');
     }
 
-    // Menyimpan data kontak baru
     public function store(Request $request)
     {
-        // Validasi permintaan yang masuk
+        // Validate the request
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'message' => 'required|string',
             'title' => 'required|string|max:50',
+            'message' => 'required|string',
+            // No need to validate the profile_image as it's now optional
         ]);
-
-        // Simpan kontak menggunakan model Contact
-        $contact = new Contact();
-        $contact->name = $request->input('name');
-        $contact->email = $request->input('email');
-        $contact->title = $request->input('title');
-        $contact->message = $request->input('message');
-        $contact->save();
-
-        // Redirect dengan pesan sukses
-        return redirect()->route('kontak')->with('success', 'Pesan berhasil dikirim');
+    
+        // Get the Gravatar URL based on the email
+        $email = strtolower(trim($request->email));
+        $gravatarUrl = 'https://www.gravatar.com/avatar/' . md5($email) . '?s=200&d=mp';
+    
+        // Store the contact message in the database or handle it as needed
+        // Assuming you have a Contact model
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'title' => $request->title,
+            'message' => $request->message,
+            'profile_image' => $gravatarUrl, // Store the Gravatar URL
+        ]);
+    
+        return redirect()->back()->with('success', 'Your message has been sent successfully.');
     }
 }
