@@ -68,9 +68,9 @@
                             <p class="text-white pb-3 fs-5 animated fadeInUp">
                                 Adalah Sebuah Sekolah Menengah Kejuruan (SMK) Yang Berada Di Kabupaten Karawang Jawa Barat, Indonesia
                             </p>
-                            <a href="{{ route('kontak') }}" class="btn btn-warning btn-lg animated fadeInUp delay-1s">
+                            <a href="{{ route('kontak') }}" class="btn btn-outline-warning btn-lg animated fadeInUp delay-1s">
                                 <i class="fas fa-envelope"></i> &nbsp;Hubungi Kami
-                            </a>
+                            </a>                            
                         </div>
                         <div class="col-lg-6 text-center text-lg-start">
                             <img class="img-fluid border border-3 rounded border-light shadow animated fadeInRight" src="{{ asset('guest/img/profile/lb.jpeg') }}" alt="Foto Halaman SMK Lentera Bangsa">

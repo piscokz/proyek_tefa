@@ -16,11 +16,15 @@ Route::get('/', [GuestController::class, 'beranda'])->name('beranda');
 Route::get('/tentang', [GuestController::class, 'tentang'])->name('tentang');
 Route::get('/news/show', [GuestController::class, 'kabarlensa'])->name('kabarlensa');
 Route::get('/kontak', [GuestController::class, 'kontak'])->name('kontak');
+Route::get('/bkk', [GuestController::class, 'bkk'])->name('bkk');
+Route::get('/tc', [GuestController::class, 'tc'])->name('tc');
+Route::get('/pkl', [GuestController::class, 'pkl'])->name('pkl');
 
+// Route untuk login dan autentikasi
 Route::middleware(['guest'])->group(function () {
-    // Route Untuk Login
     Route::controller(AuthController::class)->group(function(){
-        Route::get('/login','login')->name('login');
+        // Route::get('/login','login')->name('login');
+        Route::get('/login', [AuthController::class, 'login'])->name('login');
         Route::post('/authenticate','authenticate')->name('auth.authenticate');
     });
 });
@@ -29,30 +33,28 @@ Route::middleware(['guest'])->group(function () {
 Route::get('/news', [NewsController::class, 'index'])->name('guest.news.index');
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('guest.news.show');
 
-Route::get('/', [MajorController::class, 'indexGuest'])->name('majors.index'); // Daftar untuk Guest
-Route::get('/{id}', [MajorController::class, 'showGuest'])->name('majors.show'); // Detail untuk Guest
+// Route untuk menampilkan jurusan bagi tamu
+Route::get('/majors', [MajorController::class, 'indexGuest'])->name('majors.index');
+Route::get('/majors/{id}', [MajorController::class, 'showGuest'])->name('majors.show');
 
+// Route yang memerlukan autentikasi (admin area)
 Route::middleware(['auth'])->group(function () {
-    // Prefix untuk rute admin
+    // Prefix untuk admin
     Route::prefix('admin')->group(function () {
-        // Dashboard khusus admin
-        Route::prefix('dashboard')->group(function () {
-            Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
-            // Route::get('/notifications/get', [NotificationController::class, 'getNotifications'])->name('notifications.get');
-        });
-    
-        // Major Routes
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
+        
+        // Route untuk major
         Route::prefix('major')->group(function () {
-            Route::get('/', [MajorController::class, 'index'])->name('major.index'); // Daftar Major
-            Route::get('/create', [MajorController::class, 'create'])->name('major.create'); // Form Create
-            Route::post('/', [MajorController::class, 'store'])->name('major.store'); // Store
-            Route::get('/{id}', [MajorController::class, 'show'])->name('major.show'); // Detail Major
-            Route::get('/{id}/edit', [MajorController::class, 'edit'])->name('major.edit'); // Form Edit
-            Route::put('/{id}', [MajorController::class, 'update'])->name('major.update'); // Update
-            Route::delete('/{id}', [MajorController::class, 'destroy'])->name('major.destroy'); // Delete
+            Route::get('/major', [MajorController::class, 'index'])->name('major.index');
+            Route::get('/create', [MajorController::class, 'create'])->name('major.create');
+            Route::post('/majory', [MajorController::class, 'store'])->name('major.store');
+            Route::get('/{id}', [MajorController::class, 'show'])->name('major.show');
+            Route::get('/{id}/edit', [MajorController::class, 'edit'])->name('major.edit');
+            Route::put('/{id}', [MajorController::class, 'update'])->name('major.update');
+            Route::delete('/{id}', [MajorController::class, 'destroy'])->name('major.destroy');
         });
     
-        // News Routes
+        // Route untuk berita
         Route::prefix('news')->group(function () {
             Route::get('/', [NewsController::class, 'adminIndex'])->name('admin.news.index');
             Route::get('/create', [NewsController::class, 'create'])->name('admin.news.create');
@@ -64,7 +66,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/selengkapnya/{id}', [NewsController::class, 'selengkapnya'])->name('guest.news.selengkapnya');
         });
     
-        // Contact Routes
+        // Route untuk kontak
         Route::prefix('contact')->group(function () {
             Route::get('/', [ContactController::class, 'index'])->name('admin.contact.index');
             Route::get('/respond/{id}', [ContactController::class, 'showRespondForm'])->name('admin.contact.respond');
@@ -74,7 +76,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/contact/respond/{id}', [NotificationController::class, 'respond'])->name('admin.contact.responds');
         });
     });
-
-    Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
+    
+    // Route untuk logout
+    Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });
-

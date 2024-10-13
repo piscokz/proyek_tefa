@@ -21,7 +21,7 @@ class GuestController extends Controller
         $majors = DB::table('majors')->get(); 
         
         // Kembalikan tampilan dengan data program keahlian
-        return view('guest.beranda', compact('majors'));
+        return view('guest.index', compact('majors'));
         
     }
 
@@ -46,25 +46,7 @@ class GuestController extends Controller
         return view('guest/pplg');
     }
 
-    public function ps() 
-    {
-        return view('guest/ps');
-    }
 
-    public function tbsm() 
-    {
-        return view('guest/tbsm');
-    }
-
-    public function tkro() 
-    {
-        return view('guest/tkro');
-    }
-
-    public function tkj() 
-    {
-        return view('guest/tkj');
-    }
 
     public function bkk() 
     {

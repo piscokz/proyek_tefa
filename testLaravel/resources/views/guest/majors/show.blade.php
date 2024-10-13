@@ -22,7 +22,7 @@
         </div>
 
         <!-- Tambahan: Informasi lebih lanjut -->
-        <div class="row justify-content-center">
+        {{-- <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card text-center shadow-sm border-0 rounded">
                     <div class="card-body">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 @endsection
