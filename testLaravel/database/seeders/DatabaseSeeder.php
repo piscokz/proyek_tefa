@@ -14,17 +14,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Faker::create('id_ID');
+        // $faker = Faker::create('id_ID');
 
-        for($i = 1; $i <= 5; $i++){
+        // for($i = 1; $i <= 5; $i++){
 
-            \DB::table('contacts')->insert([
-                'name' => $faker->name,
-                'email' => $faker->email,
-                'title' => $faker->text,
-                'message' => $faker->text,
-            ]);
-        }
+        //     \DB::table('contacts')->insert([
+        //         'name' => $faker->name,
+        //         'email' => $faker->email,
+        //         'title' => $faker->text,
+        //         'message' => $faker->text,
+        //     ]);
+        // }
+
+        $this->call([
+            UserSeeder::class,
+        ]);
 
     }
 }

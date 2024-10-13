@@ -106,12 +106,12 @@ class NewsController extends Controller
     
 }
 
-class GuestController extends Controller
-{
-    public function kabarlensa()
-    {
-        // Fetch the news items from the database
-        $news = News::latest()->paginate(10); // Fetch the latest news with pagination
-        return view('guest.news.show', compact('news')); // Pass the news variable to the view
-    }
-}
+// class GuestController extends Controller
+// {
+//     public function kabarlensa()
+//     {
+//         // Fetch the news items from the database
+//         $news = News::latest()->paginate(10); // Fetch the latest news with pagination
+//         return view('guest.news.show', compact('news')); // Pass the news variable to the view
+//     }
+// }

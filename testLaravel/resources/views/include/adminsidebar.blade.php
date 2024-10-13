@@ -1,5 +1,12 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
+        <!-- Guest Home Page -->
+        {{-- <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('beranda') ? 'active' : '' }}" href="{{ route('beranda') }}">
+                <i class="mdi mdi-view-dashboard menu-icon"></i>
+                <span class="menu-title">Beranda</span>
+            </a>
+        </li> --}}
         <!-- Dashboard -->
         <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('admin.dashboard.index') ? 'active' : '' }}" href="{{ route('admin.dashboard.index') }}">
@@ -7,6 +14,7 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
+
 
         <!-- Settings Section -->
         <li class="nav-item nav-category">Settings</li>
@@ -36,7 +44,7 @@
     </ul>
 
     <!-- Buat Program Section -->
-    <ul class="nav">
+    {{-- <ul class="nav">
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="mdi mdi-application menu-icon"></i>
@@ -63,5 +71,5 @@
                 </ul>
             </div>
         </li>
-    </ul>
+    </ul> --}}
 </nav>

@@ -25,9 +25,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="{{ route('beranda') }}" class="nav-item nav-link active"><i class="fas fa-home"></i> Beranda</a>
-                        <a href="{{ route('tentang') }}" class="nav-item nav-link"><i class="fas fa-info-circle"></i> Tentang</a>
-                        <div class="nav-item dropdown">
+                        <a href="{{ route('beranda') }}" class="nav-item nav-link active animated fadeInLeft"><i class="fas fa-home"></i> Beranda</a>
+                        <a href="{{ route('tentang') }}" class="nav-item nav-link animated fadeInLeft"><i class="fas fa-info-circle"></i> Tentang</a>
+                        <a href="{{ route('majors.index')}}" class="nav-link nav-item {{ Request::is('major*') ? 'active' : '' }} animated fadeInLeft">
+                            <i class="fas fa-graduation-cap animated fadeIn"></i> Keahlian
+                        </a>
+                        {{-- <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle {{ Request::is('majors') ? 'active' : '' }}" data-bs-toggle="dropdown"><i class="fas fa-graduation-cap"></i> Keahlian</a>
                             <div class="dropdown-menu m-0">
                                 <a href="{{ route('majors.index') }}" class="btn btn-warning">
@@ -39,8 +42,8 @@
                                     </a>
                                 @endforeach
                             </div>
-                        </div>
-                        <div class="nav-item dropdown">
+                        </div> --}}
+                        <div class="nav-item dropdown animated fadeInLeft">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-chalkboard-teacher"></i> Program</a>
                             <div class="dropdown-menu m-0">
                                 <a href="{{ route('bkk') }}" class="dropdown-item">BKK Lensa</a>
@@ -48,8 +51,8 @@
                                 <a href="{{ route('pkl') }}" class="dropdown-item">Praktek Kerja Industri</a>
                             </div>
                         </div>
-                        <a href="{{ route('guest.news.index') }}" class="nav-item nav-link"><i class="fas fa-newspaper"></i> Kabar Lensa</a>
-                        <a href="{{ route('kontak') }}" class="nav-item nav-link"><i class="fas fa-phone-alt"></i> Kontak Kami</a>
+                        <a href="{{ route('guest.news.index') }}" class="nav-item nav-link animated fadeInLeft"><i class="fas fa-newspaper"></i> Kabar Lensa</a>
+                        <a href="{{ route('kontak') }}" class="nav-item nav-link animated fadeInLeft"><i class="fas fa-phone-alt"></i> Kontak Kami</a>
                     </div>
                 </div>
             </nav>

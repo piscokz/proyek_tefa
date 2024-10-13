@@ -17,8 +17,12 @@
                     <i class="fas fa-info-circle animated fadeIn"></i> Tentang
                 </a>
 
+                <a href="{{ route('majors.index')}}" class="nav-link nav-item {{ Request::is('major*') ? 'active' : '' }} animated fadeInLeft">
+                    <i class="fas fa-graduation-cap animated fadeIn"></i> Keahlian
+                </a>
+
                 <!-- Keahlian Dropdown -->
-                <div class="nav-item dropdown">
+                {{-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle {{ Request::is('majors*') ? 'active' : '' }} animated fadeInLeft" data-bs-toggle="dropdown">
                         <i class="fas fa-graduation-cap animated fadeIn"></i> Keahlian
                     </a>
@@ -30,7 +34,7 @@
                             </a>
                         @endforeach
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Program Dropdown -->
                 <div class="nav-item dropdown">

@@ -6,8 +6,10 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title text-primary">Daftar Program Keahlian</h4>
-
+                    <h4 class="card-title mb-4">Daftar Berita</h4>
+                        <a href="{{ route('major.create') }}" class="btn btn-primary mb-3">
+                            <i class="bi bi-plus-circle"></i> Tambah Berita
+                        </a>
                     @if(session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
