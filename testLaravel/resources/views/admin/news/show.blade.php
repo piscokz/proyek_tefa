@@ -20,6 +20,7 @@
                     </div>
 
                     <a class="btn btn-light" href="{{ route('admin.news.index') }}">Kembali</a>
+                    <a class="btn btn-light" href="{{ route('guest.news.index') }}">Buka Kabar Lensa</a>
                 </div>
             </div>
         </div>
