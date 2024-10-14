@@ -72,4 +72,12 @@ class ContactController extends Controller
     
         return redirect()->back()->with('success', 'Your message has been sent successfully.');
     }
+
+    public function destroy($id)
+    {
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
+
+        return redirect()->route('admin.contact.index')->with('success', 'Contact deleted successfully.');
+    }
 }

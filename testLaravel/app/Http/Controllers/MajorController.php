@@ -100,6 +100,7 @@ class MajorController extends Controller
         return redirect()->route('major.index')->with('success', 'Program keahlian berhasil diperbarui.');
     }
 
+
     public function destroy($id)
     {
         Major::destroy($id);

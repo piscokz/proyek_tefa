@@ -72,6 +72,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/respond/{id}', [ContactController::class, 'showRespondForm'])->name('admin.contact.respond');
             Route::post('/respond/{id}', [ContactController::class, 'respond'])->name('admin.contact.respond.store');
             Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+            Route::delete('/admin/contact/{id}', [ContactController::class, 'destroy'])->name('admin.contact.destroy');
             Route::get('/notifications/get', [NotificationController::class, 'getNotifications'])->name('notifications.get');
             Route::get('/contact/respond/{id}', [NotificationController::class, 'respond'])->name('admin.contact.responds');
         });

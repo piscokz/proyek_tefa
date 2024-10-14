@@ -36,6 +36,13 @@
                             @error('image')
                                 <span class="error invalid-feedback" style="display: inline">{{ $message }}</span>
                             @enderror
+
+                            @if($major->image)
+                                <div class="mt-2">
+                                    <img src="{{ asset($major->image) }}" alt="Current Image" class="img-thumbnail" width="200">
+                                    <p class="form-text text-muted">Gambar saat ini</p>
+                                </div>
+                            @endif
                         </div>
 
                         <div class="form-group">

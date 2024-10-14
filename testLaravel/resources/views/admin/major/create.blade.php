@@ -22,21 +22,21 @@
                 <input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" id="name" placeholder="Nama Program Keahlian" name="name">
                 @error('name')
                 <span class="error invalid-feedback" style="display: inline">{{ $message }}</span>
-            @enderror
+                @enderror
               </div>
               <div class="form-group">
                 <label>Gambar Kegiatan</label>
                 <input type="file" name="image" class="form-control @error('image') {{ 'is-invalid' }} @enderror">
                 @error('image')
                 <span class="error invalid-feedback" style="display: inline">{{ $message }}</span>
-            @enderror
+                @enderror
               </div>
               <div class="form-group">
                 <label for="description">Deskripsi Program Keahlian</label>
-                <textarea class="form-control @error('description') {{ 'is-invalid' }} @enderror" id="description" rows="4" name="description"></textarea>
+                <textarea class="form-control @error('description') {{ 'is-invalid' }} @enderror" id="description" rows="8" name="description"></textarea> <!-- Increased rows to 8 -->
                 @error('description')
                 <span class="error invalid-feedback" style="display: inline">{{ $message }}</span>
-            @enderror
+                @enderror
               </div>
               <button type="submit" class="btn btn-primary me-2">Submit</button>
               <a class="btn btn-light" href="{{route('major.index')}}">Cancel</a>
@@ -47,6 +47,4 @@
   </div>
 </div>
 
-
 @endsection
-

@@ -18,9 +18,11 @@
                         <p>{{ $major->description }}</p>
                         
                         <a href="{{ route('major.index') }}" class="btn btn-primary">Kembali ke Daftar</a>
+                        <a href="{{ route('majors.index') }}" class="btn btn-info">Lihat Ke Daftar Program Keahlian</a>
                     @else
                         <h4 class="card-title">Program keahlian tidak ditemukan.</h4>
                         <a href="{{ route('major.index') }}" class="btn btn-primary">Kembali ke Daftar</a>
+                        <a href="{{ route('majors.index') }}" class="btn btn-info">Lihat Ke Daftar Program Keahlian</a>
                     @endif
                 </div>
             </div>
