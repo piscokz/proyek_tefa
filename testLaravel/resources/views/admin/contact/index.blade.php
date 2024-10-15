@@ -8,6 +8,13 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
+    @if($contacts->isEmpty())
+        <!-- Tampilkan halaman 404 jika tidak ada data -->
+        <div class="text-center mt-5">
+            <h2 class="text-danger">404 - Tidak Ada Data Ditemukan</h2>
+            <p>Sepertinya tidak ada pesan kontak yang tersedia saat ini.</p>
+        </div>
+    @else
     <div class="table-responsive shadow-sm p-3 mb-5 bg-white rounded">
         <table class="table table-hover table-bordered table-striped text-center align-middle">
             <thead class="table-primary">
@@ -69,5 +76,6 @@
             </tbody>
         </table>
     </div>
+    @endif
 </div>
 @endsection
