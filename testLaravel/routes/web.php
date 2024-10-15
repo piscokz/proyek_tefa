@@ -20,22 +20,25 @@ Route::get('/bkk', [GuestController::class, 'bkk'])->name('bkk');
 Route::get('/tc', [GuestController::class, 'tc'])->name('tc');
 Route::get('/pkl', [GuestController::class, 'pkl'])->name('pkl');
 
-// Route untuk login dan autentikasi
-Route::middleware(['guest'])->group(function () {
-    Route::controller(AuthController::class)->group(function(){
-        // Route::get('/login','login')->name('login');
-        Route::get('/login', [AuthController::class, 'login'])->name('login');
-        Route::post('/authenticate','authenticate')->name('auth.authenticate');
-    });
-});
-
 // Route untuk tamu melihat berita
 Route::get('/news', [NewsController::class, 'index'])->name('guest.news.index');
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('guest.news.show');
+Route::get('/selengkapnya/{id}', [NewsController::class, 'selengkapnya'])->name('guest.news.selengkapnya');
 
 // Route untuk menampilkan jurusan bagi tamu
 Route::get('/majors', [MajorController::class, 'indexGuest'])->name('majors.index');
 Route::get('/majors/{id}', [MajorController::class, 'showGuest'])->name('majors.show');
+
+// Route untuk mengirim pertanyaan tamu (Tanya Lensa)
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+// Route untuk login dan autentikasi
+Route::middleware(['guest'])->group(function () {
+    Route::controller(AuthController::class)->group(function(){
+        Route::get('/login', [AuthController::class, 'login'])->name('login');
+        Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('auth.authenticate');
+    });
+});
 
 // Route yang memerlukan autentikasi (admin area)
 Route::middleware(['auth'])->group(function () {
@@ -63,18 +66,14 @@ Route::middleware(['auth'])->group(function () {
             Route::put('/{id}', [NewsController::class, 'update'])->name('admin.news.update');
             Route::delete('/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
             Route::get('/{id}', [NewsController::class, 'show'])->name('admin.news.show');
-            Route::get('/selengkapnya/{id}', [NewsController::class, 'selengkapnya'])->name('guest.news.selengkapnya');
         });
     
-        // Route untuk kontak
+        // Route untuk kontak (admin)
         Route::prefix('contact')->group(function () {
             Route::get('/', [ContactController::class, 'index'])->name('admin.contact.index');
             Route::get('/respond/{id}', [ContactController::class, 'showRespondForm'])->name('admin.contact.respond');
             Route::post('/respond/{id}', [ContactController::class, 'respond'])->name('admin.contact.respond.store');
-            Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-            Route::delete('/admin/contact/{id}', [ContactController::class, 'destroy'])->name('admin.contact.destroy');
-            Route::get('/notifications/get', [NotificationController::class, 'getNotifications'])->name('notifications.get');
-            Route::get('/contact/respond/{id}', [NotificationController::class, 'respond'])->name('admin.contact.responds');
+            Route::delete('/{id}', [ContactController::class, 'destroy'])->name('admin.contact.destroy');
         });
     });
     

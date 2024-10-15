@@ -47,21 +47,19 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the request
+        // Validate the form input
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'title' => 'required|string|max:50',
             'message' => 'required|string',
-            // No need to validate the profile_image as it's now optional
         ]);
-    
+
         // Get the Gravatar URL based on the email
         $email = strtolower(trim($request->email));
         $gravatarUrl = 'https://www.gravatar.com/avatar/' . md5($email) . '?s=200&d=mp';
-    
-        // Store the contact message in the database or handle it as needed
-        // Assuming you have a Contact model
+
+        // Store the contact message in the database
         Contact::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -69,7 +67,10 @@ class ContactController extends Controller
             'message' => $request->message,
             'profile_image' => $gravatarUrl, // Store the Gravatar URL
         ]);
-    
+
+        // Optionally, you can send an email confirmation to the user
+        // Mail::to($request->email)->send(new ContactSubmitted($request->all()));
+
         return redirect()->back()->with('success', 'Your message has been sent successfully.');
     }
 

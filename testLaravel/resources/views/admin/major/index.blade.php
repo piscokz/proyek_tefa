@@ -36,7 +36,7 @@
                                         <td class="text-center">{{ $major->code }}</td>
                                         <td>{{ $major->name }}</td>
                                         <td class="text-center">
-                                            <img src="{{ asset($major->image) }}" alt="image" class="img-thumbnail" width="50">
+                                            <img src="{{ asset($major->image) }}" alt="image" class="img-thumbnail" width="50" data-bs-toggle="modal" data-bs-target="#imageModal{{ $major->id }}">
                                         </td>
                                         <td>{{ Str::limit($major->description, 50) }}</td>
                                         <td class="text-center">
@@ -55,6 +55,22 @@
                                             </form>
                                         </td>
                                     </tr>
+
+                                    <!-- Modal for displaying full image -->
+                                    <div class="modal fade" id="imageModal{{ $major->id }}" tabindex="-1" aria-labelledby="imageModalLabel{{ $major->id }}" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="imageModalLabel{{ $major->id }}">{{ $major->name }}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    <img src="{{ asset($major->image) }}" alt="{{ $major->name }}" class="img-fluid">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 @endforeach
                             </tbody>
                         </table>

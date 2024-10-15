@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News; // Make sure to import your News model
+// use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
