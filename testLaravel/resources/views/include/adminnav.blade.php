@@ -22,7 +22,7 @@
                         <p class="mb-0 fw-medium float-start">Anggota Tim:</p>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item" href="https://id.linkedin.com/in/ibrahim-ahmad-falathin-1863a7321#:~:text=Lihat%20profil%20Ibrahim%20Ahmad%20Falathin%20di" target="_blank">
+                    <a class="dropdown-item preview-item" href="https://www.linkedin.com/in/ibrahim-ahmad-falathin-b57243334/" target="_blank">
                         <div class="preview-item-content flex-grow py-2">
                             <p class="preview-subject ellipsis fw-medium text-dark">Ibrahim Ahmad Falathin</p>
                             <p class="fw-light small-text mb-0">Back End</p>
