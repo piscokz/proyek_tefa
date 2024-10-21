@@ -26,6 +26,11 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="{{ route('beranda') }}" class="nav-item nav-link active animated fadeInLeft"><i class="fas fa-home"></i> Beranda</a>
+                        @if (Auth::check())
+                            <a href="{{ route('admin.dashboard.index')}}" class="nav-link nav-item {{ Request::is('major*') ? 'active' : '' }} animated fadeInLeft">
+                                <i class="fas fa-graduation-cap animated fadeIn"></i> Dashboard
+                            </a>
+                        @endif
                         <a href="{{ route('tentang') }}" class="nav-item nav-link animated fadeInLeft"><i class="fas fa-info-circle"></i> Tentang</a>
                         <a href="{{ route('majors.index')}}" class="nav-link nav-item {{ Request::is('major*') ? 'active' : '' }} animated fadeInLeft">
                             <i class="fas fa-graduation-cap animated fadeIn"></i> Keahlian
@@ -265,11 +270,21 @@
                 <br>
                 <br>
                 <div class="owl-carousel client-carousel">
-                    <img class="img-fluid" src="{{ asset('guest/img/company/astra.jpg') }}" alt="">
-                    <img class="img-fluid" src="{{ asset('guest/img/company/axioo.png') }}" alt="">
-                    <img class="img-fluid" src="{{ asset('guest/img/company/bjb.png') }}" alt="">
-                    <img class="img-fluid" src="{{ asset('guest/img/company/inovindo.png') }}" alt="">
-                    <img class="img-fluid" src="{{ asset('guest/img/company/daihatsu.png') }}" alt="">
+                    <a href="https://www.astra-honda.com/">
+                        <img class="img-fluid" src="{{ asset('guest/img/company/astra.jpg') }}" alt="">
+                    </a>
+                    <a href="https://www.axiooworld.com/?gad_source=1&gclid=Cj0KCQjw99e4BhDiARIsAISE7P9hBxwHw77BjeKqE78yqfKXW-Ao9b9taTGgJ5svUhHk0UxUY4XIeWcaAt6aEALw_wcB">
+                        <img class="img-fluid" src="{{ asset('guest/img/company/axioo.png') }}" alt="">
+                    </a>
+                    <a href="https://inovindo.co.id/">
+                        <img class="img-fluid" src="{{ asset('guest/img/company/inovindo.png') }}" alt="">
+                    </a>
+                    <a href="https://www.bankbjb.co.id/">
+                        <img class="img-fluid" src="{{ asset('guest/img/company/bjb.png') }}" alt="">
+                    </a>
+                    <a href="https://www.astra-daihatsu.id/getAdvised/newCar?productCode=AYLA&utm_source=google&utm_medium=cpc&utm_campaign=pmax_dso_sales-marketing_ayla&utm_term=&network=x&matchtype=&adposition=&device=c&gad_source=1&gclid=Cj0KCQjw99e4BhDiARIsAISE7P81WGGov8wH1gIoc4a9NEcAMxPWo4PmWlWIs8fVBk_32R-bn-dNeAgaAqxFEALw_wcB">
+                        <img class="img-fluid" src="{{ asset('guest/img/company/daihatsu.png') }}" alt="">
+                    </a>
                 </div>
             </div>
         </div>

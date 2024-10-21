@@ -41,7 +41,7 @@
                     <!-- Tampilkan gambar yang ada jika sudah ada -->
                     @if($news->image)
                         <div class="mt-2">
-                            <strong>Gambar Sebelumnya:</strong>
+                            <strong>Gambar Sebelumnya:</strong><br>
                             <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}" class="img-fluid mt-2" style="max-height: 300px; object-fit: cover;">
                         </div>
                     @endif

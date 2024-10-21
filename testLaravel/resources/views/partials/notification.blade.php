@@ -7,7 +7,7 @@
     </a>
     <div class="dropdown-menu dropdown-menu-end navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
         <div class="dropdown-header d-flex justify-content-between align-items-center py-3">
-            <p class="mb-0 fw-medium">You have {{ $contacts->count() }} new notifications</p>
+            <p class="mb-0 fw-medium">You have {{ $contacts->count() }} new notifications</p>&nbsp;&nbsp;
             <a class="badge badge-pill badge-primary text-decoration-none" href="{{ route('admin.contact.index') }}">View all</a>
         </div>
         <div class="dropdown-divider"></div>

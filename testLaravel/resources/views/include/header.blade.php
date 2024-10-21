@@ -13,6 +13,11 @@
                 <a href="{{ route('beranda') }}" class="nav-item nav-link {{ Request::routeIs('beranda') ? 'active' : '' }} animated fadeInLeft">
                     <i class="fas fa-home animated fadeIn"></i> Beranda
                 </a>
+                @if (Auth::check())
+                <a href="{{ route('admin.dashboard.index')}}" class="nav-link nav-item {{ Request::is('major*') ? 'active' : '' }} animated fadeInLeft">
+                    <i class="fas fa-graduation-cap animated fadeIn"></i> Dashboard
+                </a>
+                @endif
                 <a href="{{ route('tentang') }}" class="nav-item nav-link {{ Request::routeIs('tentang') ? 'active' : '' }} animated fadeInLeft">
                     <i class="fas fa-info-circle animated fadeIn"></i> Tentang
                 </a>
