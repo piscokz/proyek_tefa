@@ -20,7 +20,7 @@
 
         <!-- Program Keahlian -->
         <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('major.index') ? 'active' : '' }}" href="{{ route('major.index') }}">
+            <a class="nav-link {{ request()->routeIs('major.index') || request()->routeIs('major.create') || request()->routeIs('major.edit', ['id' => '*']) ? 'active' : '' }}" href="{{ route('major.index') }}">
                 <i class="mdi mdi-school menu-icon"></i>
                 <span class="menu-title">Program Keahlian</span>
             </a>
@@ -28,6 +28,7 @@
         
         <!-- Daftar Berita -->
         <li class="nav-item">
+            
             <a class="nav-link {{ request()->routeIs('admin.news.index') || request()->routeIs('admin.news.create') || request()->routeIs('admin.news.edit', ['id' => '*']) ? 'active' : '' }}" href="{{ route('admin.news.index') }}">
                 <i class="mdi mdi-newspaper menu-icon"></i>
                 <span class="menu-title">Daftar Berita</span>

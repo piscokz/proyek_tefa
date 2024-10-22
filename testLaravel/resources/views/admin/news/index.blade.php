@@ -6,26 +6,40 @@
 <div class="container mt-4">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card shadow-sm">
-            <div class="card-body text-center">
-                <h4 class="card-title mb-4 text-primary">Daftar Berita</h4>
-                <a href="{{ route('admin.news.create') }}" class="btn btn-primary mb-3">
-                    <i class="bi bi-plus-circle"></i> Tambah Berita
-                </a>
+            <div class="card-body">
+                <h4 class="card-title mb-4 text-primary text-center">Daftar Berita</h4>
 
                 @if(session('success'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
 
                 @if($news->isEmpty())
-                    <div class="alert alert-warning" role="alert">
+                    <div class="alert alert-warning text-center" role="alert">
                         Tidak ada berita yang ditemukan.
                     </div>
                 @else
+                    <!-- Form Pencarian -->
+                    <form action="{{ route('admin.news.search') }}" method="GET" class="mb-4">
+                        <div class="input-group">
+                            <input type="text" name="query" class="form-control" placeholder="Cari berita..." required>
+                            <button class="btn btn-outline-primary" type="submit">
+                                <i class="bi bi-search"></i> Cari
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="text-end mb-3">
+                        <a href="{{ route('admin.news.create') }}" class="btn btn-success">
+                            <i class="bi bi-plus-circle"></i> Tambah Berita
+                        </a>
+                    </div>
+
                     <div class="table-responsive pt-3">
-                        <table class="table table-hover table-bordered text-center align-middle">
-                            <thead class="table-primary">
+                        <table class="table table-striped table-bordered text-center align-middle">
+                            <thead class="table-light">
                                 <tr>
                                     <th>#</th>
                                     <th>Judul</th>
@@ -34,12 +48,12 @@
                             </thead>
                             <tbody>
                                 @foreach ($news as $item)
-                                <tr class="table-row" style="cursor: pointer;">
+                                <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->title }}</td>
                                     <td class="d-flex justify-content-center">
                                         <a href="{{ route('admin.news.show', $item->id) }}" class="btn btn-info btn-sm me-2" title="Details">
-                                            <i class="bi bi-eye"></i> Details
+                                            <i class="bi bi-eye"></i> Detail
                                         </a>
                                         <a href="{{ route('admin.news.edit', $item->id) }}" class="btn btn-warning btn-sm me-2" title="Edit">
                                             <i class="bi bi-pencil-square"></i> Edit
@@ -57,6 +71,12 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <!-- Pagination -->
+                    <div class="mt-4">
+                        {{ $news->links() }} <!-- Tambahkan paginasi -->
+                    </div>
+
                 @endif
             </div>
         </div>

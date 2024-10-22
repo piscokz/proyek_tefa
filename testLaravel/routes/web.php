@@ -66,6 +66,9 @@ Route::middleware(['auth'])->group(function () {
             Route::put('/{id}', [NewsController::class, 'update'])->name('admin.news.update');
             Route::delete('/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
             Route::get('/{id}', [NewsController::class, 'show'])->name('admin.news.show');
+            // Route untuk pencarian berita
+            Route::get('/admin/news/search', [NewsController::class, 'search'])->name('admin.news.search');
+
         });
     
         // Route untuk kontak (admin)
@@ -74,6 +77,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/respond/{id}', [ContactController::class, 'showRespondForm'])->name('admin.contact.respond');
             Route::post('/respond/{id}', [ContactController::class, 'respond'])->name('admin.contact.respond.store');
             Route::delete('/{id}', [ContactController::class, 'destroy'])->name('admin.contact.destroy');
+            Route::get('/admin/contact/search', [ContactController::class, 'search'])->name('admin.contact.search');
         });
     });
     

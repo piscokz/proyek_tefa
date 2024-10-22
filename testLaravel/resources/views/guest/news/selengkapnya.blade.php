@@ -4,40 +4,58 @@
 
 @section('content')
 <div class="container my-5">
+    <!-- Title Section -->
     <h1 class="text-center mb-4">{{ $news->title }}</h1>
+
+    <!-- Main Content and Image Row -->
     <div class="row">
+        <!-- Main Content Section -->
         <div class="col-lg-8">
             <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted">{{ $news->created_at->format('d F Y') }}</h6>
-                    <p class="card-text">{{ $news->content }}</p>
+                <div class="card-body bg-light p-4 rounded">
+                    <!-- News Title (Readonly Input) -->
+                    <div class="form-group mb-3">
+                        <label for="title" class="fw-bold text-primary">Judul Berita</label>
+                        <input type="text" class="form-control border-primary" id="title" readonly value="{{ $news->title }}">
+                    </div>
+                
+                    <!-- News Date and Content -->
                     <div class="form-group">
-                        <label for="title" class="fw-bold">Judul Berita</label>
-                        <input type="text" class="form-control" id="title" readonly value="{{ $news->title }}">
+                        <!-- News Date with margin-bottom -->
+                        <h6 class="card-subtitle mb-3 text-muted">
+                            <i class="fas fa-calendar-alt me-2"></i>{{ $news->created_at->format('d F Y') }}
+                        </h6>
+                
+                        <!-- News Content -->
+                        <p class="card-text text-dark bg-white p-3 rounded shadow-sm">
+                            {{ $news->content }}
+                        </p>
                     </div>
-                    
-                    <div class="form-group mt-3">
-                        <label for="content" class="fw-bold">Konten Berita</label>
-                        <textarea class="form-control" id="content" rows="6" readonly>{{ $news->content }}</textarea>
-                    </div>
-                </div>
-                <div class="card-footer text-muted">
-                    <a class="btn btn-primary" href="{{ route('guest.news.index') }}">Kembali ke Daftar Berita</a>
                 </div>
             </div>
         </div>
+
+        <!-- Image Section -->
         <div class="col-lg-4">
-            <div class="card shadow-sm">
+            <div class="card mb-4 shadow-sm">
                 <div class="card-body text-center">
                     <h5 class="card-title">Gambar Kegiatan</h5>
                     @if($news->image)
-                        <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}" class="img-fluid" style="max-height: 300px; object-fit: cover;">
+                        <!-- If Image Exists -->
+                        <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}" class="img-fluid rounded" style="max-height: 300px; object-fit: cover;">
                     @else
-                        <p>Tidak ada gambar untuk berita ini.</p>
+                        <!-- If No Image -->
+                        <p class="text-muted">Tidak ada gambar untuk berita ini.</p>
                     @endif
                 </div>
             </div>
-        </div>
+            <!-- Card Footer with Back Button -->
+            <div class="text-center">
+                <a class="btn btn-primary" href="{{ route('guest.news.index') }}">
+                    Kembali ke Daftar Berita
+                </a>
+            </div>
+        </div>                
     </div>
 </div>
 @endsection

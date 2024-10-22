@@ -19,11 +19,12 @@ class NewsController extends Controller
     public function index()
     {
         // Fetch the latest news with pagination
-        $news = News::latest()->paginate(5);
+        $news = News::latest()->paginate(5); // Sesuaikan 5 dengan jumlah berita yang ingin ditampilkan per halaman.
 
         // Return the view with the fetched news
         return view('guest.news.index', compact('news'));
     }
+
 
     // Other methods...
 
@@ -38,9 +39,10 @@ class NewsController extends Controller
     // Admin - CRUD berita
     public function adminIndex()
     {
-        $news = News::all();
+        $news = News::latest()->paginate(5); // 5 berita per halaman
         return view('admin.news.index', compact('news'));
     }
+
 
     public function create()
     {
@@ -103,6 +105,16 @@ class NewsController extends Controller
         $news->delete();
         return redirect()->route('admin.news.index')->with('success', 'Berita berhasil dihapus');
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $news = News::where('title', 'LIKE', "%{$query}%")->get();
+
+        return view('admin.news.index', compact('news'));
+    }
+
 
     
 }

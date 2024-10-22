@@ -21,6 +21,11 @@
                 <hr class="bg-light">
                 <ul class="list-unstyled">
                     <li><a href="{{ route('beranda') }}" class="text-light {{ Request::routeIs('beranda') ? 'active' : '' }}"><i class="fa fa-angle-right me-2"></i>Beranda</a></li>
+                    @if (!Auth::check())
+                        <li><a href="{{ route('login') }}" class="text-light {{ Request::routeIs('login') ? 'active' : '' }}">
+                            <i class="fa fa-angle-right me-2"></i>Admin Panel
+                        </a></li>
+                    @endif
                     <li><a href="{{ route('tentang') }}" class="text-light {{ Request::routeIs('tentang') ? 'active' : '' }}"><i class="fa fa-angle-right me-2"></i>Tentang Kami</a></li>
                     <li><a href="{{ route('majors.index') }}" class="text-light {{ Request::routeIs('majors.index') ? 'active' : '' }}"><i class="fa fa-angle-right me-2"></i>Keahlian</a></li>
                     <li><a href="#" class="text-light"><i class="fa fa-angle-right me-2"></i>Program</a></li>

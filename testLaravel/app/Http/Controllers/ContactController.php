@@ -13,9 +13,9 @@ class ContactController extends Controller
     // Menampilkan daftar kontak
     public function index()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::paginate(10); // Display 10 contacts per page
         return view('admin.contact.index', compact('contacts'));
-    }
+    }    
 
     // Menampilkan form respon berdasarkan ID kontak
     public function showRespondForm($id)
@@ -81,4 +81,16 @@ class ContactController extends Controller
 
         return redirect()->route('admin.contact.index')->with('success', 'Contact deleted successfully.');
     }
+    
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $contacts = Contact::where('name', 'LIKE', "%{$query}%")
+            ->orWhere('email', 'LIKE', "%{$query}%")
+            ->orWhere('title', 'LIKE', "%{$query}%")
+            ->get();
+
+        return view('admin.contacts.index', compact('contacts'));
+    }
+
 }

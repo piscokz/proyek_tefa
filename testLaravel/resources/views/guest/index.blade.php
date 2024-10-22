@@ -28,7 +28,7 @@
                         <a href="{{ route('beranda') }}" class="nav-item nav-link active animated fadeInLeft"><i class="fas fa-home"></i> Beranda</a>
                         @if (Auth::check())
                             <a href="{{ route('admin.dashboard.index')}}" class="nav-link nav-item {{ Request::is('major*') ? 'active' : '' }} animated fadeInLeft">
-                                <i class="fas fa-graduation-cap animated fadeIn"></i> Dashboard
+                                <i class="fas fa-user-tie animated fadeIn"></i> Dashboard                                  
                             </a>
                         @endif
                         <a href="{{ route('tentang') }}" class="nav-item nav-link animated fadeInLeft"><i class="fas fa-info-circle"></i> Tentang</a>
@@ -69,7 +69,9 @@
                 <div class="container position-relative z-index-1">
                     <div class="row g-5 align-items-center animated animate__tada">
                         <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 display-4 animated fadeInLeft">SMK Lentera Bangsa Karawang</h1>
+                            <h1 class="text-white mb-4 display-4 animated fadeInLeft">
+                                <span id="typed-text"></span><span class="cursor"></span> <!-- Teks yang diketik -->
+                            </h1>
                             <p class="text-white pb-3 fs-5 animated fadeInUp">
                                 Adalah Sebuah Sekolah Menengah Kejuruan (SMK) Yang Berada Di Kabupaten Karawang Jawa Barat, Indonesia
                             </p>
@@ -270,20 +272,20 @@
                 <br>
                 <br>
                 <div class="owl-carousel client-carousel">
-                    <a href="https://www.astra-honda.com/">
-                        <img class="img-fluid" src="{{ asset('guest/img/company/astra.jpg') }}" alt="">
+                    <a target="_blank" href="https://www.astra-honda.com/">
+                        <img class="img-fluid" src="{{ asset('guest/img/company/astra.jpg') }}" alt="logo Astra Honda Motor">
                     </a>
-                    <a href="https://www.axiooworld.com/?gad_source=1&gclid=Cj0KCQjw99e4BhDiARIsAISE7P9hBxwHw77BjeKqE78yqfKXW-Ao9b9taTGgJ5svUhHk0UxUY4XIeWcaAt6aEALw_wcB">
-                        <img class="img-fluid" src="{{ asset('guest/img/company/axioo.png') }}" alt="">
+                    <a target="_blank" href="https://www.axiooworld.com/?gad_source=1&gclid=Cj0KCQjw99e4BhDiARIsAISE7P9hBxwHw77BjeKqE78yqfKXW-Ao9b9taTGgJ5svUhHk0UxUY4XIeWcaAt6aEALw_wcB">
+                        <img class="img-fluid" src="{{ asset('guest/img/company/axioo.png') }}" alt="Logo Axioo">
                     </a>
-                    <a href="https://inovindo.co.id/">
-                        <img class="img-fluid" src="{{ asset('guest/img/company/inovindo.png') }}" alt="">
+                    <a target="_blank" href="https://inovindo.co.id/">
+                        <img class="img-fluid" src="{{ asset('guest/img/company/inovindo.png') }}" alt="Logo Inovindo">
                     </a>
-                    <a href="https://www.bankbjb.co.id/">
-                        <img class="img-fluid" src="{{ asset('guest/img/company/bjb.png') }}" alt="">
+                    <a target="_blank" href="https://www.bankbjb.co.id/">
+                        <img class="img-fluid" src="{{ asset('guest/img/company/bjb.png') }}" alt="Logo Bank Jabar Banten">
                     </a>
-                    <a href="https://www.astra-daihatsu.id/getAdvised/newCar?productCode=AYLA&utm_source=google&utm_medium=cpc&utm_campaign=pmax_dso_sales-marketing_ayla&utm_term=&network=x&matchtype=&adposition=&device=c&gad_source=1&gclid=Cj0KCQjw99e4BhDiARIsAISE7P81WGGov8wH1gIoc4a9NEcAMxPWo4PmWlWIs8fVBk_32R-bn-dNeAgaAqxFEALw_wcB">
-                        <img class="img-fluid" src="{{ asset('guest/img/company/daihatsu.png') }}" alt="">
+                    <a target="_blank" href="https://www.astra-daihatsu.id/getAdvised/newCar?productCode=AYLA&utm_source=google&utm_medium=cpc&utm_campaign=pmax_dso_sales-marketing_ayla&utm_term=&network=x&matchtype=&adposition=&device=c&gad_source=1&gclid=Cj0KCQjw99e4BhDiARIsAISE7P81WGGov8wH1gIoc4a9NEcAMxPWo4PmWlWIs8fVBk_32R-bn-dNeAgaAqxFEALw_wcB">
+                        <img class="img-fluid" src="{{ asset('guest/img/company/daihatsu.png') }}" alt="Logo Daihatsu">
                     </a>
                 </div>
             </div>
@@ -430,6 +432,19 @@
             });
         });
     </script>
+
+<script>
+    var typed = new Typed('#typed-text', {
+        strings: ["SMK Lentera Bangsa Karawang"], // Teks yang akan diketik
+        typeSpeed: 150,  // Kecepatan mengetik
+        backSpeed: 50,   // Kecepatan menghapus
+        backDelay: 2000, // Jeda sebelum mulai menghapus
+        startDelay: 1000, // Jeda sebelum mulai mengetik pertama kali
+        loop: true,      // Agar teks terus diulang
+        showCursor: true, // Tampilkan kursor kedip
+        cursorChar: '|',  // Karakter kursor
+    });
+</script>
     
     
 
