@@ -9,7 +9,14 @@
     <div class="container">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 wow animate__animated animate__fadeInLeft" data-wow-delay="0.1s">
-                <img class="img-fluid border border-3 border-success rounded-3 shadow-lg" src="{{ asset('guest/img/about/profile.jpg') }}" alt="Tentang LENSA">
+                <!-- Ganti gambar dengan video YouTube -->
+                <iframe class="border border-3 border-success rounded-3 shadow-lg" width="100%" height="315" 
+                    src="https://www.youtube.com/embed/1b1NTGOx-lY" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
             </div>
             <div class="col-lg-6 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
                 <div class="d-inline-block border rounded-pill text-primary px-4 mb-3 bg-light shadow-sm">Tentang Lensa</div>
@@ -27,6 +34,11 @@
                             Pada tahun 2008, yayasan <strong>Lentera Kalbu</strong> menetapkan perubahan nama sekolah menjadi <strong>SMK Lentera Bangsa</strong> yang disahkan oleh keputusan bupati Karawang. Hingga saat ini, <strong>SMK Lentera Bangsa</strong> telah berkembang dengan jurusan teknik komputer jaringan, teknik sepeda motor, dan perbankan syariah.
                         </p>
                     </div>
+                    <div class="col-12">
+                        <a href="https://www.youtube.com/@smklenterabangsatv3736" target="_blank" class="btn btn-danger w-100 d-flex align-items-center justify-content-center">
+                            <i class="fab fa-youtube me-2"></i> Buka YouTube
+                        </a>
+                    </div>                    
                 </div>
             </div>
         </div>
