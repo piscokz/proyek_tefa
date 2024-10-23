@@ -8,9 +8,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4 class="card-title mb-4 text-center">Daftar Program Keahlian</h4>
-                        <a href="{{ route('major.create') }}" class="btn btn-primary mb-3">
-                            <i class="bi bi-plus-circle"></i> Tambah Program
-                        </a>
+                        
                     </div>
 
                     @if(session('success'))

@@ -24,6 +24,7 @@ Route::get('/pkl', [GuestController::class, 'pkl'])->name('pkl');
 Route::get('/news', [NewsController::class, 'index'])->name('guest.news.index');
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('guest.news.show');
 Route::get('/selengkapnya/{id}', [NewsController::class, 'selengkapnya'])->name('guest.news.selengkapnya');
+Route::get('/guest/news/search', [NewsController::class, 'searching'])->name('guest.news.search');
 
 // Route untuk menampilkan jurusan bagi tamu
 Route::get('/majors', [MajorController::class, 'indexGuest'])->name('majors.index');

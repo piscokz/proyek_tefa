@@ -7,7 +7,12 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card shadow-sm">
             <div class="card-body">
-                <h4 class="card-title mb-4 text-primary text-center">Daftar Berita</h4>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="card-title text-primary mb-0">Daftar Berita</h4>
+                    <a href="{{ route('admin.news.create') }}" class="btn btn-success">
+                        <i class="bi bi-plus-circle"></i> Tambah Berita
+                    </a>
+                </div>
 
                 @if(session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -30,12 +35,6 @@
                             </button>
                         </div>
                     </form>
-
-                    <div class="text-end mb-3">
-                        <a href="{{ route('admin.news.create') }}" class="btn btn-success">
-                            <i class="bi bi-plus-circle"></i> Tambah Berita
-                        </a>
-                    </div>
 
                     <div class="table-responsive pt-3">
                         <table class="table table-striped table-bordered text-center align-middle">

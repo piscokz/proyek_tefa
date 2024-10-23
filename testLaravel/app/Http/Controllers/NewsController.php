@@ -2,53 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News; // Make sure to import your News model
-// use App\Models\News;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
-
-    public function selengkapnya($id)
-    {
-    $news = News::findOrFail($id); // Fetch the specific news item by ID
-    return view('guest.news.selengkapnya', compact('news')); // Pass the news item to the view
-    }
-
+    // Guest: Show news articles to guests
     public function index()
     {
-        // Fetch the latest news with pagination
-        $news = News::latest()->paginate(5); // Sesuaikan 5 dengan jumlah berita yang ingin ditampilkan per halaman.
-
-        // Return the view with the fetched news
+        $news = News::latest()->paginate(5);
         return view('guest.news.index', compact('news'));
     }
 
+    // Guest: Show full news article
+    public function selengkapnya($id)
+    {
+        $news = News::findOrFail($id);
+        return view('guest.news.selengkapnya', compact('news'));
+    }
 
-    // Other methods...
+    // Admin: Manage news articles (index)
+    public function adminIndex()
+    {
+        $news = News::latest()->paginate(5);
+        return view('admin.news.index', compact('news'));
+    }
 
-    
-
+    // Admin: Show specific news article
     public function show($id)
     {
         $news = News::findOrFail($id);
         return view('admin.news.show', compact('news'));
     }
 
-    // Admin - CRUD berita
-    public function adminIndex()
-    {
-        $news = News::latest()->paginate(5); // 5 berita per halaman
-        return view('admin.news.index', compact('news'));
-    }
-
-
+    // Admin: Create a news article
     public function create()
     {
         return view('admin.news.create');
     }
 
+    // Admin: Store a newly created news article
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -57,7 +51,6 @@ class NewsController extends Controller
             'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        // Upload gambar
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('news-images', 'public');
             $validated['image'] = $path;
@@ -67,12 +60,14 @@ class NewsController extends Controller
         return redirect()->route('admin.news.index')->with('success', 'Berita berhasil ditambahkan');
     }
 
+    // Admin: Edit news article
     public function edit($id)
     {
         $news = News::findOrFail($id);
         return view('admin.news.edit', compact('news'));
     }
 
+    // Admin: Update news article
     public function update(Request $request, $id)
     {
         $news = News::findOrFail($id);
@@ -83,11 +78,9 @@ class NewsController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            // Hapus gambar lama
             if ($news->image) {
                 Storage::disk('public')->delete($news->image);
             }
-
             $path = $request->file('image')->store('news-images', 'public');
             $validated['image'] = $path;
         }
@@ -96,6 +89,7 @@ class NewsController extends Controller
         return redirect()->route('admin.news.index')->with('success', 'Berita berhasil diupdate');
     }
 
+    // Admin: Delete a news article
     public function destroy($id)
     {
         $news = News::findOrFail($id);
@@ -106,25 +100,23 @@ class NewsController extends Controller
         return redirect()->route('admin.news.index')->with('success', 'Berita berhasil dihapus');
     }
 
+    // Admin: Search news articles
     public function search(Request $request)
     {
         $query = $request->input('query');
-
-        $news = News::where('title', 'LIKE', "%{$query}%")->get();
-
+        $news = News::where('title', 'LIKE', "%{$query}%")->paginate(5);
         return view('admin.news.index', compact('news'));
     }
 
+    // Guest: Search for news articles
+    public function searching(Request $request)
+    {
+        $query = $request->input('query');
+        $news = News::where('title', 'LIKE', "%{$query}%")
+                    ->orWhere('content', 'LIKE', "%{$query}%")
+                    ->paginate(5);
+        return view('guest.news.index', compact('news', 'query'));
+    }
 
-    
+
 }
-
-// class GuestController extends Controller
-// {
-//     public function kabarlensa()
-//     {
-//         // Fetch the news items from the database
-//         $news = News::latest()->paginate(10); // Fetch the latest news with pagination
-//         return view('guest.news.show', compact('news')); // Pass the news variable to the view
-//     }
-// }

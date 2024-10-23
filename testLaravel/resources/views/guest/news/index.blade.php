@@ -3,33 +3,35 @@
 @section('title', 'Kabar Lensa')
 
 @section('content')
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="container">
+        <!-- Search Form -->
+        <form action="{{ route('guest.news.search') }}" method="GET" class="mb-4">
+            <div class="input-group">
+                <input type="text" name="query" class="form-control" placeholder="Cari berita..." value="{{ request()->input('query') }}">
+                <button type="submit" class="btn btn-primary">Cari</button>
+            </div>
+        </form>
+
         <div class="row gy-4 posts-list">
             @if ($news->isEmpty())
                 <div class="col-12 text-center">
-                    <p class="text-muted">Tidak ada berita yang ditemukan.</p> <!-- Pesan not found -->
+                    <p class="text-muted">Tidak ada berita yang ditemukan untuk pencarian: "{{ request()->input('query') }}"</p>
                 </div>
             @else
                 @foreach ($news as $item)
                     <div class="col-xl-4 col-md-6">
-                        <div class="post-item position-relative h-100">
-                            <div class="post-img position-relative overflow-hidden wow fadeInUp">
-                                <a href="{{ route('guest.news.show', $item->id) }}">
+                        <div class="post-item position-relative">
+                            <div class="post-img">
+                                <a href="{{ route('guest.news.selengkapnya', $item->id) }}">
                                     <img src="{{ asset('storage/' . $item->image) }}" class="img-fluid" alt="">
                                 </a>
-                                <br>
-                                <br>
-                                <span class="post-date">{{ $item->created_at->format('F j') }}</span>
-                                <br>
+                                <span class="post-date">{{ $item->created_at->format('F j, Y') }}</span>
                             </div>
-
-                            <div class="post-content d-flex flex-column">
-                                <h3 class="post-title wow fadeInUp">{{ $item->title }}</h3>
-                                <p class="wow fadeInUp">{{ Str::limit($item->content, 150) }}</p>
-                                <hr>
-                                <a href="{{ route('guest.news.selengkapnya', $item->id) }}" class="readmore stretched-link wow fadeInUp">
-                                    <span>Selengkapnya</span>
-                                    <i class="bi bi-arrow-right"></i>
+                            <div class="post-content">
+                                <h3 class="post-title">{{ $item->title }}</h3>
+                                <p>{{ Str::limit($item->content, 150) }}</p>
+                                <a href="{{ route('guest.news.selengkapnya', $item->id) }}" class="readmore">
+                                    <span>Selengkapnya</span><i class="bi bi-arrow-right"></i>
                                 </a>
                             </div>
                         </div>
@@ -38,10 +40,9 @@
             @endif
         </div>
 
-        <!-- Pagination -->
         @if ($news->isNotEmpty())
             <div class="mt-4">
-                {{ $news->links() }} <!-- This will render the pagination links -->
+                {{ $news->appends(['query' => request()->input('query')])->links() }}
             </div>
         @endif
     </div>
