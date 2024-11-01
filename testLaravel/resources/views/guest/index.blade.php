@@ -61,31 +61,61 @@
                     </div>
                 </div>
             </nav>
-
+            
             <div class="container-xxl bg-primary hero-header position-relative overflow-hidden">
                 <!-- Optional Background Image -->
-                <div class="hero-background" style="background-image: url('{{ asset('https://smklenterabangsa.sch.id/wp-content/uploads/2019/02/IMG-20190222-WA0002.jpg')}}'); background-size: cover; background-position: center; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.3;"></div>
+                <div class="hero-background" style="background-image: url('{{ asset('guest/img/profile/lb.jpeg')}}'); background-size: cover; background-position: center; position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.3;"></div>
             
                 <div class="container position-relative z-index-1">
                     <div class="row g-5 align-items-center animated animate__tada">
                         <div class="col-lg-6 text-center text-lg-start">
                             <h1 class="text-white mb-4 display-4 animated fadeInLeft">
-                                <span id="typed-text"></span><span class="cursor"></span> <!-- Teks yang diketik -->
+                                <span id="typed-text"></span><span class="cursor"></span> <!-- Typed text effect -->
                             </h1>
                             <p class="text-white pb-3 fs-5 animated fadeInUp">
                                 Adalah Sebuah Sekolah Menengah Kejuruan (SMK) Yang Berada Di Kabupaten Karawang Jawa Barat, Indonesia
                             </p>
                             <a href="{{ route('kontak') }}" class="btn btn-outline-warning btn-lg animated fadeInUp delay-1s">
                                 <i class="fas fa-envelope"></i> &nbsp;Hubungi Kami
-                            </a>                            
+                            </a>
                         </div>
+            
                         <div class="col-lg-6 text-center text-lg-start">
-                            <img class="img-fluid border border-3 rounded border-light shadow animated fadeInRight" src="{{ asset('guest/img/profile/lb.jpeg') }}" alt="Foto Halaman SMK Lentera Bangsa">
+                            <!-- Carousel Start -->
+                            <div id="schoolCarousel" class="carousel slide animated fadeInRight" data-bs-ride="carousel" data-bs-interval="3000">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <a target="_blank" href="https://smklenterabangsa.sch.id/kunjungan-industri-ke-pt-akashi-wahana-indonesia/">
+                                            <img class="img-fluid border border-3 rounded border-light shadow" src="{{ asset('https://smklenterabangsa.sch.id/wp-content/uploads/2019/02/IMG-20190222-WA0002.jpg') }}" alt="Foto Halaman SMK Lentera Bangsa 1">
+                                        </a>
+                                    </div>
+                                    <div class="carousel-item"><a target="_blank" href="https://kbeonline.id/2023/11/29/mengenal-lebih-dekat-dengan-informasi-ketenagalistrikan-pln-beri-edukasi-kepada-siswa-smk-lentera-bangsa-karawang/">
+                                        <img class="img-fluid border border-3 rounded border-light shadow" src="{{ asset('https://assets.kbeonline.id/main/2023/11/6b6e7085-afd1-4a5a-880c-5129401e2114-e1701269622558-1200x674.webp') }}" alt="Foto Halaman SMK Lentera Bangsa 2">
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                        <a target="_blank" href="https://www.suara.com/otomotif/2022/11/05/173020/resmikan-dojo-untuk-smk-lentera-bangsa-di-karawang-daihatsu-dukung-pendidikan-di-indonesia">
+                                            <img class="img-fluid border border-3 rounded border-light shadow" src="{{ asset('https://media.suara.com/pictures/653x366/2022/11/05/12749-daihatsu-dojo-pt-adm-suaradotcom-01.jpg') }}" alt="Foto Halaman SMK Lentera Bangsa 3">
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Carousel Controls -->
+                                <button class="carousel-control-prev" type="button" data-bs-target="#schoolCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#schoolCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <!-- Carousel End -->
                         </div>
                     </div>
                 </div>
-            </div>            
+            </div>
             
+
         </div>
         <!-- Navbar & Hero End -->
 
