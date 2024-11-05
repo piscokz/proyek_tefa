@@ -9,11 +9,12 @@ class CreateKendaraansTable extends Migration
     public function up()
     {
         Schema::create('kendaraans', function (Blueprint $table) {
-            $table->string('nomor_polisi', 20)->primary(); // Menentukan panjang kolom
+            $table->id('no_polisi'); // Pastikan ini adalah BIGINT
             $table->string('jenis_motor');
             $table->string('warna')->nullable();
-            $table->year('tahun_produksi')->nullable();
+            $table->string('tahun_produksi')->nullable();
             $table->string('kode_mesin')->nullable();
+            $table->foreignId('id_pelanggan')->constrained('pelanggans', 'id_pelanggan'); // Referencing the right column
             $table->timestamps();
         });
     }

@@ -9,10 +9,9 @@ class CreatePelanggansTable extends Migration
     public function up()
     {
         Schema::create('pelanggans', function (Blueprint $table) {
-            $table->id('id_pelanggan');
+            $table->id('id_pelanggan'); // Pastikan ini adalah BIGINT
             $table->string('nama_pelanggan');
-            $table->integer('kontak');
-            $table->string('alamat');
+            $table->string('kontak');
             $table->timestamps();
         });
     }

@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    PelangganController,
-    KendaraanController,
     SparepartController,
     ServisController,
 };
@@ -12,24 +10,6 @@ use App\Http\Controllers\{
 Route::get('/', function () {
     return view('home');
 });
-
-// Rute untuk Pelanggan
-Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan.index');
-Route::get('/pelanggan/create', [PelangganController::class, 'create'])->name('pelanggan.create');
-Route::post('/pelanggan', [PelangganController::class, 'store'])->name('pelanggan.store');
-Route::get('/pelanggan/{id}', [PelangganController::class, 'show'])->name('pelanggan.show');
-Route::get('/pelanggan/{id}/edit', [PelangganController::class, 'edit'])->name('pelanggan.edit');
-Route::put('/pelanggan/{id}', [PelangganController::class, 'update'])->name('pelanggan.update');
-Route::delete('/pelanggan/{id}', [PelangganController::class, 'destroy'])->name('pelanggan.destroy');
-
-// Rute untuk Kendaraan
-Route::get('/kendaraan', [KendaraanController::class, 'index'])->name('kendaraan.index');
-Route::get('/kendaraan/create', [KendaraanController::class, 'create'])->name('kendaraan.create');
-Route::post('/kendaraan', [KendaraanController::class, 'store'])->name('kendaraan.store');
-Route::get('/kendaraan/{id}', [KendaraanController::class, 'show'])->name('kendaraan.show');
-Route::get('/kendaraan/{id}/edit', [KendaraanController::class, 'edit'])->name('kendaraan.edit');
-Route::put('/kendaraan/{id}', [KendaraanController::class, 'update'])->name('kendaraan.update');
-Route::delete('/kendaraan/{id}', [KendaraanController::class, 'destroy'])->name('kendaraan.destroy');
 
 // Rute untuk Sparepart
 Route::get('/sparepart', [SparepartController::class, 'index'])->name('sparepart.index');

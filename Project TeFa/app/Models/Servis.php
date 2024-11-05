@@ -9,16 +9,25 @@ class Servis extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id_servis';
-    protected $fillable = ['id_pelanggan', 'nomor_polisi', 'keluhan', 'kilometer_saat_ini', 'harga_jasa', 'tanggal_servis', 'total_biaya'];
+    protected $table = 'servis'; // Nama tabel di database
 
-    public function pelanggan()
-    {
-        return $this->belongsTo(Pelanggan::class, 'id_pelanggan');
-    }
+    protected $fillable = [
+        'nama_pelanggan',
+        'kontak',
+        'alamat',
+        'nomor_polisi',
+        'jenis_kendaraan',
+        'warna',
+        'kode_mesin',
+        'tahun_produksi',
+        'keluhan',
+        'kilometer_saat_ini',
+        'harga_jasa',
+        'total_biaya',
+    ];
 
-    public function kendaraan()
+    public function spareparts()
     {
-        return $this->belongsTo(Kendaraan::class, 'nomor_polisi');
+        return $this->belongsToMany(Sparepart::class, 'servis_sparepart', 'servis_id', 'sparepart_id')->withPivot('jumlah');
     }
 }

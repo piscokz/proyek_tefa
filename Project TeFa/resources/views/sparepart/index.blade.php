@@ -34,6 +34,7 @@
                 <td>{{ number_format($sparepart->harga_jual, 2, ',', '.') }}</td>
                 <td>Rp. {{ number_format($sparepart->keuntungan, 0, ',', '.') }}</td>
                 <td>
+                    <a href="{{ route('sparepart.show', $sparepart->id_sparepart) }}" class="btn btn-info">Detail</a>
                     <a href="{{ route('sparepart.edit', $sparepart->id_sparepart) }}" class="btn btn-warning">Edit</a>
                     <form action="{{ route('sparepart.destroy', $sparepart->id_sparepart) }}" method="POST" style="display:inline;">
                         @csrf
