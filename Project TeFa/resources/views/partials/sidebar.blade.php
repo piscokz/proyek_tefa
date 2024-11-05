@@ -20,7 +20,7 @@
 
         <!-- Data SparePart Menu Item -->
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('sparepart.index')}}">
                 <i class="mdi mdi-toolbox-outline menu-icon"></i>
                 <span class="menu-title">Data SparePart</span>
             </a>

@@ -10,12 +10,12 @@ class KendaraanController extends Controller
     public function index()
     {
         $kendaraans = Kendaraan::paginate(10);
-        return view('programServis.kendaraan.index', compact('kendaraans'));
+        return view('kendaraan.index', compact('kendaraans'));
     }
 
     public function create()
     {
-        return view('programServis.kendaraan.create');
+        return view('kendaraan.create');
     }
 
     public function store(Request $request)
@@ -34,13 +34,13 @@ class KendaraanController extends Controller
     public function show(string $id)
     {
         $kendaraan = Kendaraan::findOrFail($id);
-        return view('programServis.kendaraan.show', compact('kendaraan'));
+        return view('kendaraan.show', compact('kendaraan'));
     }
 
     public function edit(string $id)
     {
         $kendaraan = Kendaraan::findOrFail($id);
-        return view('programServis.kendaraan.edit', compact('kendaraan'));
+        return view('kendaraan.edit', compact('kendaraan'));
     }
 
     public function update(Request $request, string $id)

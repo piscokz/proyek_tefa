@@ -10,12 +10,12 @@ class SparepartController extends Controller
     public function index()
     {
         $spareparts = Sparepart::paginate(10);
-        return view('programServis.sparepart.index', compact('spareparts'));
+        return view('sparepart.index', compact('spareparts'));
     }
 
     public function create()
     {
-        return view('programServis.sparepart.create');
+        return view('sparepart.create');
     }
 
     public function store(Request $request)
@@ -25,6 +25,8 @@ class SparepartController extends Controller
             'jumlah' => 'required|integer|min:1',
             'harga_beli' => 'required|numeric',
             'harga_jual' => 'required|numeric',
+            'tanggal_masuk' => 'required|date', // Validasi untuk tanggal masuk
+            'deskripsi' => 'nullable|string', // Deskripsi bisa null
         ]);
 
         Sparepart::create($request->all());
@@ -35,13 +37,13 @@ class SparepartController extends Controller
     public function show(string $id)
     {
         $sparepart = Sparepart::findOrFail($id);
-        return view('programServis.sparepart.show', compact('sparepart'));
+        return view('sparepart.show', compact('sparepart'));
     }
 
     public function edit(string $id)
     {
         $sparepart = Sparepart::findOrFail($id);
-        return view('programServis.sparepart.edit', compact('sparepart'));
+        return view('sparepart.edit', compact('sparepart'));
     }
 
     public function update(Request $request, string $id)
@@ -53,6 +55,9 @@ class SparepartController extends Controller
             'jumlah' => 'required|integer|min:1',
             'harga_beli' => 'required|numeric',
             'harga_jual' => 'required|numeric',
+            'tanggal_masuk' => 'required|date', // Validasi untuk tanggal masuk
+            'tanggal_keluar' => 'nullable|date', // Validasi untuk tanggal keluar
+            'deskripsi' => 'nullable|string', // Deskripsi bisa null
         ]);
 
         $sparepart->update($request->all());
@@ -67,4 +72,6 @@ class SparepartController extends Controller
 
         return redirect()->route('sparepart.index')->with('success', 'Sparepart berhasil dihapus');
     }
+
+    
 }

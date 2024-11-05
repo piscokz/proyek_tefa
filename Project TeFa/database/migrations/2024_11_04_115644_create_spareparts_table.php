@@ -17,6 +17,7 @@ class CreateSparepartsTable extends Migration
             $table->decimal('keuntungan', 10, 2)->storedAs('harga_jual - harga_beli');
             $table->date('tanggal_masuk');
             $table->date('tanggal_keluar')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }

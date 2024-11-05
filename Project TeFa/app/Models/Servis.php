@@ -10,7 +10,6 @@ class Servis extends Model
     use HasFactory;
 
     protected $primaryKey = 'id_servis';
-
     protected $fillable = ['id_pelanggan', 'nomor_polisi', 'keluhan', 'kilometer_saat_ini', 'harga_jasa', 'tanggal_servis', 'total_biaya'];
 
     public function pelanggan()
