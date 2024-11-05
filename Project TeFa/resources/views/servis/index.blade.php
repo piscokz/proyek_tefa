@@ -14,6 +14,7 @@
             <tr>
                 <th>ID</th>
                 <th>Nama Pelanggan</th>
+                <th>Alamat</th>
                 <th>Actions</th>
             </tr>
         </thead>

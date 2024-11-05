@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Servis;
+use App\Models\Kendaraan;
 use Illuminate\Http\Request;
 use App\Models\Sparepart;
 
@@ -17,9 +18,16 @@ class ServisController extends Controller
 
     public function create()
     {
-        $spareparts = Sparepart::all(); // Ambil semua sparepart untuk dropdown
-        return view('servis.create', compact('spareparts'));
+        // Retrieve all spare parts from the 'spareparts' table
+        $spareparts = Sparepart::all(); // Fetch spare parts
+
+        // Retrieve all vehicles from the 'kendaraans' table if needed
+        $kendaraans = Kendaraan::all();
+
+        // Pass both variables to the view
+        return view('servis.create', compact('spareparts', 'kendaraans'));
     }
+
 
     public function store(Request $request)
     {
