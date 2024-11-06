@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Servis;
 use App\Models\Kendaraan;
+use App\Models\Pelanggan; // Add this line to import the Pelanggan model
 use Illuminate\Http\Request;
 use App\Models\Sparepart;
 
@@ -15,7 +16,6 @@ class ServisController extends Controller
         return view('servis.index', compact('servis'));
     }
     
-
     public function create()
     {
         // Retrieve all spare parts from the 'spareparts' table
@@ -27,7 +27,6 @@ class ServisController extends Controller
         // Pass both variables to the view
         return view('servis.create', compact('spareparts', 'kendaraans'));
     }
-
 
     public function store(Request $request)
     {
@@ -47,15 +46,49 @@ class ServisController extends Controller
             'jumlah' => 'required|array',
         ]);
 
-        Servis::create($request->all());
+        // Check if the customer already exists in the database by name or create a new one
+        $pelanggan = Pelanggan::firstOrCreate(
+            ['nama_pelanggan' => $request->nama_pelanggan],  // Check if customer exists
+            [
+                'kontak' => $request->kontak,
+                'alamat' => $request->alamat,
+            ]
+        );
+
+        // Check if the Pelanggan has been created successfully
+        if (!$pelanggan->id) {
+            return back()->withErrors('Pelanggan not found or created.');
+        }
+
+        // Log the Pelanggan ID to confirm it's set
+        \Log::info("Pelanggan ID: " . $pelanggan->id);
+
+        // Create a new vehicle entry and associate it with the Pelanggan
+        $kendaraan = Kendaraan::create([
+            'no_polisi' => $request->nomor_polisi,
+            'jenis_kendaraan' => $request->jenis_kendaraan,
+            'warna' => $request->warna,
+            'kode_mesin' => $request->kode_mesin,
+            'tahun_produksi' => $request->tahun_produksi,
+            'id_pelanggan' => $pelanggan->id,  // Ensure the correct ID is passed
+        ]);
+
+        // Create the service entry with the vehicle ID
+        Servis::create([
+            'nama_pelanggan' => $request->nama_pelanggan,
+            'kontak' => $request->kontak,
+            'alamat' => $request->alamat,
+            'kendaraan_id' => $kendaraan->id, // Associate the service with the new vehicle
+            'keluhan' => $request->keluhan,
+            'kilometer_saat_ini' => $request->kilometer_saat_ini,
+            'harga_jasa' => $request->harga_jasa,
+            'sparepart_id' => $request->sparepart_id,
+            'jumlah' => $request->jumlah,
+        ]);
+
         return redirect()->route('servis.index')->with('success', 'Servis berhasil ditambahkan.');
     }
 
-    public function show($id)
-    {
-        $servis = Servis::findOrFail($id);
-        return view('servis.show', compact('servis'));
-    }
 
     public function edit($id)
     {

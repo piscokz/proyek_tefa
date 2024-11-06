@@ -14,7 +14,7 @@ class Kendaraan extends Model
     public $timestamps = true; // Menyimpan created_at dan updated_at
 
     protected $fillable = [
-        'jenis_motor',
+        'jenis_kendaraan',
         'warna',
         'tahun_produksi',
         'kode_mesin',

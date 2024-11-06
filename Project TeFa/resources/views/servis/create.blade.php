@@ -37,12 +37,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="nomor_polisi"><i class="fas fa-car"></i> &nbsp; Nomor Polisi:</label>
-                        <select name="nomor_polisi" id="nomor_polisi" class="form-control" required>
-                            <option value="">Pilih Kendaraan</option>
-                            @foreach($kendaraans as $kendaraan)
-                            <option value="{{ $kendaraan->no_polisi }}">{{ $kendaraan->no_polisi }} - {{ $kendaraan->jenis_kendaraan }}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" name="nomor_polisi" id="nomor_polisi" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="jenis_kendaraan"><i class="fas fa-car-side"></i> &nbsp; Jenis Kendaraan:</label>
@@ -62,6 +57,8 @@
                     </div>
                 </div>
             </div>
+
+
 
             <!-- Section 3: Input Sparepart -->
             <div class="card mb-3 shadow">
@@ -136,8 +133,8 @@
                     </div>
                     <div class="form-group">
                         <label for="tanggal_servis"><i class="fas fa-calendar-day"></i> &nbsp; Tanggal Servis:</label>
-                        <input type="date" name="tanggal_servis" id="tanggal_servis" class="form-control" required>
-                    </div>
+                        <input type="date" name="tanggal_servis" id="tanggal_servis" class="form-control" value="{{ date('Y-m-d') }}" required>
+                    </div>                    
                 </div>
             </div>
             <button type="submit" class="btn btn-success">Simpan Servis</button>

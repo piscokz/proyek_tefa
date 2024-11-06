@@ -10,7 +10,7 @@ class CreateKendaraansTable extends Migration
     {
         Schema::create('kendaraans', function (Blueprint $table) {
             $table->id('no_polisi'); // Pastikan ini adalah BIGINT
-            $table->string('jenis_motor');
+            $table->string('jenis_kendaraan');
             $table->string('warna')->nullable();
             $table->string('tahun_produksi')->nullable();
             $table->string('kode_mesin')->nullable();
