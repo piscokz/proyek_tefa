@@ -58,8 +58,6 @@
                 </div>
             </div>
 
-
-
             <!-- Section 3: Input Sparepart -->
             <div class="card mb-3 shadow">
                 <div class="card-header bg-success text-white">
@@ -200,7 +198,7 @@
                             {{ $sparepart->nama_sparepart }}
                         </option>
                     @endforeach
-                </select>
+                </select> 
             </td>
             <td><input type="text" class="form-control harga" readonly></td>
             <td><input type="number" name="jumlah[]" class="form-control jumlah" required></td>

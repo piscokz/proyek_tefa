@@ -21,7 +21,7 @@ class Kendaraan extends Model
         'id_pelanggan',
     ];
 
-    // Relasi dengan pelanggan
+    // In the Kendaraan model
     public function pelanggan()
     {
         return $this->belongsTo(Pelanggan::class, 'id_pelanggan', 'id_pelanggan');

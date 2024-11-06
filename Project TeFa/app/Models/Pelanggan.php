@@ -9,16 +9,16 @@ class Pelanggan extends Model
 {
     use HasFactory;
 
-    protected $table = 'pelanggans'; // Nama tabel
+    protected $table = 'pelanggans'; // Table name
     protected $primaryKey = 'id_pelanggan'; // Primary key
-    public $timestamps = true; // Menyimpan created_at dan updated_at
+    public $timestamps = true; // Automatically manage created_at and updated_at timestamps
 
     protected $fillable = [
         'nama_pelanggan',
         'kontak',
     ];
 
-    // Relasi dengan kendaraan
+    // Relationship with Kendaraan
     public function kendaraan()
     {
         return $this->hasMany(Kendaraan::class, 'id_pelanggan', 'id_pelanggan');

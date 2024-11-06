@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 
 class SparepartController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $spareparts = Sparepart::paginate(10); // Adjust the number to control items per page
+        $search = $request->search;
+        $spareparts = Sparepart::when($search, function($query, $search) {
+            return $query->where('nama_sparepart', 'like', '%' . $search . '%');
+        })->paginate(4); // Adjust the number to control items per page
+
         return view('sparepart.index', compact('spareparts'));
     }
 
@@ -51,6 +55,7 @@ class SparepartController extends Controller
         $sparepart = Sparepart::findOrFail($sparepart_id);
         return view('sparepart.show', compact('sparepart'));
     }
+
 
     public function edit($id)
     {

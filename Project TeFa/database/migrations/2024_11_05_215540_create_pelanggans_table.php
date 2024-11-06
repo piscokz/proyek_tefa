@@ -9,7 +9,7 @@ class CreatePelanggansTable extends Migration
     public function up()
     {
         Schema::create('pelanggans', function (Blueprint $table) {
-            $table->id('id_pelanggan'); // Pastikan ini adalah BIGINT
+            $table->bigIncrements('id_pelanggan'); // Set as BIGINT and auto-increment
             $table->string('nama_pelanggan');
             $table->string('kontak');
             $table->timestamps();

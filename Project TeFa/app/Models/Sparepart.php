@@ -10,6 +10,7 @@ class Sparepart extends Model
     use HasFactory;
 
     protected $table = 'spareparts';
+    protected $primaryKey = 'id_sparepart'; // Specify custom primary key
     protected $fillable = [
         'nama_sparepart',
         'jumlah',
