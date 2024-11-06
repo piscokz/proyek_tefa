@@ -187,7 +187,7 @@
         subtotalInput.value = subtotal ? subtotal.toLocaleString('id-ID') : ''; // Format as IDR
     }
 
-    // Add a new row to the sparepart table
+        // Add a new row to the sparepart table
     document.getElementById('addRow').addEventListener('click', function() {
         const tableBody = document.querySelector('#sparepartTable tbody');
         const newRow = document.createElement('tr');
@@ -196,24 +196,26 @@
                 <select name="sparepart_id[]" class="form-control sparepart_id" required>
                     <option value="">Pilih Sparepart</option>
                     @foreach($spareparts as $sparepart)
-                        <option value="{{ $sparepart->id }}" data-harga="{{ $sparepart->harga_jual }}">{{ $sparepart->nama_sparepart }}</option>
+                        <option value="{{ $sparepart->id_sparepart }}" data-harga="{{ $sparepart->harga_jual }}">
+                            {{ $sparepart->nama_sparepart }}
+                        </option>
                     @endforeach
                 </select>
             </td>
-            <td>
-                <input type="text" class="form-control harga" readonly>
-            </td>
-            <td>
-                <input type="number" name="jumlah[]" class="form-control jumlah" required>
-            </td>
-            <td>
-                <input type="text" class="form-control subtotal" readonly>
-            </td>
-            <td>
-                <button type="button" class="btn btn-danger remove-row">Hapus</button>
-            </td>
+            <td><input type="text" class="form-control harga" readonly></td>
+            <td><input type="number" name="jumlah[]" class="form-control jumlah" required></td>
+            <td><input type="text" class="form-control subtotal" readonly></td>
+            <td><button type="button" class="btn btn-danger remove-row">Hapus</button></td>
         `;
         tableBody.appendChild(newRow);
+    });
+
+    // Remove a row from the sparepart table
+    document.getElementById('sparepartTable').addEventListener('click', function(event) {
+        if (event.target.classList.contains('remove-row')) {
+            event.target.closest('tr').remove();
+            updateTotalBiaya(); // Recalculate the total after removing a row
+        }
     });
 
     // Event listener for removing a row
