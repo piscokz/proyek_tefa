@@ -14,12 +14,10 @@ class CreateKendaraansTable extends Migration
             $table->string('warna')->nullable();
             $table->string('tahun_produksi')->nullable();
             $table->string('kode_mesin')->nullable();
-            
-            // Explicit foreign key reference
-            $table->foreignId('id_pelanggan')->constrained('pelanggans', 'id_pelanggan')
-                  ->onDelete('cascade'); // Optional: This will delete all related kendaraan when a pelanggan is deleted
-
-            $table->timestamps();
+            $table->foreignId('id_pelanggan')  // Foreign key to Pelanggan
+                ->constrained('pelanggans', 'id_pelanggan')  // Link it to the id_pelanggan column in the pelanggans table
+                ->onDelete('cascade');
+            $table->timestamps();   
         });
     }
 

@@ -9,20 +9,9 @@ class Sparepart extends Model
 {
     use HasFactory;
 
-    protected $table = 'spareparts';
-    protected $primaryKey = 'id_sparepart'; // Specify custom primary key
-    protected $fillable = [
-        'nama_sparepart',
-        'jumlah',
-        'harga_beli',
-        'harga_jual',
-        'keuntungan',
-        'tanggal_masuk',
-        'deskripsi',
-    ];
+    protected $table = 'spareparts'; // This is the table the model refers to
 
-    public function servis()
-    {
-        return $this->belongsToMany(Servis::class, 'servis_sparepart', 'sparepart_id', 'servis_id');
-    }
+    protected $fillable = [
+        'nama_sparepart', 'jumlah', 'harga_beli', 'harga_jual', 'keuntungan', 'tanggal_masuk', 'tanggal_keluar', 'deskripsi'
+    ];
 }

@@ -9,7 +9,7 @@ class CreateSparepartsTable extends Migration
     public function up()
     {
         Schema::create('spareparts', function (Blueprint $table) {
-            $table->id('id_sparepart'); // This is the primary key
+            $table->id('id_sparepart'); // Primary key
             $table->string('nama_sparepart');
             $table->integer('jumlah');
             $table->decimal('harga_beli', 10, 2);
@@ -21,7 +21,6 @@ class CreateSparepartsTable extends Migration
             $table->timestamps();
         });
     }
-
 
     public function down()
     {
