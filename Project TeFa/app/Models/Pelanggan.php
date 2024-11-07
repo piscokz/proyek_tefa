@@ -16,6 +16,7 @@ class Pelanggan extends Model
     protected $fillable = [
         'nama_pelanggan',
         'kontak',
+        'alamat',
     ];
 
     // Relationship with Kendaraan

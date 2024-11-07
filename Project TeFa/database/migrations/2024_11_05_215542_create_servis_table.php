@@ -8,7 +8,7 @@ class CreateServisTable extends Migration
 {
     public function up()
     {
-        Schema::dropIfExists('servis'); // Drop table if it exists before creating a new one
+        Schema::dropIfExists('servis');
         Schema::create('servis', function (Blueprint $table) {
             $table->id('id_servis');
             $table->foreignId('nomor_polisi')->constrained('kendaraans', 'no_polisi');
@@ -17,6 +17,9 @@ class CreateServisTable extends Migration
             $table->decimal('harga_jasa', 10, 2);
             $table->date('tanggal_servis');
             $table->decimal('total_biaya', 10, 2);
+            $table->decimal('uang_masuk', 10, 2);
+            $table->decimal('kembalian', 10, 2);
+            $table->enum('jenis_servis', ['ringan', 'sedang', 'berat'])->default('ringan'); // New attribute
             $table->timestamps();
         });
     }

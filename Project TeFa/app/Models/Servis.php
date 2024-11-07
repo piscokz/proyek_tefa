@@ -9,25 +9,30 @@ class Servis extends Model
 {
     use HasFactory;
 
-    protected $table = 'servis'; // Nama tabel di database
+    // Nama tabel
+    protected $table = 'servis';
 
+    // Primary Key
+    protected $primaryKey = 'id_servis';
+
+    // Fillable attributes for mass assignment
     protected $fillable = [
-        'nama_pelanggan',
-        'kontak',
-        'alamat',
-        'nomor_polisi',
-        'jenis_kendaraan',
-        'warna',
-        'kode_mesin',
-        'tahun_produksi',
+        'nomor_polisi',       // Foreign key to 'kendaraans' table
         'keluhan',
         'kilometer_saat_ini',
         'harga_jasa',
+        'tanggal_servis',
         'total_biaya',
+        'uang_masuk',
+        'kembalian',
+        'jenis_servis'        // Assuming you added this in the form
     ];
 
-    public function spareparts()
+    // Relation with Kendaraan model
+    public function kendaraan()
     {
-        return $this->belongsToMany(Sparepart::class, 'servis_sparepart', 'servis_id', 'sparepart_id')->withPivot('jumlah');
+        return $this->belongsTo(Kendaraan::class, 'nomor_polisi', 'no_polisi');
     }
+
+    // You could also add any other relationships, like with Sparepart if needed
 }
