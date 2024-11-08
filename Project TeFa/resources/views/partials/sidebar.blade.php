@@ -2,7 +2,7 @@
     <ul class="nav flex-column">
         <!-- Dashboard Menu Item -->
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
@@ -12,7 +12,7 @@
 
         <!-- Program Service Menu Item -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('servis.index') }}">
+            <a class="nav-link {{ Request::is('servis*') ? 'active' : '' }}" href="{{ route('servis.index') }}">
                 <i class="mdi mdi-cog-outline menu-icon"></i>
                 <span class="menu-title">Program Service</span>
             </a>
@@ -20,7 +20,7 @@
 
         <!-- Data SparePart Menu Item -->
         <li class="nav-item">
-            <a class="nav-link" href="{{route('sparepart.index')}}">
+            <a class="nav-link {{ Request::is('sparepart*') ? 'active' : '' }}" href="{{ route('sparepart.index') }}">
                 <i class="mdi mdi-toolbox-outline menu-icon"></i>
                 <span class="menu-title">Data SparePart</span>
             </a>
@@ -28,7 +28,7 @@
 
         <!-- Riwayat Service Menu Item -->
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link {{ Request::is('riwayat-service') ? 'active' : '' }}" href="#">
                 <i class="mdi mdi-history menu-icon"></i>
                 <span class="menu-title">Riwayat Service</span>
             </a>
@@ -36,7 +36,7 @@
 
         <!-- Documentation Menu Item -->
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link {{ Request::is('dokumentasi') ? 'active' : '' }}" href="#">
                 <i class="mdi mdi-file-document menu-icon"></i>
                 <span class="menu-title">Dokumentasi</span>
             </a>

@@ -21,11 +21,14 @@ class Kendaraan extends Model
         'id_pelanggan',
     ];
 
+    protected $guarded = ['no_polisi'];
+
     // In the Kendaraan model
     public function pelanggan()
     {
-        return $this->belongsTo(Pelanggan::class, 'id_pelanggan', 'id_pelanggan');
+        return $this->belongsTo(Pelanggan::class, 'id_pelanggan');
     }
+
 
     // Relasi dengan servis
     public function servis()

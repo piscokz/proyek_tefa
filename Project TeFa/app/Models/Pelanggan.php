@@ -18,10 +18,11 @@ class Pelanggan extends Model
         'kontak',
         'alamat',
     ];
+    protected $guarded = ['id_pelanggan'];
 
-    // Relationship with Kendaraan
-    public function kendaraan()
+    public function kendaraans()
     {
-        return $this->hasMany(Kendaraan::class, 'id_pelanggan', 'id_pelanggan');
+        return $this->hasMany(Kendaraan::class, 'id_pelanggan');
     }
-}
+
+}   

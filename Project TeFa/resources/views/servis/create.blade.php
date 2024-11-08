@@ -7,7 +7,7 @@
 
         <form action="{{ route('servis.store') }}" method="POST">
             @csrf
-
+        
             <!-- Section 1: Input Pelanggan -->
             <div class="card mb-3 shadow">
                 <div class="card-header bg-primary text-white">
@@ -16,19 +16,34 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="nama_pelanggan"><i class="fas fa-user"></i> Nama Pelanggan:</label>
-                        <input type="text" name="nama_pelanggan" id="nama_pelanggan" class="form-control" required>
+                        <input type="text" name="nama_pelanggan" id="nama_pelanggan" class="form-control" value="{{ old('nama_pelanggan') }}">
+                        @error('nama_pelanggan')
+                            <div class="alert alert-danger mt-2">
+                                <small>Nama Pelanggan Wajib Di-isi ! :</small> {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="kontak"><i class="fas fa-phone"></i> Kontak:</label>
-                        <input type="text" name="kontak" id="kontak" class="form-control" required>
+                        <input type="text" name="kontak" id="kontak" class="form-control" value="{{ old('kontak') }}">
+                        @error('kontak')
+                            <div class="alert alert-danger mt-2">
+                                <small>Kontak Wajib Di-isi ! :</small> {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="alamat"><i class="fas fa-map-marker-alt"></i> Alamat:</label>
-                        <textarea name="alamat" id="alamat" class="form-control" rows="3" required></textarea>
+                        <textarea name="alamat" id="alamat" class="form-control" rows="3">{{ old('alamat') }}</textarea>
+                        @error('alamat')
+                            <div class="alert alert-danger mt-2">
+                                <small>Alamat Wajib Di-isi ! :</small> {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
             </div>
-
+        
             <!-- Section 2: Input Kendaraan -->
             <div class="card mb-3 shadow">
                 <div class="card-header bg-info text-white">
@@ -37,27 +52,52 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="nomor_polisi"><i class="fas fa-car"></i> Nomor Polisi:</label>
-                        <input type="text" name="nomor_polisi" id="nomor_polisi" class="form-control" required>
+                        <input type="text" name="nomor_polisi" id="nomor_polisi" class="form-control" value="{{ old('nomor_polisi') }}">
+                        @error('nomor_polisi')
+                            <div class="alert alert-danger mt-2">
+                                <small>Nomor Polisi Wajib Di-isi ! :</small> {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="jenis_kendaraan"><i class="fas fa-car-side"></i> Jenis Kendaraan:</label>
-                        <input type="text" name="jenis_kendaraan" id="jenis_kendaraan" class="form-control" required>
+                        <input type="text" name="jenis_kendaraan" id="jenis_kendaraan" class="form-control" value="{{ old('jenis_kendaraan') }}">
+                        @error('jenis_kendaraan')
+                            <div class="alert alert-danger mt-2">
+                                <small>Jenis Kendaraan Wajib Di-isi ! :</small> {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="warna"><i class="fas fa-paint-brush"></i> Warna Kendaraan:</label>
-                        <input type="text" name="warna" id="warna" class="form-control" required>
+                        <input type="text" name="warna" id="warna" class="form-control" value="{{ old('warna') }}">
+                        @error('warna')
+                            <div class="alert alert-danger mt-2">
+                                <small>Warna Kendaraan Wajib Di-isi ! :</small> {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="kode_mesin"><i class="fas fa-cogs"></i> Kode Mesin:</label>
-                        <input type="text" name="kode_mesin" id="kode_mesin" class="form-control" required>
+                        <input type="text" name="kode_mesin" id="kode_mesin" class="form-control" value="{{ old('kode_mesin') }}">
+                        @error('kode_mesin')
+                            <div class="alert alert-danger mt-2">
+                                <small>Kode Mesin Wajib Di-isi ! :</small> {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="tahun_produksi"><i class="fas fa-calendar-alt"></i> Tahun Produksi:</label>
-                        <input type="text" name="tahun_produksi" id="tahun_produksi" class="form-control" required>
+                        <input type="text" name="tahun_produksi" id="tahun_produksi" class="form-control" value="{{ old('tahun_produksi') }}">
+                        @error('tahun_produksi')
+                            <div class="alert alert-danger mt-2">
+                                <small>Tahun Produksi Wajib Di-isi ! :</small> {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
             </div>
-
+        
             <!-- Section 3: Input Sparepart -->
             <div class="card mb-3 shadow">
                 <div class="card-header bg-success text-white">
@@ -78,7 +118,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <select name="sparepart_id[]" class="form-control sparepart_id" required>
+                                        <select name="sparepart_id[]" class="form-control sparepart_id">
                                             <option value="">Pilih Sparepart</option>
                                             @foreach($spareparts as $sparepart)
                                             <option value="{{ $sparepart->id_sparepart }}" data-harga="{{ $sparepart->harga_jual }}">
@@ -86,27 +126,37 @@
                                             </option>                                        
                                             @endforeach
                                         </select>
+                                        @error('sparepart_id.*')
+                                            <div class="alert alert-danger mt-2">
+                                                <small>Sparepart Wajib Dipilih ! :</small> {{ $message }}
+                                            </div>
+                                        @enderror
                                     </td>
                                     <td>
                                         <input type="text" class="form-control harga" readonly>
                                     </td>
                                     <td>
-                                        <input type="number" name="jumlah[]" class="form-control jumlah" required>
+                                        <input type="number" name="jumlah[]" class="form-control jumlah">
+                                        @error('jumlah.*')
+                                            <div class="alert alert-danger mt-2">
+                                                <small>Jumlah Wajib Di-isi ! :</small> {{ $message }}
+                                            </div>
+                                        @enderror
                                     </td>
                                     <td>
                                         <input type="text" class="form-control subtotal" readonly>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-danger remove-row">Hapus</button>
+                                        <button type="button" class="btn btn-danger remove-row hover-effect">Hapus</button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table><br><br>
                     </div>
-                    <button type="button" class="btn btn-primary" id="addRow">+ Tambah Sparepart</button>
+                    <button type="button" class="btn btn-primary hover-effect" id="addRow">+ Tambah Sparepart</button>
                 </div>
             </div>
-
+        
             <!-- Section 4: Input Servis -->
             <div class="card mb-3 shadow">
                 <div class="card-header bg-warning text-white">
@@ -115,57 +165,120 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
+                            <!-- Jenis Servis -->
                             <div class="form-group">
-                                <label for="jenis_servis" class="col-form-label"><i class="fas fa-cogs"></i> Jenis Servis 
-                                    <small id="jenisServisHelp" class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                                        (Pilih jenis servis yang sesuai dengan kebutuhan kendaraan.)
+                                <label for="jenis_servis" class="col-form-label">
+                                    <i class="fas fa-cogs"></i> Jenis Servis
+                                    <small id="jenisServisHelp" class="form-text text-muted">
+                                        Pilih jenis servis yang sesuai dengan kebutuhan kendaraan.
                                     </small>
                                 </label>
                                 <select name="jenis_servis" id="jenis_servis" class="form-control form-select" aria-describedby="jenisServisHelp">
-                                    <option value="ringan">Ringan</option>
-                                    <option value="sedang">Sedang</option>
-                                    <option value="berat">Berat</option>
+                                    <option value="ringan" {{ old('jenis_servis') == 'ringan' ? 'selected' : '' }}>Ringan</option>
+                                    <option value="sedang" {{ old('jenis_servis') == 'sedang' ? 'selected' : '' }}>Sedang</option>
+                                    <option value="berat" {{ old('jenis_servis') == 'berat' ? 'selected' : '' }}>Berat</option>
                                 </select>
+                                @error('jenis_servis')
+                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
+                            <!-- Keluhan -->
                             <div class="form-group">
-                                <label for="keluhan" class="col-form-label"><i class="fas fa-exclamation-circle"></i> Keluhan:</label>
-                                <input type="text" name="keluhan" id="keluhan" class="form-control" required>
+                                <label for="keluhan" class="col-form-label">
+                                    <i class="fas fa-exclamation-circle"></i> Keluhan:
+                                </label>
+                                <input type="text" name="keluhan" id="keluhan" class="form-control" value="{{ old('keluhan') }}">
+                                @error('keluhan')
+                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
+                            <!-- Harga Jasa -->
                             <div class="form-group">
-                                <label for="harga_jasa" class="col-form-label"><i class="fas fa-money-bill-wave"></i> Harga Jasa:</label>
-                                <input type="number" name="harga_jasa" id="harga_jasa" class="form-control" required>
+                                <label for="harga_jasa" class="col-form-label">
+                                    <i class="fas fa-money-bill-wave"></i> Harga Jasa:
+                                </label>
+                                <input type="number" name="harga_jasa" id="harga_jasa" class="form-control" value="{{ old('harga_jasa') }}">
+                                @error('harga_jasa')
+                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
+                            <!-- Uang Masuk -->
                             <div class="form-group">
-                                <label for="uang_masuk" class="col-form-label"><i class="fas fa-money-bill-wave"></i> Uang Masuk:</label>
-                                <input type="number" name="uang_masuk" id="uang_masuk" class="form-control" required step="0.01" value="{{ old('uang_masuk', $servis->uang_masuk ?? '') }}">
+                                <label for="uang_masuk" class="col-form-label">
+                                    <i class="fas fa-money-bill-wave"></i> Uang Masuk:
+                                </label>
+                                <input type="number" name="uang_masuk" id="uang_masuk" class="form-control" step="0.01" value="{{ old('uang_masuk') }}">
+                                @error('uang_masuk')
+                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
+
                         <div class="col-md-6">
+                            <!-- Kilometer Saat Ini -->
                             <div class="form-group">
-                                <label for="kilometer_saat_ini" class="col-form-label"><i class="fas fa-tachometer-alt"></i> Kilometer Saat Ini:</label>
-                                <input type="number" name="kilometer_saat_ini" id="kilometer_saat_ini" class="form-control" required>
+                                <label for="kilometer_saat_ini" class="col-form-label">
+                                    <i class="fas fa-tachometer-alt"></i> Kilometer Saat Ini:
+                                </label>
+                                <input type="number" name="kilometer_saat_ini" id="kilometer_saat_ini" class="form-control" value="{{ old('kilometer_saat_ini') }}">
+                                @error('kilometer_saat_ini')
+                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
+
+                            <!-- Total Biaya -->
                             <div class="form-group">
-                                <label for="total_biaya" class="col-form-label"><i class="fas fa-dollar-sign"></i> Total Biaya:</label>
-                                <input type="text" name="total_biaya" id="total_biaya" class="form-control" readonly>
+                                <label for="total_biaya" class="col-form-label">
+                                    <i class="fas fa-dollar-sign"></i> Total Biaya:
+                                </label>
+                                <input type="text" name="total_biaya" id="total_biaya" class="form-control" readonly value="{{ old('total_biaya') }}">
+                                @error('total_biaya')
+                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
+
+                            <!-- Kembalian -->
                             <div class="form-group">
-                                <label for="kembalian" class="col-form-label"><i class="fas fa-money-bill-wave"></i> Kembalian:</label>
-                                <input type="number" name="kembalian" id="kembalian" class="form-control" step="0.01" value="{{ old('kembalian', $servis->kembalian ?? '') }}" readonly>
+                                <label for="kembalian" class="col-form-label">
+                                    <i class="fas fa-money-bill-wave"></i> Kembalian:
+                                </label>
+                                <input type="number" name="kembalian" id="kembalian" class="form-control" step="0.01" value="{{ old('kembalian') }}" readonly>
+                                @error('kembalian')
+                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
+
+                            <!-- Tanggal Servis -->
                             <div class="form-group">
-                                <label for="tanggal_servis" class="col-form-label"><i class="fas fa-calendar-day"></i> Tanggal Servis:</label>
-                                <input type="date" name="tanggal_servis" id="tanggal_servis" class="form-control" value="{{ date('Y-m-d') }}" required>
+                                <label for="tanggal_servis" class="col-form-label">
+                                    <i class="fas fa-calendar-day"></i> Tanggal Servis:
+                                </label>
+                                <input type="date" name="tanggal_servis" id="tanggal_servis" class="form-control" value="{{ old('tanggal_servis', date('Y-m-d')) }}">
+                                @error('tanggal_servis')
+                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            
-            <button type="submit" class="btn btn-success">Simpan Servis</button>
-        </form>
+
+        
+            <!-- Submit and Reset Buttons with Icons and Animations -->
+            <div class="text-center">
+                <button type="reset" class="btn btn-secondary hover-effect">
+                    <i class="fas fa-undo"></i> Reset Form
+                </button>
+                <button type="submit" class="btn btn-success hover-effect">
+                    <i class="fas fa-check-circle"></i> Simpan Servis
+                </button>
+            </div>
+
     </div>
+</form>
 
     <script>
         // Update total biaya based on harga jasa and spare part subtotal
@@ -204,7 +317,7 @@
             const row = tableBody.insertRow();
             row.innerHTML = `
                 <td>
-                    <select name="sparepart_id[]" class="form-control sparepart_id" required>
+                    <select name="sparepart_id[]" class="form-control sparepart_id">
                         <option value="">Pilih Sparepart</option>
                         @foreach($spareparts as $sparepart)
                             <option value="{{ $sparepart->id_sparepart }}" data-harga="{{ $sparepart->harga_jual }}">
@@ -214,7 +327,7 @@
                     </select>
                 </td>
                 <td><input type="text" class="form-control harga" readonly></td>
-                <td><input type="number" name="jumlah[]" class="form-control jumlah" required min="1"></td>
+                <td><input type="number" name="jumlah[]" class="form-control jumlah" min="1"></td>
                 <td><input type="text" class="form-control subtotal" readonly></td>
                 <td><button type="button" class="btn btn-danger remove-row">Hapus</button></td>
             `;

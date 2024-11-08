@@ -15,6 +15,9 @@
             <h5 class="card-title">Informasi Umum</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
+                    <strong>ID:</strong> {{ $sparepart->id_sparepart }}
+                </li>
+                <li class="list-group-item">
                     <strong>Jumlah:</strong> {{ number_format($sparepart->jumlah, 0, ',', '.') }}
                 </li>
                 <li class="list-group-item">

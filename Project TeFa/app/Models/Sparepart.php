@@ -9,9 +9,19 @@ class Sparepart extends Model
 {
     use HasFactory;
 
-    protected $table = 'spareparts'; // This is the table the model refers to
-
     protected $fillable = [
-        'nama_sparepart', 'jumlah', 'harga_beli', 'harga_jual', 'keuntungan', 'tanggal_masuk', 'tanggal_keluar', 'deskripsi'
+        'nama_sparepart',
+        'jumlah',
+        'harga_beli',
+        'harga_jual',
+        'keuntungan',
+        'tanggal_masuk',
+        'tanggal_keluar',
+        'deskripsi',
     ];
+
+    public function servis()
+    {
+        return $this->belongsToMany(Servis::class)->withPivot('jumlah');
+    }
 }

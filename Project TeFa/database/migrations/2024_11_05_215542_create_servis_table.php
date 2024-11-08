@@ -8,7 +8,6 @@ class CreateServisTable extends Migration
 {
     public function up()
     {
-        Schema::dropIfExists('servis'); // Drop the table if it exists before recreating
         Schema::create('servis', function (Blueprint $table) {
             $table->id('id_servis');  // Primary key
             $table->foreignId('nomor_polisi')  // Foreign key to Kendaraan
