@@ -7,6 +7,7 @@ use App\Models\Kendaraan;
 use App\Models\Pelanggan;
 use App\Models\Sparepart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServisController extends Controller
 {
@@ -94,8 +95,11 @@ class ServisController extends Controller
             $total_keuntungan += $keuntungan_per_sparepart * $request->jumlah[$index];
 
             // Menambahkan sparepart ke dalam data servis
-            $servis->spareparts()->attach($sparepart_id, [
+            $serviceSparepart = DB::table('servis_sparepart')->insert([
+                'servis_id' => $servis->id,
+                'sparepart_id' => $sparepart_id,
                 'jumlah' => $request->jumlah[$index],
+
             ]);
 
             // Update stock sparepart
@@ -108,4 +112,15 @@ class ServisController extends Controller
         // Redirect ke halaman index servis dengan pesan sukses
         return redirect()->route('servis.index')->with('success', 'Servis berhasil ditambahkan!');
     }
+
+    // Add this method to ServisController
+    public function show($id)
+    {
+        // Retrieve the service record by ID
+        $servis = Servis::findOrFail($id); // Use findOrFail to handle cases where the ID does not exist
+
+        // Return the view with the service data
+        return view('servis.show', compact('servis'));
+    }
+
 }
