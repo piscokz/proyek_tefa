@@ -277,8 +277,8 @@
                 </button>
             </div>
 
+        </form>
     </div>
-</form>
 
     <script>
         // Update total biaya based on harga jasa and spare part subtotal

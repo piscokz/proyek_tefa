@@ -9,7 +9,7 @@ class CreateServisSparepartTable extends Migration
     public function up()
     {
         Schema::create('servis_sparepart', function (Blueprint $table) {
-            $table->id(); // Primary key
+            $table->id();  // Primary key
             $table->foreignId('servis_id')  // Foreign key to Servis
                 ->constrained('servis', 'id_servis')
                 ->onDelete('cascade');

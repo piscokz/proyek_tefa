@@ -29,8 +29,6 @@ class Kendaraan extends Model
         return $this->belongsTo(Pelanggan::class, 'id_pelanggan');
     }
 
-
-    // Relasi dengan servis
     public function servis()
     {
         return $this->hasMany(Servis::class, 'nomor_polisi', 'no_polisi');

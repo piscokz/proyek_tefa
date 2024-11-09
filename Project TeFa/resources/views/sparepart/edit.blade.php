@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="mb-4 text-center">Edit Sparepart</h1>
+    <h1 class="mb-4 text-center"><i class="bi bi-pencil-square"></i> Edit Sparepart</h1>
 
     <!-- Card Container -->
     <div class="card shadow-lg p-4">
@@ -67,10 +67,20 @@
                     <textarea name="deskripsi" id="deskripsi" class="form-control">{{ $sparepart->deskripsi }}</textarea>
                 </div>
 
-                <!-- Submit Button -->
-                <button type="submit" class="btn btn-success w-100 mt-3">
-                    <i class="bi bi-check-circle"></i> Perbarui Sparepart
-                </button>
+                <!-- Buttons -->
+                <div class="d-flex justify-content-between">
+                    <a href="{{ route('sparepart.index') }}" class="btn btn-secondary mt-3">
+                        <i class="bi bi-arrow-left-circle"></i> Kembali
+                    </a>
+                    <div>
+                        <button type="reset" class="btn btn-warning mt-3">
+                            <i class="bi bi-x-circle"></i> Reset
+                        </button>
+                        <button type="submit" class="btn btn-success mt-3">
+                            <i class="bi bi-check-circle"></i> Perbarui Sparepart
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

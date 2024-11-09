@@ -6,68 +6,75 @@
     <h1 class="mb-4 text-center">{{ $sparepart->nama_sparepart }}</h1>
 
     <!-- Card for Sparepart Details -->
-    <div class="card shadow-lg border-primary mb-4">
-        <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">Detail Sparepart</h5>
-        </div>
-        <div class="card-body">
-            <!-- General Information Section -->
-            <h5 class="card-title">Informasi Umum</h5>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <strong>ID:</strong> {{ $sparepart->id_sparepart }}
-                </li>
-                <li class="list-group-item">
-                    <strong>Jumlah:</strong> {{ number_format($sparepart->jumlah, 0, ',', '.') }}
-                </li>
-                <li class="list-group-item">
-                    <strong>Harga Beli:</strong> Rp. {{ number_format($sparepart->harga_beli, 2, ',', '.') }}
-                </li>
-                <li class="list-group-item">
-                    <strong>Harga Jual:</strong> Rp. {{ number_format($sparepart->harga_jual, 2, ',', '.') }}
-                </li>
-                <li class="list-group-item">
-                    <strong>Keuntungan:</strong> Rp. {{ number_format($sparepart->harga_jual - $sparepart->harga_beli, 0, ',', '.') }}
-                </li>
-                <li class="list-group-item">
-                    <strong>Tanggal Masuk:</strong> {{ \Carbon\Carbon::parse($sparepart->tanggal_masuk)->format('d-m-Y') }}
-                </li>
-                <li class="list-group-item">
-                    <strong>Deskripsi:</strong> {{ $sparepart->deskripsi ?? 'Tidak ada deskripsi.' }}
-                </li>
-            </ul>
-        </div>
-
-        <!-- Action Buttons Section inside Card -->
-        <div class="card-footer d-flex justify-content-between">
-            <a href="{{ route('sparepart.index') }}" class="btn btn-secondary btn-sm shadow-sm hover-effect">
-                <i class="bi bi-arrow-left-circle"></i> Kembali
-            </a>
-            <a href="{{ route('sparepart.edit', $sparepart->id_sparepart) }}" class="btn btn-warning btn-sm shadow-sm hover-effect">
-                <i class="bi bi-pencil-square"></i> Edit
-            </a>
-            <form action="{{ route('sparepart.destroy', $sparepart->id_sparepart) }}" method="POST" style="display:inline;">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger btn-sm shadow-sm hover-effect">
-                    <i class="bi bi-trash"></i> Hapus
+    <div class="container my-4">
+        <div class="card shadow-lg border-primary">
+            <div class="card-header bg-gradient-primary text-white text-center">
+                <h5 class="mb-0">Detail Sparepart</h5>
+            </div>
+            <div class="card-body">
+                <!-- Informasi Umum -->
+                <h5 class="card-title text-primary border-bottom pb-2 mb-3">Informasi Umum</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>ID:</strong> <span>{{ $sparepart->id_sparepart }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>Jumlah:</strong> <span>{{ number_format($sparepart->jumlah, 0, ',', '.') }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>Harga Beli:</strong> <span>Rp. {{ number_format($sparepart->harga_beli, 2, ',', '.') }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>Harga Jual:</strong> <span>Rp. {{ number_format($sparepart->harga_jual, 2, ',', '.') }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>Keuntungan:</strong> <span>Rp. {{ number_format($sparepart->harga_jual - $sparepart->harga_beli, 0, ',', '.') }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>Total Keuntungan:</strong> 
+                        <span id="totalKeuntungan">Rp. {{ number_format(($sparepart->harga_jual - $sparepart->harga_beli) * $sparepart->jumlah, 0, ',', '.') }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>Tanggal Masuk:</strong> <span>{{ \Carbon\Carbon::parse($sparepart->tanggal_masuk)->format('d-m-Y') }}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Deskripsi:</strong>
+                        <p class="mt-2">{{ $sparepart->deskripsi ?? 'Tidak ada deskripsi.' }}</p>
+                    </li>
+                </ul>
+            </div>
+    
+            <!-- Tombol Aksi -->
+            <div class="card-footer d-flex flex-wrap justify-content-center gap-2">
+                <a href="{{ route('sparepart.index') }}" class="btn btn-secondary btn-sm shadow-sm hover-effect">
+                    <i class="bi bi-arrow-left-circle"></i> Kembali
+                </a>
+                <a href="{{ route('sparepart.edit', $sparepart->id_sparepart) }}" class="btn btn-warning btn-sm shadow-sm hover-effect">
+                    <i class="bi bi-pencil-square"></i> Edit
+                </a>
+                <form action="{{ route('sparepart.destroy', $sparepart->id_sparepart) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm shadow-sm hover-effect" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                        <i class="bi bi-trash"></i> Hapus
+                    </button>
+                </form>
+                <button id="copyBtn" class="btn btn-info btn-sm shadow-sm hover-effect">
+                    <i class="bi bi-clipboard"></i> Salin
                 </button>
-            </form>
-            <!-- Additional Action Buttons -->
-            <button id="copyBtn" class="btn btn-info btn-sm shadow-sm hover-effect">
-                <i class="bi bi-clipboard"></i> Salin
-            </button>
-            <button id="downloadBtn" class="btn btn-success btn-sm shadow-sm hover-effect">
-                <i class="bi bi-download"></i> Download
-            </button>
-            <button id="excelBtn" class="btn btn-primary btn-sm shadow-sm hover-effect">
-                <i class="bi bi-file-earmark-spreadsheet"></i> Export to Excel
-            </button>
-            <button id="printBtn" class="btn btn-dark btn-sm shadow-sm hover-effect">
-                <i class="bi bi-printer"></i> Print
-            </button>
+                <button id="downloadBtn" class="btn btn-success btn-sm shadow-sm hover-effect">
+                    <i class="bi bi-download"></i> Download
+                </button>
+                <button id="excelBtn" class="btn btn-primary btn-sm shadow-sm hover-effect">
+                    <i class="bi bi-file-earmark-spreadsheet"></i> Export to Excel
+                </button>
+                <button id="printBtn" class="btn btn-dark btn-sm shadow-sm hover-effect">
+                    <i class="bi bi-printer"></i> Print
+                </button>
+            </div>
         </div>
     </div>
+    
 </div>
 
 <!-- JavaScript for additional features -->
@@ -137,12 +144,13 @@
 
     document.getElementById('printBtn').addEventListener('click', function() {
     const printContent = document.querySelector('.container').innerHTML;
-    const newWindow = window.open('', '', 'width=300,height=600'); // Smaller width for receipt style
+    const newWindow = window.open('', '', 'width=300,height=600');
 
-        newWindow.document.write(`
+    newWindow.document.write(`
         <html>
             <head>
                 <title>Struk</title>
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
                 <style>
                     body {
                         font-family: 'Courier New', monospace;
@@ -174,17 +182,13 @@
                     }
                     .container {
                         width: 100%;
-                        max-width: 350px; /* Adjust the width for better appearance */
+                        max-width: 350px;
                         padding: 20px;
                         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                         border-radius: 10px;
                         background-color: #fff;
                         margin: 0 auto;
                         text-align: left;
-                    }
-                    .card {
-                        border: none;
-                        margin-bottom: 20px;
                     }
                     .card-header {
                         font-weight: bold;
@@ -193,9 +197,6 @@
                         padding: 6px 0;
                         color: #007bff;
                         text-transform: uppercase;
-                    }
-                    .card-body {
-                        padding: 10px 0;
                     }
                     .list-group-item {
                         padding: 8px 0;
@@ -232,27 +233,13 @@
                             margin: 0;
                             padding: 10px;
                         }
-                        h1 {
-                            font-size: 18px;
-                            padding-bottom: 5px;
-                        }
-                        h5 {
-                            font-size: 16px;
-                        }
-                        .list-group-item {
-                            padding: 10px 0;
-                            font-size: 12px;
-                        }
-                        .footer {
-                            font-size: 9px;
-                        }
                     }
                 </style>
             </head>
             <body>
                 <div class="container">
-                    <h1>{{ $sparepart->nama_sparepart }}</h1>
-                    <h5>Detail Sparepart</h5>
+                    <h1><i class="bi bi-wrench"></i> {{ $sparepart->nama_sparepart }}</h1>
+                    <h5><i class="bi bi-info-circle"></i> Detail Sparepart</h5>
                     <div class="card">
                         <div class="card-header">
                             Informasi Laporan
@@ -260,27 +247,23 @@
                         <div class="card-body">
                             <div class="list-group">
                                 <div class="list-group-item">
-                                    <span><strong>Jumlah:</strong></span>
+                                    <span><i class="bi bi-hash"></i> <strong>Jumlah:</strong></span>
                                     <span>{{ number_format($sparepart->jumlah, 0, ',', '.') }}</span>
                                 </div>
                                 <div class="list-group-item">
-                                    <span><strong>Harga Beli:</strong></span>
+                                    <span><i class="bi bi-currency-dollar"></i> <strong>Harga Beli:</strong></span>
                                     <span>Rp. {{ number_format($sparepart->harga_beli, 2, ',', '.') }}</span>
                                 </div>
                                 <div class="list-group-item">
-                                    <span><strong>Harga Jual:</strong></span>
+                                    <span><i class="bi bi-currency-dollar"></i> <strong>Harga Jual:</strong></span>
                                     <span>Rp. {{ number_format($sparepart->harga_jual, 2, ',', '.') }}</span>
                                 </div>
                                 <div class="list-group-item">
-                                    <span><strong>Keuntungan:</strong></span>
-                                    <span>Rp. {{ number_format($sparepart->harga_jual - $sparepart->harga_beli, 0, ',', '.') }}</span>
-                                </div>
-                                <div class="list-group-item">
-                                    <span><strong>Tanggal Masuk:</strong></span>
+                                    <span><i class="bi bi-calendar-event"></i> <strong>Tanggal Masuk:</strong></span>
                                     <span>{{ \Carbon\Carbon::parse($sparepart->tanggal_masuk)->format('d-m-Y') }}</span>
                                 </div>
                                 <div class="list-group-item">
-                                    <span><strong>Deskripsi:</strong></span>
+                                    <span><i class="bi bi-card-text"></i> <strong>Deskripsi:</strong></span>
                                     <span>{{ $sparepart->deskripsi ?? 'Tidak ada deskripsi.' }}</span>
                                 </div>
                             </div>
@@ -290,15 +273,17 @@
                         <p><strong>Total Keuntungan:</strong> Rp. {{ number_format($sparepart->harga_jual - $sparepart->harga_beli, 0, ',', '.') }}</p>
                     </div>
                     <div class="footer">
-                        <p>Terima kasih atas kunjungan Anda!</p>
+                        <p><i class="bi bi-emoji-smile"></i> Terima kasih atas kunjungan Anda!</p>
                     </div>
                 </div>
             </body>
         </html>
     `);
 
-    newWindow.document.close(); // Close the document for rendering
-    newWindow.print(); // Trigger the print dialog
+    newWindow.document.close();
+    newWindow.print();
+
+    
 });
 
 

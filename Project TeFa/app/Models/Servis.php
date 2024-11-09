@@ -23,7 +23,8 @@ class Servis extends Model
 
     public function spareparts()
     {
-        return $this->belongsToMany(Sparepart::class)->withPivot('jumlah');
+        return $this->belongsToMany(Sparepart::class)
+                    ->withPivot('jumlah');
     }
 
     public function kendaraan()
