@@ -98,64 +98,64 @@
                 </div>
             </div>
         
-            <!-- Section 3: Input Sparepart -->
-            <div class="card mb-3 shadow">
-                <div class="card-header bg-success text-white">
-                    <h5 class="mb-0"><i class="fas fa-wrench"></i> &nbsp; Informasi Sparepart</h5>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="sparepartTable">
-                            <thead>
-                                <tr>
-                                    <th><i class="fas fa-wrench"></i> Nama Sparepart</th>
-                                    <th><i class="fas fa-tag"></i> Harga Satuan</th>
-                                    <th><i class="fas fa-plus-circle"></i> Jumlah yang Diambil</th>
-                                    <th><i class="fas fa-calculator"></i> Subtotal</th>
-                                    <th><i class="fas fa-trash-alt"></i> Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <select name="sparepart_id[]" class="form-control sparepart_id">
-                                            <option value="">Pilih Sparepart</option>
-                                            @foreach($spareparts as $sparepart)
-                                            <option value="{{ $sparepart->id_sparepart }}" data-harga="{{ $sparepart->harga_jual }}">
-                                                {{ $sparepart->nama_sparepart }}
-                                            </option>                                        
-                                            @endforeach
-                                        </select>
-                                        @error('sparepart_id.*')
-                                            <div class="alert alert-danger mt-2">
-                                                <small>Sparepart Wajib Dipilih ! :</small> {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control harga" readonly>
-                                    </td>
-                                    <td>
-                                        <input type="number" name="jumlah[]" class="form-control jumlah">
-                                        @error('jumlah.*')
-                                            <div class="alert alert-danger mt-2">
-                                                <small>Jumlah Wajib Di-isi ! :</small> {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control subtotal" readonly>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger remove-row hover-effect">Hapus</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table><br><br>
+                <!-- Section 3: Input Sparepart -->
+                <div class="card mb-3 shadow">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-wrench"></i> &nbsp; Informasi Sparepart</h5>
                     </div>
-                    <button type="button" class="btn btn-primary hover-effect" id="addRow">+ Tambah Sparepart</button>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="sparepartTable">
+                                <thead>
+                                    <tr>
+                                        <th><i class="fas fa-wrench"></i> Nama Sparepart</th>
+                                        <th><i class="fas fa-tag"></i> Harga Satuan</th>
+                                        <th><i class="fas fa-plus-circle"></i> Jumlah yang Diambil</th>
+                                        <th><i class="fas fa-calculator"></i> Subtotal</th>
+                                        <th><i class="fas fa-trash-alt"></i> Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <select name="sparepart_id[]" class="form-control sparepart_id">
+                                                <option value="">Pilih Sparepart</option>
+                                                @foreach($spareparts as $sparepart)
+                                                <option value="{{ $sparepart->id_sparepart }}" data-harga="{{ $sparepart->harga_jual }}">
+                                                    {{ $sparepart->nama_sparepart }}
+                                                </option>                                        
+                                                @endforeach
+                                            </select>
+                                            @error('sparepart_id.*')
+                                                <div class="alert alert-danger mt-2">
+                                                    <small>Sparepart Wajib Dipilih ! :</small> {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control harga" readonly>
+                                        </td>
+                                        <td>
+                                            <input type="number" name="jumlah[]" class="form-control jumlah">
+                                            @error('jumlah.*')
+                                                <div class="alert alert-danger mt-2">
+                                                    <small>Jumlah Wajib Di-isi ! :</small> {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control subtotal" readonly>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger remove-row hover-effect">Hapus</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table><br><br>
+                        </div>
+                        <button type="button" class="btn btn-primary hover-effect" id="addRow">+ Tambah Sparepart</button>
+                    </div>
                 </div>
-            </div>
         
             <!-- Section 4: Input Servis -->
             <div class="card mb-3 shadow">

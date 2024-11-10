@@ -43,8 +43,8 @@ class ServisController extends Controller
             'harga_jasa' => 'required|numeric',
             'total_biaya' => 'required|numeric',
             'uang_masuk' => 'required|numeric',
-            'sparepart_id' => 'required|array',
-            'jumlah' => 'required|array',
+            'sparepart_id' => 'nullable|array',
+            'jumlah' => 'nullable|array',
             'jenis_servis' => 'required|in:ringan,sedang,berat',
         ]);
 
@@ -84,26 +84,27 @@ class ServisController extends Controller
 
         // Menghitung total_keuntungan dari sparepart yang digunakan
         $total_keuntungan = 0;
-        foreach ($request->sparepart_id as $index => $sparepart_id) {
-            // Ambil data sparepart berdasarkan ID
-            $sparepart = Sparepart::find($sparepart_id);
+        if ($request->sparepart_id) {
+            foreach ($request->sparepart_id as $index => $sparepart_id) {
+                // Ambil data sparepart berdasarkan ID
+                $sparepart = Sparepart::find($sparepart_id);
 
-            // Hitung keuntungan per sparepart (harga jual - harga beli)
-            $keuntungan_per_sparepart = $sparepart->harga_jual - $sparepart->harga_beli;
+                // Hitung keuntungan per sparepart (harga jual - harga beli)
+                $keuntungan_per_sparepart = $sparepart->harga_jual - $sparepart->harga_beli;
 
-            // Total keuntungan = keuntungan per sparepart * jumlah yang digunakan
-            $total_keuntungan += $keuntungan_per_sparepart * $request->jumlah[$index];
+                // Total keuntungan = keuntungan per sparepart * jumlah yang digunakan
+                $total_keuntungan += $keuntungan_per_sparepart * $request->jumlah[$index];
 
-            // Menambahkan sparepart ke dalam data servis
-            $serviceSparepart = DB::table('servis_sparepart')->insert([
-                'servis_id' => $servis->id,
-                'sparepart_id' => $sparepart_id,
-                'jumlah' => $request->jumlah[$index],
+                // Menambahkan sparepart ke dalam data servis
+                $serviceSparepart = DB::table('servis_sparepart')->insert([
+                    'servis_id' => $servis->id,
+                    'sparepart_id' => $sparepart_id,
+                    'jumlah' => $request->jumlah[$index],
+                ]);
 
-            ]);
-
-            // Update stock sparepart
-            $sparepart->decrement('jumlah', $request->jumlah[$index]);
+                // Update stock sparepart
+                $sparepart->decrement('jumlah', $request->jumlah[$index]);
+            }
         }
 
         // Menambahkan total keuntungan ke dalam data servis
@@ -113,14 +114,10 @@ class ServisController extends Controller
         return redirect()->route('servis.index')->with('success', 'Servis berhasil ditambahkan!');
     }
 
-    // Add this method to ServisController
+    // Method untuk menampilkan detail servis
     public function show($id)
     {
-        // Retrieve the service record by ID
-        $servis = Servis::findOrFail($id); // Use findOrFail to handle cases where the ID does not exist
-
-        // Return the view with the service data
+        $servis = Servis::findOrFail($id); // Gunakan findOrFail agar menangani jika ID tidak ditemukan
         return view('servis.show', compact('servis'));
     }
-
 }
