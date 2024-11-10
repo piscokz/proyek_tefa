@@ -14,7 +14,10 @@
         <h2>
             <i class="bi bi-list hover-effect"></i> Daftar Servis
         </h2>
-        <a href="{{ route('servis.create') }}" class="btn btn-primary">Tambah Servis</a>
+        <a href="{{ route('servis.create') }}" class="btn btn-primary">
+            {{-- <i class="bi bi-list hover-effect"></i> --}}
+            <i class="bi bi-plus-circle"></i>
+            Tambah Servis</a>
     </div>
 
     <!-- Display Success Alert -->
