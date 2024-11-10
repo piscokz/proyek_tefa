@@ -96,7 +96,7 @@ class ServisController extends Controller
                 $total_keuntungan += $keuntungan_per_sparepart * $request->jumlah[$index];
 
                 // Menambahkan sparepart ke dalam data servis
-                $serviceSparepart = DB::table('servis_sparepart')->insert([
+                DB::table('servis_sparepart')->insert([
                     'servis_id' => $servis->id,
                     'sparepart_id' => $sparepart_id,
                     'jumlah' => $request->jumlah[$index],
@@ -114,10 +114,9 @@ class ServisController extends Controller
         return redirect()->route('servis.index')->with('success', 'Servis berhasil ditambahkan!');
     }
 
-    // Method untuk menampilkan detail servis
     public function show($id)
     {
-        $servis = Servis::findOrFail($id); // Gunakan findOrFail agar menangani jika ID tidak ditemukan
-        return view('servis.show', compact('servis'));
+        $servis = Servis::findOrFail($id);  // Fetch the 'servis' record by its ID
+        return view('servis.show', compact('servis'));  // Pass it to the 'show' view
     }
 }

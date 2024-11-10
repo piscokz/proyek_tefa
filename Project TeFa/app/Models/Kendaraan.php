@@ -9,11 +9,13 @@ class Kendaraan extends Model
 {
     use HasFactory;
 
-    protected $table = 'kendaraans'; // Nama tabel
-    protected $primaryKey = 'no_polisi'; // Primary key
-    public $timestamps = true; // Menyimpan created_at dan updated_at
+    protected $table = 'kendaraans';
+    protected $primaryKey = 'no_polisi';
+    public $incrementing = false; // Indicating that primary key is not an auto-incremented integer
+    protected $keyType = 'string';
 
     protected $fillable = [
+        'no_polisi',
         'jenis_kendaraan',
         'warna',
         'tahun_produksi',
@@ -21,9 +23,6 @@ class Kendaraan extends Model
         'id_pelanggan',
     ];
 
-    protected $guarded = ['no_polisi'];
-
-    // In the Kendaraan model
     public function pelanggan()
     {
         return $this->belongsTo(Pelanggan::class, 'id_pelanggan');

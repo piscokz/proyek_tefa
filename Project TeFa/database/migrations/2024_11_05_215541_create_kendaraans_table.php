@@ -9,7 +9,7 @@ class CreateKendaraansTable extends Migration
     public function up()
     {
         Schema::create('kendaraans', function (Blueprint $table) {
-            $table->id('no_polisi'); // Primary key
+            $table->string('no_polisi')->primary();
             $table->string('jenis_kendaraan');
             $table->string('warna')->nullable();
             $table->string('tahun_produksi')->nullable();
