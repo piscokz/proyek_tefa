@@ -27,96 +27,103 @@ class ServisController extends Controller
     }
 
     public function store(Request $request)
-    {
-        // Validasi data dari input pengguna
-        $request->validate([
-            'nama_pelanggan' => 'required|string|max:255',
-            'kontak' => 'required|string|max:255',
-            'alamat' => 'nullable|string',
-            'nomor_polisi' => 'required|string|max:20',
-            'jenis_kendaraan' => 'required|string|max:50',
-            'warna' => 'nullable|string|max:50',
-            'kode_mesin' => 'nullable|string|max:50',
-            'tahun_produksi' => 'nullable|string|max:4',
-            'keluhan' => 'required|string',
-            'kilometer_saat_ini' => 'required|integer',
-            'harga_jasa' => 'required|numeric',
-            'total_biaya' => 'required|numeric',
-            'uang_masuk' => 'required|numeric',
-            'sparepart_id' => 'nullable|array',
-            'jumlah' => 'nullable|array',
-            'jenis_servis' => 'required|in:ringan,sedang,berat',
-        ]);
+{
+    // Validasi data dari input pengguna
+    $request->validate([
+        'nama_pelanggan' => 'required|string|max:255',
+        'kontak' => 'required|string|max:255',
+        'alamat' => 'nullable|string',
+        'nomor_polisi' => 'required|string|max:20|unique:kendaraans,no_polisi',  // Validasi nomor polisi unik
+        'jenis_kendaraan' => 'required|string|max:50',
+        'warna' => 'nullable|string|max:50',
+        'kode_mesin' => 'nullable|string|max:50',
+        'tahun_produksi' => 'nullable|string|max:4',
+        'keluhan' => 'required|string',
+        'kilometer_saat_ini' => 'required|integer',
+        'harga_jasa' => 'required|numeric',
+        'total_biaya' => 'required|numeric',
+        'uang_masuk' => 'required|numeric',
+        'sparepart_id' => 'nullable|array',
+        'jumlah' => 'nullable|array',
+        'jenis_servis' => 'required|in:ringan,sedang,berat',
+    ]);
 
-        // Mencari atau membuat data Pelanggan berdasarkan nama
-        $pelanggan = Pelanggan::firstOrCreate(
-            ['nama_pelanggan' => $request->nama_pelanggan],
-            ['kontak' => $request->kontak, 'alamat' => $request->alamat]
-        );
+    // Mencari atau membuat data Pelanggan berdasarkan nama
+    $pelanggan = Pelanggan::firstOrCreate(
+        ['nama_pelanggan' => $request->nama_pelanggan],
+        ['kontak' => $request->kontak, 'alamat' => $request->alamat]
+    );
 
-        // Membuat data Kendaraan dengan ID Pelanggan yang valid
-        $kendaraan = Kendaraan::create([
-            'jenis_kendaraan' => $request->jenis_kendaraan,
-            'warna' => $request->warna,
-            'kode_mesin' => $request->kode_mesin,
-            'tahun_produksi' => $request->tahun_produksi,
-            'id_pelanggan' => $pelanggan->id_pelanggan,
-            'no_polisi' => $request->nomor_polisi,
-        ]);
-
-        // Menghitung Kembalian dan Total Biaya
-        $total_biaya = $request->total_biaya;
-        $uang_masuk = $request->uang_masuk;
-        $kembalian = $uang_masuk - $total_biaya;
-
-        // Membuat data Servis baru
-        $servis = Servis::create([
-            'nomor_polisi' => $kendaraan->no_polisi,
-            'keluhan' => $request->keluhan,
-            'kilometer_saat_ini' => $request->kilometer_saat_ini,
-            'harga_jasa' => $request->harga_jasa,
-            'total_biaya' => $total_biaya,
-            'uang_masuk' => $uang_masuk,
-            'kembalian' => $kembalian,
-            'jenis_servis' => $request->jenis_servis,
-            'tanggal_servis' => $request->tanggal_servis,
-        ]);
-
-        // Menghitung total_keuntungan dari sparepart yang digunakan
-        $total_keuntungan = 0;
-        if ($request->sparepart_id) {
-            foreach ($request->sparepart_id as $index => $sparepart_id) {
-                // Ambil data sparepart berdasarkan ID
-                $sparepart = Sparepart::find($sparepart_id);
-
-                // Hitung keuntungan per sparepart (harga jual - harga beli)
-                $keuntungan_per_sparepart = $sparepart->harga_jual - $sparepart->harga_beli;
-
-                // Total keuntungan = keuntungan per sparepart * jumlah yang digunakan
-                $total_keuntungan += $keuntungan_per_sparepart * $request->jumlah[$index];
-
-                // Menambahkan sparepart ke dalam data servis
-                DB::table('servis_sparepart')->insert([
-                    'servis_id' => $servis->id,
-                    'sparepart_id' => $sparepart_id,
-                    'jumlah' => $request->jumlah[$index],
-                ]);
-
-                // Update stock sparepart
-                $sparepart->decrement('jumlah', $request->jumlah[$index]);
-            }
-        }
-
-        // Menambahkan total keuntungan ke dalam data servis
-        $servis->update(['total_keuntungan' => $total_keuntungan]);
-
-        // Redirect ke halaman index servis dengan pesan sukses
-        return redirect()->route('servis.index')->with('success', 'Servis berhasil ditambahkan!');
+    // Mengecek apakah nomor polisi sudah ada
+    $existingKendaraan = Kendaraan::where('no_polisi', $request->nomor_polisi)->first();
+    if ($existingKendaraan) {
+        return redirect()->back()->withErrors(['nomor_polisi' => 'Nomor Polisi sudah ada, buatlah nomor polisi yang lain.']);
     }
+
+    // Membuat data Kendaraan dengan ID Pelanggan yang valid
+    $kendaraan = Kendaraan::create([
+        'jenis_kendaraan' => $request->jenis_kendaraan,
+        'warna' => $request->warna,
+        'kode_mesin' => $request->kode_mesin,
+        'tahun_produksi' => $request->tahun_produksi,
+        'id_pelanggan' => $pelanggan->id_pelanggan,
+        'no_polisi' => $request->nomor_polisi,
+    ]);
+
+    // Menghitung Kembalian dan Total Biaya
+    $total_biaya = $request->total_biaya;
+    $uang_masuk = $request->uang_masuk;
+    $kembalian = $uang_masuk - $total_biaya;
+
+    // Membuat data Servis baru
+    $servis = Servis::create([
+        'nomor_polisi' => $kendaraan->no_polisi,
+        'keluhan' => $request->keluhan,
+        'kilometer_saat_ini' => $request->kilometer_saat_ini,
+        'harga_jasa' => $request->harga_jasa,
+        'total_biaya' => $total_biaya,
+        'uang_masuk' => $uang_masuk,
+        'kembalian' => $kembalian,
+        'jenis_servis' => $request->jenis_servis,
+        'tanggal_servis' => $request->tanggal_servis,
+    ]);
+
+    // Menghitung total_keuntungan dari sparepart yang digunakan
+    $total_keuntungan = 0;
+    if ($request->sparepart_id) {
+        foreach ($request->sparepart_id as $index => $sparepart_id) {
+            // Ambil data sparepart berdasarkan ID
+            $sparepart = Sparepart::find($sparepart_id);
+
+            // Hitung keuntungan per sparepart (harga jual - harga beli)
+            $keuntungan_per_sparepart = $sparepart->harga_jual - $sparepart->harga_beli;
+
+            // Total keuntungan = keuntungan per sparepart * jumlah yang digunakan
+            $total_keuntungan += $keuntungan_per_sparepart * $request->jumlah[$index];
+
+            // Menambahkan sparepart ke dalam data servis
+            DB::table('servis_sparepart')->insert([
+                'servis_id' => $servis->id,
+                'sparepart_id' => $sparepart_id,
+                'jumlah' => $request->jumlah[$index],
+            ]);
+
+            // Update stock sparepart
+            $sparepart->decrement('jumlah', $request->jumlah[$index]);
+        }
+    }
+
+    // Menambahkan total keuntungan ke dalam data servis
+    $servis->update(['total_keuntungan' => $total_keuntungan]);
+
+    // Redirect ke halaman index servis dengan pesan sukses
+    return redirect()->route('servis.index')->with('success', 'Servis berhasil ditambahkan!');
+}
+
 
     public function show($id)
     {
-        $servis = Servis::findOrFail($id);  // Fetch the 'servis' record by its ID
-        return view('servis.show', compact('servis'));  // Pass it to the 'show' view
+        $servis = Servis::with(['spareparts', 'kendaraan'])->findOrFail($id);
+        return view('servis.show', compact('servis'));
     }
 }

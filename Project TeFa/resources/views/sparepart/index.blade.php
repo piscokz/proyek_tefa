@@ -13,6 +13,14 @@
         </a>
     </div>
 
+    <!-- Menampilkan Pesan Sukses -->
+    @if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
     <!-- Form Pencarian -->
     <form method="GET" action="{{ route('sparepart.index') }}" class="mb-3">
         <div class="input-group input-group-sm">
@@ -22,13 +30,6 @@
             </button>
         </div>
     </form>
-
-    <!-- Menampilkan Pesan Sukses -->
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
 
     <!-- Tabel Responsif -->
     <div class="table-responsive">

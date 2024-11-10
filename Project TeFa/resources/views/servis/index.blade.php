@@ -4,13 +4,26 @@
 <div class="container">
     <h1>
         <i class="mdi mdi-cog-outline menu-icon"></i>
-        Program Servis</h1>
+        Program Servis
+    </h1>
     <br><br>
+
+    
+
     <div class="d-flex justify-content-between mb-3">
         <h2>
-            <i class="bi bi-list hover-effect"></i> Daftar Servis</h2>
+            <i class="bi bi-list hover-effect"></i> Daftar Servis
+        </h2>
         <a href="{{ route('servis.create') }}" class="btn btn-primary">Tambah Servis</a>
     </div>
+
+    <!-- Display Success Alert -->
+    @if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
 
     <table class="table table-bordered">
         <thead class="thead-dark">
@@ -23,9 +36,9 @@
         </thead>
         <tbody>
             @if($servis->isEmpty())
-                <tr>
-                    <td colspan="6" class="text-center">Tidak ada data servis ditemukan.</td>
-                </tr>
+            <tr>
+                <td colspan="6" class="text-center">Tidak ada data servis ditemukan.</td>
+            </tr>
             @else
                 @foreach($servis as $service)
                 <tr class="hover-effect">
