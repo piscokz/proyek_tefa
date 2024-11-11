@@ -12,9 +12,9 @@ class CreateServisTable extends Migration
             $table->id('id_servis');  // Primary key
             $table->string('nomor_polisi');  // Define as a string to match no_polisi type in kendaraans
             $table->foreign('nomor_polisi')  // Foreign key to kendaraans table
-                  ->references('no_polisi')
-                  ->on('kendaraans')
-                  ->onDelete('cascade');
+                    ->references('no_polisi')
+                    ->on('kendaraans')
+                    ->onDelete('cascade');
             $table->string('keluhan');
             $table->integer('kilometer_saat_ini');
             $table->decimal('harga_jasa', 10, 2);

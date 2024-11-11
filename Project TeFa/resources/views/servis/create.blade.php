@@ -118,7 +118,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <select name="sparepart_id[]" class="form-control sparepart_id">
+                                        <select name="sparepart_id[]" class="form-control sparepart_id" required>
                                             <option value="">Pilih Sparepart</option>
                                             @foreach($spareparts as $sparepart)
                                             <option value="{{ $sparepart->id_sparepart }}" data-harga="{{ $sparepart->harga_jual }}">
@@ -126,22 +126,12 @@
                                             </option>                                        
                                             @endforeach
                                         </select>
-                                        @error('sparepart_id.*')
-                                            <div class="alert alert-danger mt-2">
-                                                <small>Sparepart Wajib Dipilih ! :</small> {{ $message }}
-                                            </div>
-                                        @enderror
                                     </td>
                                     <td>
                                         <input type="text" class="form-control harga" readonly>
                                     </td>
                                     <td>
                                         <input type="number" name="jumlah[]" class="form-control jumlah">
-                                        @error('jumlah.*')
-                                            <div class="alert alert-danger mt-2">
-                                                <small>Jumlah Wajib Di-isi ! :</small> {{ $message }}
-                                            </div>
-                                        @enderror
                                     </td>
                                     <td>
                                         <input type="text" class="form-control subtotal" readonly>
@@ -280,6 +270,32 @@
         </form>
     </div>
 
+    {{-- Modal Alert 1 --}}
+
+    <!-- Validation Modal -->
+    <div class="modal fade" id="validationModal" tabindex="-1" aria-labelledby="validationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.9);">
+                <div class="modal-header bg-white">
+                    <h5 class="modal-title d-flex align-items-center text-success" id="validationModalLabel">
+                        <i class="fas fa-exclamation-circle me-2 text-success"></i> Peringatan
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+                <div class="modal-body" style="color: #333;">
+                    <div class="d-flex align-items-center">
+                        <p id="validationMessage">Pesan peringatan akan ditampilkan di sini.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success hover-effect" data-bs-dismiss="modal">
+                        <i class="fas fa-check-circle me-2"></i> OK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Update total biaya based on harga jasa and spare part subtotal
         function updateTotalBiaya() {
@@ -357,5 +373,62 @@
 
         // Initial calculation
         updateTotalBiaya();
+
+        document.addEventListener('DOMContentLoaded', function () {
+    // Function to calculate subtotal when spare part or quantity changes
+    function calculateSubtotal(row) {
+        const price = parseFloat(row.querySelector('.harga').value) || 0;
+        const quantity = parseFloat(row.querySelector('.jumlah').value) || 0;
+        const subtotal = price * quantity;
+        row.querySelector('.subtotal').value = subtotal.toFixed(2);
+    }
+
+    // Show modal with custom message
+    function showModalMessage(message) {
+        const validationMessage = document.getElementById('validationMessage');
+        validationMessage.textContent = message;
+        const validationModal = new bootstrap.Modal(document.getElementById('validationModal'));
+        validationModal.show();
+    }
+
+    // Validate sparepart and jumlah fields
+    function validateSparepartFields(row) {
+        const sparepartSelect = row.querySelector('.sparepart_id');
+        const quantityInput = row.querySelector('.jumlah');
+
+        sparepartSelect.addEventListener('change', function () {
+            if (sparepartSelect.value && !quantityInput.value) {
+                showModalMessage('Silakan masukkan jumlah jika Anda spare part!');
+            }
+        });
+
+        quantityInput.addEventListener('input', function () {
+            if (quantityInput.value && !sparepartSelect.value) {
+                showModalMessage('Silakan pilih spare part jika Anda memasukkan jumlah!');
+            }
+        });
+    }
+
+    // Initialize validation and subtotal calculation for each row
+    document.querySelectorAll('#sparepartTable tbody tr').forEach(function (row) {
+        validateSparepartFields(row);
+        row.querySelector('.sparepart_id').addEventListener('change', function () {
+            const price = this.options[this.selectedIndex].getAttribute('data-harga') || 0;
+            row.querySelector('.harga').value = parseFloat(price).toFixed(2);
+            calculateSubtotal(row);
+        });
+        row.querySelector('.jumlah').addEventListener('input', function () {
+            calculateSubtotal(row);
+        });
+    });
+
+    // Remove row functionality
+    document.querySelectorAll('.remove-row').forEach(function (button) {
+        button.addEventListener('click', function () {
+            this.closest('tr').remove();
+        });
+    });
+});
+
     </script>    
 @endsection
