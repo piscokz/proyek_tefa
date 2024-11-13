@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container">
-    <h2>Detail Servis</h2>
+    <h2 class="text-center my-4">Detail Servis</h2>
 
     <!-- Informasi Pelanggan -->
-    <div class="card mt-4">
-        <div class="card-header">
-            <h4>Informasi Pelanggan</h4>
+    <div class="card mt-4 shadow-sm border-light">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Informasi Pelanggan</h4>
         </div>
         <div class="card-body">
             <p><strong>Nama Pelanggan:</strong> {{ $servis->kendaraan->pelanggan->nama_pelanggan }}</p>
@@ -17,9 +17,9 @@
     </div>
 
     <!-- Informasi Kendaraan -->
-    <div class="card mt-4">
-        <div class="card-header">
-            <h4>Informasi Kendaraan</h4>
+    <div class="card mt-4 shadow-sm border-light">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0">Informasi Kendaraan</h4>
         </div>
         <div class="card-body">
             <p><strong>Nomor Polisi:</strong> {{ $servis->nomor_polisi }}</p>
@@ -31,9 +31,9 @@
     </div>
 
     <!-- Detail Servis -->
-    <div class="card mt-4">
-        <div class="card-header">
-            <h4>Detail Servis</h4>
+    <div class="card mt-4 shadow-sm border-light">
+        <div class="card-header bg-warning text-white">
+            <h4 class="mb-0">Detail Servis</h4>
         </div>
         <div class="card-body">
             <p><strong>Keluhan:</strong> {{ $servis->keluhan }}</p>
@@ -48,14 +48,15 @@
         </div>
     </div>
 
+    <!-- Spareparts Table -->
     @if($servis->spareparts->isNotEmpty())
-    <div class="card mt-4">
-        <div class="card-header">
-            <h4>Spareparts yang Digunakan</h4>
+    <div class="card mt-4 shadow-sm border-light">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Spareparts yang Digunakan</h4>
         </div>
         <div class="card-body">
-            <table class="table">
-                <thead>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
                     <tr>
                         <th>Nama Sparepart</th>
                         <th>Jumlah</th>
@@ -68,22 +69,21 @@
                 <tbody>
                     @foreach($servis->spareparts as $servisSparepart)
                         <tr>
-                            <td>{{ $servisSparepart->sparepart->nama_sparepart }}</td>
-                            <td>{{ $sparepart->pivot->jumlah ?? 'N/A' }}</td>
-                            <td>Rp{{ number_format($servisSparepart->sparepart->harga_jual, 0, ',', '.') }}</td>
-                            <td>Rp{{ number_format($servisSparepart->sparepart->harga_beli, 0, ',', '.') }}</td>
-                            <td>Rp{{ number_format($servisSparepart->sparepart->harga_jual * $servisSparepart->jumlah, 0, ',', '.') }}</td>
-                            <td>Rp{{ number_format(($servisSparepart->sparepart->harga_jual - $servisSparepart->sparepart->harga_beli) * $servisSparepart->jumlah, 0, ',', '.') }}</td>
+                            <td>{{ $servisSparepart->nama_sparepart }}</td>
+                            <td>{{ $servisSparepart->pivot->jumlah ?? 'N/A' }}</td>
+                            <td>Rp{{ number_format($servisSparepart->harga_jual, 0, ',', '.') }}</td>
+                            <td>Rp{{ number_format($servisSparepart->harga_beli, 0, ',', '.') }}</td>
+                            <td>Rp{{ number_format($servisSparepart->harga_jual * $servisSparepart->pivot->jumlah, 0, ',', '.') }}</td>
+                            <td>Rp{{ number_format(($servisSparepart->harga_jual - $servisSparepart->harga_beli) * $servisSparepart->pivot->jumlah, 0, ',', '.') }}</td>
                         </tr>
                     @endforeach
-                </tbody>
+                </tbody>                
             </table>
         </div>
     </div>
     @else
-        <p class="mt-4">Tidak ada spareparts yang digunakan dalam servis ini.</p>
+        <p class="mt-4 text-center">Tidak ada spareparts yang digunakan dalam servis ini.</p>
     @endif
-
 
     <a href="{{ route('servis.index') }}" class="btn btn-primary mt-4">Kembali ke Daftar Servis</a>
 </div>

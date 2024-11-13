@@ -128,10 +128,12 @@ class ServisController extends Controller
                         ->where('id_servis', $id)
                         ->firstOrFail();
     
+        dd($servis->spareparts); // Cek apakah spareparts ada
+    
         $sparepartKosong = $servis->spareparts->isEmpty();
         
         return view('servis.show', compact('servis', 'sparepartKosong'));
-    }    
+    }      
     
     
 }
