@@ -71,10 +71,10 @@
                         <tr>
                             <td>{{ $servisSparepart->nama_sparepart }}</td>
                             <td>{{ $servisSparepart->pivot->jumlah ?? 'N/A' }}</td>
-                            <td>Rp{{ number_format($servisSparepart->harga_jual, 0, ',', '.') }}</td>
-                            <td>Rp{{ number_format($servisSparepart->harga_beli, 0, ',', '.') }}</td>
-                            <td>Rp{{ number_format($servisSparepart->harga_jual * $servisSparepart->pivot->jumlah, 0, ',', '.') }}</td>
-                            <td>Rp{{ number_format(($servisSparepart->harga_jual - $servisSparepart->harga_beli) * $servisSparepart->pivot->jumlah, 0, ',', '.') }}</td>
+                            <td>@currency($servisSparepart->harga_jual)</td>
+                            <td>@currency($servisSparepart->harga_beli)</td>
+                            <td>@currency($servisSparepart->harga_jual * $servisSparepart->pivot->jumlah)</td>
+                            <td>@currency(($servisSparepart->harga_jual - $servisSparepart->harga_beli) * $servisSparepart->pivot->jumlah)</td>
                         </tr>
                     @endforeach
                 </tbody>                
