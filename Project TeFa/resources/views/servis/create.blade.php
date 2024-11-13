@@ -163,7 +163,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <!-- Jenis Servis -->
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="jenis_servis" class="col-form-label">
                                     <i class="fas fa-cogs"></i> Jenis Servis
                                     <small id="jenisServisHelp" class="form-text text-muted">
@@ -181,18 +181,18 @@
                             </div>
                             
                             <!-- Keluhan -->
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="keluhan" class="col-form-label">
                                     <i class="fas fa-exclamation-circle"></i> Keluhan:
                                 </label>
-                                <input type="text" name="keluhan" id="keluhan" class="form-control" value="{{ old('keluhan') }}">
+                                <textarea name="keluhan" id="keluhan" class="form-control" rows="4" placeholder="Jelaskan keluhan kendaraan di sini...">{{ old('keluhan') }}</textarea>
                                 @error('keluhan')
                                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                                 @enderror
                             </div>
                             
                             <!-- Harga Jasa -->
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="harga_jasa" class="col-form-label">
                                     <i class="fas fa-money-bill-wave"></i> Harga Jasa:
                                 </label>
@@ -203,7 +203,7 @@
                             </div>
                             
                             <!-- Uang Masuk -->
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="uang_masuk" class="col-form-label">
                                     <i class="fas fa-money-bill-wave"></i> Uang Masuk:
                                 </label>
@@ -216,7 +216,7 @@
 
                         <div class="col-md-6">
                             <!-- Kilometer Saat Ini -->
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="kilometer_saat_ini" class="col-form-label">
                                     <i class="fas fa-tachometer-alt"></i> Kilometer Saat Ini:
                                 </label>
@@ -227,7 +227,7 @@
                             </div>
 
                             <!-- Total Biaya -->
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="total_biaya" class="col-form-label">
                                     <i class="fas fa-dollar-sign"></i> Total Biaya:
                                 </label>
@@ -238,7 +238,7 @@
                             </div>
 
                             <!-- Kembalian -->
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="kembalian" class="col-form-label">
                                     <i class="fas fa-money-bill-wave"></i> Kembalian:
                                 </label>
@@ -249,7 +249,7 @@
                             </div>
 
                             <!-- Tanggal Servis -->
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="tanggal_servis" class="col-form-label">
                                     <i class="fas fa-calendar-day"></i> Tanggal Servis:
                                 </label>
@@ -262,7 +262,6 @@
                     </div>
                 </div>
             </div>
-
         
             <!-- Submit and Reset Buttons with Icons and Animations -->
             <div class="text-center">
