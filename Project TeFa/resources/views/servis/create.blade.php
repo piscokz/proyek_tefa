@@ -117,14 +117,17 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach(old('sparepart_id', []) as $index => $oldSparepartId)
                                 <tr>
                                     <td>
                                         <select name="sparepart_id[]" class="form-control sparepart_id" required>
                                             <option value="">Pilih Sparepart</option>
                                             @foreach($spareparts as $sparepart)
-                                            <option value="{{ $sparepart->id_sparepart }}" data-harga="{{ $sparepart->harga_jual }}">
-                                                {{ $sparepart->nama_sparepart }}
-                                            </option>                                        
+                                                <option value="{{ $sparepart->id_sparepart }}" 
+                                                    @if($sparepart->id_sparepart == $oldSparepartId) selected @endif
+                                                    data-harga="{{ $sparepart->harga_jual }}">
+                                                    {{ $sparepart->nama_sparepart }}
+                                                </option>
                                             @endforeach
                                         </select>
                                         @error('sparepart_id.*')
@@ -132,22 +135,23 @@
                                         @enderror
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control harga" readonly>
+                                        <input type="text" class="form-control harga" readonly value="{{ old('harga')[$index] ?? '' }}">
                                     </td>
                                     <td>
-                                        <input type="number" name="jumlah[]" class="form-control jumlah">
+                                        <input type="number" name="jumlah[]" class="form-control jumlah" value="{{ old('jumlah')[$index] ?? '' }}">
                                         @error('jumlah.*')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control subtotal" readonly>
+                                        <input type="text" class="form-control subtotal" readonly value="{{ old('subtotal')[$index] ?? '' }}">
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-danger remove-row hover-effect">Hapus</button>
                                     </td>
                                 </tr>
-                            </tbody>
+                                @endforeach
+                            </tbody>                
                         </table><br><br>
                     </div>
                     <button type="button" class="btn btn-primary hover-effect" id="addRow">+ Tambah Sparepart</button>
