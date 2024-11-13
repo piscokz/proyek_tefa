@@ -100,9 +100,10 @@
         
             <!-- Section 3: Input Sparepart -->
             <div class="card mb-3 shadow">
-                <div class="card-header bg-success text-white">
+                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
                     <h5 class="mb-0"><i class="fas fa-wrench"></i> &nbsp; Informasi Sparepart</h5>
-                </div>
+                    <small class="text-right"><b>*</b> Hapus jika tidak diperlukan</small>
+                </div>                
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="sparepartTable">
@@ -126,12 +127,18 @@
                                             </option>                                        
                                             @endforeach
                                         </select>
+                                        @error('sparepart_id.*')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </td>
                                     <td>
                                         <input type="text" class="form-control harga" readonly>
                                     </td>
                                     <td>
                                         <input type="number" name="jumlah[]" class="form-control jumlah">
+                                        @error('jumlah.*')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </td>
                                     <td>
                                         <input type="text" class="form-control subtotal" readonly>
@@ -398,7 +405,7 @@
 
         sparepartSelect.addEventListener('change', function () {
             if (sparepartSelect.value && !quantityInput.value) {
-                showModalMessage('Silakan masukkan jumlah jika Anda spare part!');
+                showModalMessage('Silakan masukkan jumlah jika Anda memilih spare part!');
             }
         });
 

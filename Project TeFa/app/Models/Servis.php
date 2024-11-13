@@ -21,14 +21,15 @@ class Servis extends Model
         'tanggal_servis',
     ];
 
-    public function spareparts()
-    {
-        return $this->belongsToMany(Sparepart::class)
-                    ->withPivot('jumlah');
-    }
-
     public function kendaraan()
     {
         return $this->belongsTo(Kendaraan::class, 'nomor_polisi', 'no_polisi');
     }
+    
+    public function spareparts()
+    {
+        return $this->belongsToMany(Sparepart::class, 'servis_sparepart', 'servis_id', 'sparepart_id')
+                    ->withPivot('jumlah');
+    }    
+    
 }

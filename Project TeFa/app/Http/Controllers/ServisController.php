@@ -28,7 +28,7 @@ class ServisController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi data dari input pengguna
+        // Custom validation for sparepart_id and jumlah fields
         $request->validate([
             'nama_pelanggan' => 'required|string|max:255',
             'kontak' => 'required|string|max:255',
@@ -43,24 +43,24 @@ class ServisController extends Controller
             'harga_jasa' => 'required|numeric',
             'total_biaya' => 'required|numeric',
             'uang_masuk' => 'required|numeric',
-            'sparepart_id' => 'nullable|array',
-            'jumlah' => 'nullable|array',
             'jenis_servis' => 'required|in:ringan,sedang,berat',
+            'sparepart_id.*' => 'required_with:jumlah.*|nullable|exists:spareparts,id_sparepart',
+            'jumlah.*' => 'required_with:sparepart_id.*|nullable|integer|min:1',
         ]);
 
-        // Mencari atau membuat data Pelanggan berdasarkan nama
+        // Create or retrieve Pelanggan
         $pelanggan = Pelanggan::firstOrCreate(
             ['nama_pelanggan' => $request->nama_pelanggan],
             ['kontak' => $request->kontak, 'alamat' => $request->alamat]
         );
 
-        // Mengecek apakah nomor polisi sudah ada
+        // Check for duplicate nomor_polisi
         $existingKendaraan = Kendaraan::where('no_polisi', $request->nomor_polisi)->first();
         if ($existingKendaraan) {
             return redirect()->back()->withErrors(['nomor_polisi' => 'Nomor Polisi sudah ada, buatlah nomor polisi yang lain.']);
         }
 
-        // Membuat data Kendaraan dengan ID Pelanggan yang valid
+        // Create Kendaraan
         $kendaraan = Kendaraan::create([
             'jenis_kendaraan' => $request->jenis_kendaraan,
             'warna' => $request->warna,
@@ -70,12 +70,12 @@ class ServisController extends Controller
             'no_polisi' => $request->nomor_polisi,
         ]);
 
-        // Menghitung Kembalian dan Total Biaya
+        // Calculate change
         $total_biaya = $request->total_biaya;
         $uang_masuk = $request->uang_masuk;
         $kembalian = $uang_masuk - $total_biaya;
 
-        // Membuat data Servis baru
+        // Create Servis
         $servis = Servis::create([
             'nomor_polisi' => $kendaraan->no_polisi,
             'keluhan' => $request->keluhan,
@@ -88,47 +88,50 @@ class ServisController extends Controller
             'tanggal_servis' => $request->tanggal_servis,
         ]);
 
-        // Menghitung total_keuntungan dari sparepart yang digunakan
+        // Calculate total profit from spareparts
         $total_keuntungan = 0;
         if ($request->sparepart_id) {
             foreach ($request->sparepart_id as $index => $sparepart_id) {
-                // Ambil data sparepart berdasarkan ID
                 $sparepart = Sparepart::find($sparepart_id);
 
-                // Cek jika jumlah sparepart yang diminta melebihi stok yang tersedia
+                // Check stock availability
                 if ($sparepart->jumlah < $request->jumlah[$index]) {
                     return redirect()->back()->withErrors(['sparepart_id' => 'Stok sparepart ' . $sparepart->nama_sparepart . ' tidak mencukupi. Tersisa ' . $sparepart->jumlah . ' unit.']);
                 }
 
-                // Hitung keuntungan per sparepart (harga jual - harga beli)
+                // Calculate profit
                 $keuntungan_per_sparepart = $sparepart->harga_jual - $sparepart->harga_beli;
-
-                // Total keuntungan = keuntungan per sparepart * jumlah yang digunakan
                 $total_keuntungan += $keuntungan_per_sparepart * $request->jumlah[$index];
 
-                // Menambahkan sparepart ke dalam data servis
+                // Attach sparepart to servis
                 DB::table('servis_sparepart')->insert([
                     'servis_id' => $servis->id,
                     'sparepart_id' => $sparepart_id,
                     'jumlah' => $request->jumlah[$index],
                 ]);
 
-                // Update stock sparepart
+                // Update stock
                 $sparepart->decrement('jumlah', $request->jumlah[$index]);
             }
         }
 
-        // Menambahkan total keuntungan ke dalam data servis
+        // Update Servis with profit
         $servis->update(['total_keuntungan' => $total_keuntungan]);
 
-        // Redirect ke halaman index servis dengan pesan sukses
+        // Redirect with success message
         return redirect()->route('servis.index')->with('success', 'Servis berhasil ditambahkan!');
     }
 
     public function show($id)
     {
-        $servis = Servis::with(['spareparts', 'kendaraan'])->where('id_servis', $id)->firstOrFail();
-        return view('servis.show', compact('servis'));
-    }
+        $servis = Servis::with(['spareparts', 'kendaraan.pelanggan'])
+                        ->where('id_servis', $id)
+                        ->firstOrFail();
+    
+        $sparepartKosong = $servis->spareparts->isEmpty();
+        
+        return view('servis.show', compact('servis', 'sparepartKosong'));
+    }    
+    
     
 }

@@ -16,11 +16,11 @@ class Sparepart extends Model
         'nama_sparepart', 'jumlah', 'harga_beli', 'harga_jual', 'keuntungan', 'tanggal_masuk', 'tanggal_keluar', 'deskripsi'
     ];
 
-    protected $guarded = ['id_sparepart']; // Guard untuk primary key jika diperlukan
+    protected $guarded = ['id_sparepart'];
 
     public function servis()
     {
-        return $this->belongsToMany(Servis::class)
+        return $this->belongsToMany(Servis::class, 'servis_sparepart', 'sparepart_id', 'servis_id')
                     ->withPivot('jumlah');
-    }
+    }    
 }
