@@ -133,47 +133,47 @@ class ServisController extends Controller
         return view('servis.show', compact('servis', 'sparepartKosong'));
     }      
     
-    public function edit($id)
-    {
-        // Ambil data servis, spareparts, dan kendaraan untuk ditampilkan pada form edit
-        $servis = Servis::with('spareparts', 'kendaraan')->findOrFail($id);
-        $spareparts = Sparepart::all();
-        $kendaraans = Kendaraan::all();
+    // public function edit($id)
+    // {
+    //     // Ambil data servis, spareparts, dan kendaraan untuk ditampilkan pada form edit
+    //     $servis = Servis::with('spareparts', 'kendaraan')->findOrFail($id);
+    //     $spareparts = Sparepart::all();
+    //     $kendaraans = Kendaraan::all();
 
-        return view('servis.edit', compact('servis', 'spareparts', 'kendaraans'));
-    }
+    //     return view('servis.edit', compact('servis', 'spareparts', 'kendaraans'));
+    // }
 
-    public function update(Request $request, $id)
-    {
-        // Validasi data
-        $request->validate([
-            'nama_pelanggan' => 'required|string|max:255',
-            'kontak' => 'required|string|max:255',
-            'alamat' => 'nullable|string',
-            'nomor_polisi' => 'required|string|max:20',
-            'jenis_kendaraan' => 'required|string|max:50',
-            'keluhan' => 'required|string',
-            'kilometer_saat_ini' => 'required|integer',
-            'harga_jasa' => 'required|integer',
-            'total_biaya' => 'required|integer',
-            'uang_masuk' => 'required|integer',
-            'jenis_servis' => 'required|string',
-        ]);
+    // public function update(Request $request, $id)
+    // {
+    //     // Validasi data
+    //     $request->validate([
+    //         'nama_pelanggan' => 'required|string|max:255',
+    //         'kontak' => 'required|string|max:255',
+    //         'alamat' => 'nullable|string',
+    //         'nomor_polisi' => 'required|string|max:20',
+    //         'jenis_kendaraan' => 'required|string|max:50',
+    //         'keluhan' => 'required|string',
+    //         'kilometer_saat_ini' => 'required|integer',
+    //         'harga_jasa' => 'required|integer',
+    //         'total_biaya' => 'required|integer',
+    //         'uang_masuk' => 'required|integer',
+    //         'jenis_servis' => 'required|string',
+    //     ]);
 
-        $servis = Servis::findOrFail($id);
-        $servis->update($request->except(['sparepart_id', 'jumlah']));
+    //     $servis = Servis::findOrFail($id);
+    //     $servis->update($request->except(['sparepart_id', 'jumlah']));
 
-        // Update spareparts
-        $spareparts = $request->input('sparepart_id');
-        $jumlah = $request->input('jumlah');
+    //     // Update spareparts
+    //     $spareparts = $request->input('sparepart_id');
+    //     $jumlah = $request->input('jumlah');
         
-        $servis->spareparts()->sync([]);
+    //     $servis->spareparts()->sync([]);
         
-        foreach ($spareparts as $key => $sparepart_id) {
-            $servis->spareparts()->attach($sparepart_id, ['jumlah' => $jumlah[$key]]);
-        }
+    //     foreach ($spareparts as $key => $sparepart_id) {
+    //         $servis->spareparts()->attach($sparepart_id, ['jumlah' => $jumlah[$key]]);
+    //     }
 
-        return redirect()->route('servis.index')->with('success', 'Servis berhasil diperbarui');
-    }
+    //     return redirect()->route('servis.index')->with('success', 'Servis berhasil diperbarui');
+    // }
 
 }

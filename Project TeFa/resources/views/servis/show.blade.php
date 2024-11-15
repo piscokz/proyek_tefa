@@ -50,37 +50,37 @@
 
     <!-- Spareparts Table -->
     @if($servis->spareparts->isNotEmpty())
-    <div class="card mt-4 shadow-sm border-light">
-        <div class="card-header bg-info text-white">
-            <h4 class="mb-0">Spareparts yang Digunakan</h4>
-        </div>
-        <div class="card-body">
-            <table class="table table-bordered table-hover">
-                <thead class="thead-light">
-                    <tr>
-                        <th>Nama Sparepart</th>
-                        <th>Jumlah</th>
-                        <th>Harga Jual</th>
-                        <th>Harga Beli</th>
-                        <th>Total Harga</th>
-                        <th>Keuntungan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($servis->spareparts as $servisSparepart)
+        <div class="card mt-4 shadow-sm border-light">
+            <div class="card-header bg-info text-white">
+                <h4 class="mb-0">Spareparts yang Digunakan</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-light">
                         <tr>
-                            <td>{{ $servisSparepart->nama_sparepart }}</td>
-                            <td>{{ $servisSparepart->pivot->jumlah ?? 'N/A' }}</td>
-                            <td>@currency($servisSparepart->harga_jual)</td>
-                            <td>@currency($servisSparepart->harga_beli)</td>
-                            <td>@currency($servisSparepart->harga_jual * $servisSparepart->pivot->jumlah)</td>
-                            <td>@currency(($servisSparepart->harga_jual - $servisSparepart->harga_beli) * $servisSparepart->pivot->jumlah)</td>
+                            <th>Nama Sparepart</th>
+                            <th>Jumlah</th>
+                            <th>Harga Jual</th>
+                            <th>Harga Beli</th>
+                            <th>Total Harga</th>
+                            <th>Keuntungan</th>
                         </tr>
-                    @endforeach
-                </tbody>                
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach($servis->spareparts as $servisSparepart)
+                            <tr>
+                                <td>{{ $servisSparepart->nama_sparepart }}</td>
+                                <td>{{ $servisSparepart->pivot->jumlah ?? 'N/A' }}</td>
+                                <td>@currency($servisSparepart->harga_jual)</td>
+                                <td>@currency($servisSparepart->harga_beli)</td>
+                                <td>@currency($servisSparepart->harga_jual * $servisSparepart->pivot->jumlah)</td>
+                                <td>@currency(($servisSparepart->harga_jual - $servisSparepart->harga_beli) * $servisSparepart->pivot->jumlah)</td>
+                            </tr>
+                        @endforeach
+                    </tbody>                
+                </table>
+            </div>
         </div>
-    </div>
     @else
         <p class="mt-4 text-center">Tidak ada spareparts yang digunakan dalam servis ini.</p>
     @endif

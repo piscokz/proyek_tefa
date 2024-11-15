@@ -30,6 +30,6 @@ class Servis extends Model
     {
         return $this->belongsToMany(Sparepart::class, 'servis_sparepart', 'servis_id', 'sparepart_id')
                     ->withPivot('jumlah');
-    }
+    }    
     
 }

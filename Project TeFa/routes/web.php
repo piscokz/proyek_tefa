@@ -11,6 +11,16 @@ Route::get('/', function () {
     return view('home');
 });
 
+// Rute untuk halaman utama
+Route::get('/detail', function () {
+    return view('servis.alt');
+});
+
+// Rute untuk halaman utama
+Route::get('/hasil', function () {
+    return view('servis.result');
+});
+
 // Rute untuk Sparepart
 Route::get('/sparepart', [SparepartController::class, 'index'])->name('sparepart.index');
 Route::get('/sparepart/create', [SparepartController::class, 'create'])->name('sparepart.create');
