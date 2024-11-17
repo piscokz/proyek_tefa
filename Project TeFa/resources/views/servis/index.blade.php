@@ -44,6 +44,8 @@
                 @else
                     @foreach($servis as $service)
                     <tr class="hover-effect">
+                        {{-- <a href="{{ route('')}}"> --}}
+
                         <td>{{ $service->id_servis }}</td>
                         <td>{{ $service->kendaraan->pelanggan->nama_pelanggan ?? 'Data tidak ditemukan' }}</td>
                         <td>@currency($service->total_biaya)</td>
@@ -55,6 +57,8 @@
                                 <i class="bi bi-pencil"></i> Edit
                             </a>
                         </td>
+                    {{-- </a> --}}
+
                     </tr>
                     @endforeach
                 @endif
