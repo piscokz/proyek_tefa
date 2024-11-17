@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Servis;
 use App\Models\Kendaraan;
 use App\Models\Pelanggan;
+use App\Models\ServiceSparepart;
 use App\Models\Sparepart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -128,9 +129,9 @@ class ServisController extends Controller
                         ->where('id_servis', $id)
                         ->firstOrFail();
     
-        $sparepartKosong = $servis->spareparts->isEmpty();
+        $serviceSparepart = ServiceSparepart::where('servis_id',$id)->get();
         
-        return view('servis.show', compact('servis', 'sparepartKosong'));
+        return view('servis.show', compact('servis', 'serviceSparepart'));
     }      
     
     // public function edit($id)

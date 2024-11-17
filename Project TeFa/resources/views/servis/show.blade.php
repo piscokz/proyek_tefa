@@ -49,7 +49,6 @@
     </div>
 
     <!-- Spareparts Table -->
-    @if($servis->spareparts->isNotEmpty())
         <div class="card mt-4 shadow-sm border-light">
             <div class="card-header bg-info text-white">
                 <h4 class="mb-0">Spareparts yang Digunakan</h4>
@@ -61,29 +60,28 @@
                             <th>Nama Sparepart</th>
                             <th>Jumlah</th>
                             <th>Harga Jual</th>
-                            <th>Harga Beli</th>
                             <th>Total Harga</th>
-                            <th>Keuntungan</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($servis->spareparts as $servisSparepart)
+                        @forelse ($serviceSparepart as $item)
                             <tr>
-                                <td>{{ $servisSparepart->nama_sparepart }}</td>
-                                <td>{{ $servisSparepart->pivot->jumlah ?? 'N/A' }}</td>
-                                <td>@currency($servisSparepart->harga_jual)</td>
-                                <td>@currency($servisSparepart->harga_beli)</td>
-                                <td>@currency($servisSparepart->harga_jual * $servisSparepart->pivot->jumlah)</td>
-                                <td>@currency(($servisSparepart->harga_jual - $servisSparepart->harga_beli) * $servisSparepart->pivot->jumlah)</td>
+                                <td>{{ $item->sparepart->nama_sparepart }}</td>
+                                <td>{{ $item->jumlah ?? 'N/A' }}</td>
+                                <td>@currency($item->sparepart->harga_jual)</td>
+                                <td>@currency($item->sparepart->harga_jual * $item->jumlah)</td>
                             </tr>
-                        @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="6" class="text-info text-align-center">
+                                <p class="mt-4 text-center">Tidak ada spareparts yang digunakan dalam servis ini.</p>
+                            </td>
+                        </tr>
+                        @endforelse
                     </tbody>                
                 </table>
             </div>
         </div>
-    @else
-        <p class="mt-4 text-center">Tidak ada spareparts yang digunakan dalam servis ini.</p>
-    @endif
 
     <a href="{{ route('servis.index') }}" class="btn btn-primary mt-4">Kembali ke Daftar Servis</a>
 </div>

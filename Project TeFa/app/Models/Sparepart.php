@@ -9,8 +9,8 @@ class Sparepart extends Model
 {
     use HasFactory;
 
-    protected $table = 'spareparts'; // Nama tabel
-    protected $primaryKey = 'id_sparepart'; // Menentukan primary key yang berbeda dari 'id'
+    protected $table = 'spareparts';
+    protected $primaryKey = 'id_sparepart';
 
     protected $fillable = [
         'nama_sparepart', 'jumlah', 'harga_beli', 'harga_jual', 'keuntungan', 'tanggal_masuk', 'tanggal_keluar', 'deskripsi'
@@ -18,9 +18,8 @@ class Sparepart extends Model
 
     protected $guarded = ['id_sparepart'];
 
-    public function servis()
+    public function servisSparepart()
     {
-        return $this->belongsToMany(Servis::class, 'servis_sparepart', 'sparepart_id', 'servis_id')
-                    ->withPivot('jumlah');
-    }    
+        return $this->hasMany(ServisSparepart::class, 'sparepart_id','is_sparepart');
+    }   
 }

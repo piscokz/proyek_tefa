@@ -28,8 +28,11 @@ class Servis extends Model
     
     public function spareparts()
     {
-        return $this->belongsToMany(Sparepart::class, 'servis_sparepart', 'servis_id', 'sparepart_id')
-                    ->withPivot('jumlah');
+        return $this->belongsToMany(Sparepart::class, 'servis_sparepart', 'servis_id', 'sparepart_id');
     }    
     
+    public function servisSparepart()
+    {
+        return $this->hasMany(ServisSparepart::class);
+    }
 }
